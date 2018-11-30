@@ -26,10 +26,7 @@ public class ControllerDosen {
     User user;
     Dosen dsn;
     Kompetensi kompetensi;
-<<<<<<< HEAD
-=======
-    
->>>>>>> e1162ba12165b42d4db0b8c09022a0d7f4ac1139
+
     public ControllerDosen(String username){
         this.username = username;
     }
