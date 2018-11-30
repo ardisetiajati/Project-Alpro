@@ -30,8 +30,11 @@ public class ControllerJadwal {
     
     void ControlBangkitkanJadwal() {
        // System.out.println("wakwaw");
-        jadwal.BuatSlotToJson();
-        jadwal.InsertDosenToJadwalJson();
+        for (int i = 1; i <= 11; i++) {
+                 jadwal.BangkitkanAlokasiJadwal(i);
+        }
+       
+        //jadwal.InsertDosenToJadwalJson();
         //jadwal.ReadKompetensiFromJsonToObject();
         
         //for (int i = 0; i < jadwal.getK().size(); i++) {
