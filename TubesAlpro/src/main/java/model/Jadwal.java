@@ -370,6 +370,937 @@ public class Jadwal {
         }
     }
       
+public void BangkitkanAlokasiJadwal(int minggu) {
+        JSONObject root = new JSONObject();
+        JSONParser parser = new JSONParser();
+        JSONArray slot= new JSONArray();
+        JSONArray array = null;
+       // int countHari = 1;
+        
+        try {
+            JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKalender));
+            array= (JSONArray) objFromFile.get("kalender");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException | ParseException ex) {
+            Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (minggu == 1) {
+                     //awal for
+        for ( int i = 0; i <= 6; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+                
+        
+        }else if (minggu == 2){
+             //awal for
+        for ( int i = 7; i <= 13; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }else if (minggu == 3){
+             //awal for
+        for ( int i = 14; i <= 20; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }else if (minggu == 4){
+             //awal for
+        for ( int i = 21; i <= 27; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }else if (minggu == 5){
+             //awal for
+        for ( int i = 28; i <= 34; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }else if (minggu == 6){
+             //awal for
+        for ( int i = 35; i <= 41; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }else if (minggu == 7){
+             //awal for
+        for ( int i = 42; i <= 48; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }else if (minggu == 8){
+             //awal for
+        for ( int i = 49; i <= 55; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }else if (minggu == 9){
+             //awal for
+        for ( int i = 56; i <= 62; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }else if (minggu == 10){
+             //awal for
+        for ( int i = 63; i <= 69; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }else if (minggu == 11){
+             //awal for
+        for ( int i = 70; i <= 76; i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            JSONObject aj = new JSONObject();
+            boolean libur = (boolean) itemArr.get("libur");
+            String hari = (String) itemArr.get("hari");
+            String tanggal = (String) itemArr.get("tanggal");
+            if (!libur) {
+                if (hari.equals("Jumat")) {
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        aj.put("jam17kelas1",null);
+                                        aj.put("jam17kelas2",null);
+                                        aj.put("jam17kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                    
+                
+                }else{
+                                        aj.put("tanggal",tanggal);
+                                        aj.put("hari",hari);
+                                        aj.put("jam7kelas1",null);
+                                        aj.put("jam7kelas2",null);
+                                        aj.put("jam7kelas3",null);
+                                        aj.put("jam8kelas1",null);
+                                        aj.put("jam8kelas2",null);
+                                        aj.put("jam8kelas3",null);
+                                        aj.put("jam9kelas1",null);
+                                        aj.put("jam9kelas2",null);
+                                        aj.put("jam9kelas3",null);
+                                        aj.put("jam10kelas1",null);
+                                        aj.put("jam10kelas2",null);
+                                        aj.put("jam10kelas3",null);
+                                        aj.put("jam11kelas1",null);
+                                        aj.put("jam11kelas2",null);
+                                        aj.put("jam11kelas3",null);
+                                        aj.put("jam13kelas1",null);
+                                        aj.put("jam13kelas2",null);
+                                        aj.put("jam13kelas3",null);
+                                        aj.put("jam14kelas1",null);
+                                        aj.put("jam14kelas2",null);
+                                        aj.put("jam14kelas3",null);
+                                        aj.put("jam15kelas1",null);
+                                        aj.put("jam15kelas2",null);
+                                        aj.put("jam15kelas3",null);
+                                        aj.put("jam16kelas1",null);
+                                        aj.put("jam16kelas2",null);
+                                        aj.put("jam16kelas3",null);
+                                        //j++;
+                                        slot.add(aj);
+                }
+//                
+            }
+                    
+        }
+        // batas for
+        
+        }
+        
+          root.put("minggu"+minggu,slot);
+         try (FileWriter file = new FileWriter("/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/jadwal/jadwal"+minggu+".json")) {
+                      file.write(root.toJSONString());
+                      file.flush();
+                    } catch (IOException e) {
+                    }
+      
+    }
+      
+      
 
     public ArrayList<Kompetensi> getK() {
         return k;
