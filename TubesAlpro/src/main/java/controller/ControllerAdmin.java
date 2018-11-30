@@ -51,25 +51,43 @@ public class ControllerAdmin {
     public void ControlMenuAdmin(){
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuAdmin();
-        if(viewAdmin.getPilihan()==1){
-            ControlMenuKelolaAkun();
+        switch (viewAdmin.getPilihan()){
+            case "1":
+                ControlMenuKelolaAkun();
+                break;
+            case "2":
+                ctrKompetensi.ControlMenuKelolaKompetensi();
+                ControlMenuAdmin();
+                break;
+            case "3":
+                ctrPekerjaan.ControlMenuKelolaPekerjaan();
+                ControlMenuAdmin();
+                break;
+            case "4":
+                break;
+            case "5":
+                break;
+            case "6":
+                break;
+            case "7":
+                break;
+            case "8":
+                ctrJadwal.ControlBangkitkanJadwal();
+                ControlMenuAdmin();
+                break;
+            case "9":
+                break;
+            case "0":
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Inputan Salah!");
+                ControlMenuAdmin();
+                break;
+                
         }
-        else if(viewAdmin.getPilihan()==2){
-            //System.out.println("wakwaw");
-            ctrKompetensi.ControlMenuKelolaKompetensi();
-            ControlMenuAdmin();
-        }
-        else if(viewAdmin.getPilihan()==3){
-            ctrPekerjaan.ControlMenuKelolaPekerjaan();
-            ControlMenuAdmin();
-        }
-        else if(viewAdmin.getPilihan()==8){
-            ctrJadwal.ControlBangkitkanJadwal();
-            ControlMenuAdmin();
-        }
-        else if(viewAdmin.getPilihan()==0){
-            System.exit(0);
-        }
+    
+//        
     }
     
     /**
@@ -80,14 +98,26 @@ public class ControllerAdmin {
     public void ControlMenuKelolaAkun(){
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuKelolaAkun();
-        if(viewAdmin.getPilihan()==1){
-            ControlMenuTambahAkun();
-        }
-        else if (viewAdmin.getPilihan()==2){
-            ControlMenuEditAkun();
-        }
-        else if (viewAdmin.getPilihan()==3){
-            ControlMenuHapusAkun();
+       
+        switch (viewAdmin.getPilihan()){
+            case "1":
+                ControlMenuTambahAkun();
+                break;
+            case "2":
+                ControlMenuEditAkun();
+                break;
+            case "3":
+                ControlMenuHapusAkun();
+                break;
+            
+            case "0":
+                ControlMenuAdmin();
+                break;
+            default:
+                System.out.println("Inputan Salah!");
+                ControlMenuKelolaAkun();
+                break;
+                
         }
     }
     

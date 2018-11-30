@@ -17,6 +17,7 @@ public class ControllerKompetensi {
     Kompetensi kompetensi;
     ViewKompetensi viewKompetensi;
     
+    
     public void ControlMenuKelolaKompetensi(){ 
         System.out.println("## Daftar Kompetensi  ##");
         readKompetensi();
@@ -24,15 +25,33 @@ public class ControllerKompetensi {
         viewKompetensi = new ViewKompetensi();
         viewKompetensi.menuKelolaKompetensi();
         
-        if (viewKompetensi.getPilihan() == 1) {
-            ControlMenuTambahKompetensi();
-        } 
-        else if (viewKompetensi.getPilihan() == 2) {
-            ControlMenuEditKompetensi();
-        } 
-        else if (viewKompetensi.getPilihan() == 3){
-            ControlMenuHapusKompetensi();
-        }  
+        switch (viewKompetensi.getPilihan()){
+            case "1":
+                ControlMenuTambahKompetensi();
+                break;
+            case "2":
+                ControlMenuEditKompetensi();
+                break;
+            case "3":
+                ControlMenuHapusKompetensi();
+                break;
+            
+            default:
+                System.out.println("Inputan Salah!");
+                ControlMenuKelolaKompetensi();
+                break;
+                
+        }
+        
+//        if (viewKompetensi.getPilihan() == "1") {
+//            ControlMenuTambahKompetensi();
+//        } 
+//        else if (viewKompetensi.getPilihan() == "2") {
+//            ControlMenuEditKompetensi();
+//        } 
+//        else if (viewKompetensi.getPilihan() == "3"){
+//            ControlMenuHapusKompetensi();
+//        }  
     }
     
     public void ControlMenuTambahKompetensi(){
@@ -54,28 +73,56 @@ public class ControllerKompetensi {
 
         if (!cekIdKompetensi(viewKompetensi.getId())) {
              System.out.println("Id Kompetensi tidak dapat ditemukan");
+             ControlMenuEditKompetensi();
         }
         else {
             //viewEditKompetensi.MenuEditKompetensi();
+//            viewKompetensi.MenuEditKompetensi();
+//            if (viewKompetensi.getPilihan() == "1") {
+//                viewKompetensi.MenuEditNama();
+//                 //System.out.println(viewEditKompetensi.getId());
+//                editNamaKompetensi(viewKompetensi.getId(), viewKompetensi.getNama());
+//            } 
+//            else if (viewKompetensi.getPilihan() == "2") {
+//                viewKompetensi.MenuEditPrasyarat();
+//                editPrasyaratKompetensi(viewKompetensi.getId() , viewKompetensi.getPrasyarat());
+//                //System.out.println("wakwaw2");
+//            } 
+//            else if (viewKompetensi.getPilihan() == "3") {
+//                //System.out.println("wakwaw3");
+//                viewKompetensi.MenuEditSKS();
+//                editSksKompetensi(viewKompetensi.getId(), viewKompetensi.getSks());
+//            } 
+//            else  {
+//                ControlMenuKelolaKompetensi();
+//            }
+//            viewKompetensi = new ViewKompetensi();
             viewKompetensi.MenuEditKompetensi();
-            if (viewKompetensi.getPilihan() == 1) {
-                viewKompetensi.MenuEditNama();
+            switch (viewKompetensi.getPilihan()){
+                case "1":
+                    viewKompetensi.MenuEditNama();
                  //System.out.println(viewEditKompetensi.getId());
-                editNamaKompetensi(viewKompetensi.getId(), viewKompetensi.getNama());
-            } 
-            else if (viewKompetensi.getPilihan() == 2) {
-                viewKompetensi.MenuEditPrasyarat();
-                editPrasyaratKompetensi(viewKompetensi.getId() , viewKompetensi.getPrasyarat());
-                //System.out.println("wakwaw2");
-            } 
-            else if (viewKompetensi.getPilihan() == 3) {
-                //System.out.println("wakwaw3");
-                viewKompetensi.MenuEditSKS();
-                editSksKompetensi(viewKompetensi.getId(), viewKompetensi.getSks());
-            } 
-            else  {
-                viewKompetensi.MenuCekEditKompetensi();
+                    editNamaKompetensi(viewKompetensi.getId(), viewKompetensi.getNama());
+                    break;
+                case "2":
+                    viewKompetensi.MenuEditPrasyarat();
+                    editPrasyaratKompetensi(viewKompetensi.getId() , viewKompetensi.getPrasyarat());
+                    break;
+                case "3":
+                    viewKompetensi.MenuEditSKS();
+                    editSksKompetensi(viewKompetensi.getId(), viewKompetensi.getSks());
+                    System.out.println(viewKompetensi.getId());
+                    break;
+                case "0":
+                    ControlMenuKelolaKompetensi();
+                    break;
+                default:
+                    System.out.println("Inputan Salah!");
+                    ControlMenuKelolaKompetensi();
+                    break;
+
             }
+            
         }      
      }
     
@@ -88,6 +135,7 @@ public class ControllerKompetensi {
 
         if (!cekIdKompetensi(viewKompetensi.getId())) {
             System.out.println("Id tidak ditemukan");
+            ControlMenuHapusKompetensi();
         }
         else{
             hapusKompetensi(viewKompetensi.getId());
