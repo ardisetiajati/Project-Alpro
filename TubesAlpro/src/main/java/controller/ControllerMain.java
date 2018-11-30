@@ -48,7 +48,9 @@ public class ControllerMain {
             ctrMahasiswa.ControlMenuMahasiswa();
         } 
         else {
-            System.out.println("Error gan ga masuk mana mene");  
+            System.out.println("Username atau Password Salah!!");
+            ControllerMain ctrMain = new ControllerMain();
+            ctrMain.run();
         }
     }
     
