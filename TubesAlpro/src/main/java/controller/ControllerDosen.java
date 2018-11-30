@@ -25,7 +25,6 @@ public class ControllerDosen {
     String username;
     User user;
     Dosen dsn;
-    Kompetensi kompetensi;
     public ControllerDosen(String username){
         this.username = username;
     }
@@ -95,12 +94,10 @@ public class ControllerDosen {
     }
 
     private void ControlMenuEditKompetensi() {
-        System.out.println("##Daftar Kompetensi");
-        readKompetensi();
-        ViewDosen viewDosen = new ViewDosen();
-        viewDosen.MenuEditKompetensi();
-
-        editKompetensi(viewDosen.getKompetensi());
+       ViewDosen viewDosen = new ViewDosen();
+       viewDosen.MenuEditKompetensi();
+       
+       editKompetensi(viewDosen.getKompetensi());
     }
     
     public void ControlMenuEditNama() {
@@ -136,10 +133,5 @@ public class ControllerDosen {
        dsn.TambahLiburFromJson();
        
        System.out.println("hari libur telah ditambahkan");
-    }
-    
-    public void readKompetensi(){
-        kompetensi = new Kompetensi();
-        kompetensi.ReadKompetensiFromJson();
     }
 }

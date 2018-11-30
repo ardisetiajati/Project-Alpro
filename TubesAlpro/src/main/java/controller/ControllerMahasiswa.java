@@ -21,7 +21,6 @@ public class ControllerMahasiswa {
     User user;
     Mahasiswa mhs;
     Pekerjaan pekerjaan;
-    Kompetensi kompetensi;
     
     public ControllerMahasiswa(User user){
         this.user = user;
@@ -110,8 +109,6 @@ public class ControllerMahasiswa {
     }
     
     public void ControlMenuTambahKompetensi() {
-        System.out.println("##Daftar Kompetensi");
-        readKompetensi();
         ViewMahasiswa viewMahasiswaTambahKompetensi = new ViewMahasiswa();
         viewMahasiswaTambahKompetensi.MenuTambahKompetensi();
         
@@ -151,11 +148,6 @@ public class ControllerMahasiswa {
     public void readPekerjaan(){
         pekerjaan = new Pekerjaan();
         pekerjaan.ReadPekerjaanFromJson();
-    }
-    
-    public void readKompetensi(){
-        kompetensi = new Kompetensi();
-        kompetensi.ReadKompetensiFromJson();
     }
 
     
