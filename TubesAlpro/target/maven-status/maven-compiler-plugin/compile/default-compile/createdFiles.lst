@@ -1,0 +1,15 @@
+model\Pekerjaan.class
+model\Mahasiswa.class
+view\ViewLogin.class
+controller\ControllerAdmin.class
+model\Dosen.class
+view\ViewAdmin.class
+model\Kompetensi.class
+model\MainApp.class
+model\ConfigDirektori.class
+controller\ControllerUser.class
+view\ViewTambahAkun.class
+model\Kelas.class
+view\ViewKelolaAkun.class
+model\User.class
+model\Admin.class
