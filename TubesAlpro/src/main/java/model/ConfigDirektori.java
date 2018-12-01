@@ -41,6 +41,7 @@ public class ConfigDirektori {
     
     //TAMBAHAN
     public static final String direktoriKelas = "C:\\Git\\Project-Alpro-New\\json\\kelas.json";
+    public static final String direktoriTagihan = "C:\\Git\\Project-Alpro-New\\json\\tagihan.json";
     
    //fiqri
   // public static final String direktoriAkun = "D:\\Kuliah Pasca\\github\\praktikum\\Project-Alpro\\json\\user.json";

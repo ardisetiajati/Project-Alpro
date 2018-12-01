@@ -21,6 +21,9 @@ import org.json.simple.parser.ParseException;
  */
 /**
  *
+ * 
+ * 
+ * 
  * @author Ardiansyah Setiajati
  */
 public class Kompetensi {
