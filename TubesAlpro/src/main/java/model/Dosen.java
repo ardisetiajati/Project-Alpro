@@ -220,7 +220,7 @@ public class Dosen extends User{
         String getKompetensi = null;
         ArrayList <String> getLibur = new ArrayList<String>();
         String dosenCuti = null;
-        boolean cuti = true;
+        boolean cuti = false;
         boolean read = false;
         
         try {

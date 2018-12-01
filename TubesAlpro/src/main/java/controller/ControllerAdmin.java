@@ -6,16 +6,10 @@
 package controller;
 
 
-import java.util.ArrayList;
 import model.Admin;
-import model.ConfigDirektori;
-import model.Dosen;
 import model.Kompetensi;
-import model.Mahasiswa;
 import model.User;
-import org.json.simple.parser.ParseException;
 import view.ViewAdmin;
-import view.ViewKompetensi;
 
 
 /**
@@ -36,16 +30,14 @@ public class ControllerAdmin {
     ControllerJadwal ctrJadwal;
     ControllerKelas ctrKelas;
 
-    public ControllerAdmin() {
+    public ControllerAdmin(User user) {
         ctrKompetensi = new ControllerKompetensi();
         ctrPekerjaan = new ControllerPekerjaan();
         ctrJadwal = new ControllerJadwal();
         ctrKelas = new ControllerKelas();
-    }
-    
-    public ControllerAdmin(User user) {
         this.user = user;
     }
+    
     
     public User getUser() {
         return user;
@@ -55,7 +47,7 @@ public class ControllerAdmin {
  * Controller  Utama
  * 
  */
-    public void ControlMenuAdmin() throws ParseException{
+    public void ControlMenuAdmin() {
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuAdmin();
         switch (viewAdmin.getPilihan()){
@@ -107,7 +99,7 @@ public class ControllerAdmin {
 
     
 
-    public void ControlMenuKelolaAkun() throws ParseException{
+    public void ControlMenuKelolaAkun() {
 
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuKelolaAkun();
@@ -140,7 +132,7 @@ public class ControllerAdmin {
  */
     
     
-    public void ControlMenuTambahAkun() throws ParseException{
+    public void ControlMenuTambahAkun() {
         //ViewTambahAkun viewTambahAkun = new ViewTambahAkun();
         //viewTambahAkun.menuTambahAkun();
         ViewAdmin viewAdmin = new ViewAdmin();
@@ -150,7 +142,7 @@ public class ControllerAdmin {
         ControlMenuAdmin();
     }
     
-    public void ControlMenuEditAkun() throws ParseException{
+    public void ControlMenuEditAkun() {
         //ViewEditAkun viewEditAkun = new ViewEditAkun();
         //viewEditAkun.MenuEditAkun();
         ViewAdmin viewAdmin = new ViewAdmin();
@@ -167,7 +159,7 @@ public class ControllerAdmin {
      
     }
     
-    public void ControlMenuHapusAkun() throws ParseException{
+    public void ControlMenuHapusAkun() {
         //ViewHapusAkun viewHapusAkun = new ViewHapusAkun();
         //viewHapusAkun.MenuHapusAkun();
         
@@ -188,6 +180,9 @@ public class ControllerAdmin {
       
      /**
  *  Tambah  to Model
+     * @param username
+     * @param password
+     * @param role
  */ 
     
     public void tambahUser(String username, String password, int role){
@@ -200,6 +195,7 @@ public class ControllerAdmin {
     /**
  *  Edit to Model
  * 
+     * @param username
  */
     
     public void editUser (String username){
@@ -210,6 +206,7 @@ public class ControllerAdmin {
     
     /**
  * Hapus to Model
+     * @param username
  */
        
     public void hapusUser (String username){
@@ -220,6 +217,8 @@ public class ControllerAdmin {
     
     /**
  * validasi
+     * @param username
+     * @return 
  */
     
     public boolean  cekUser (String username){
@@ -232,7 +231,7 @@ public class ControllerAdmin {
         user.ReadUserFromJson();
     }
     
-    public void ControlMenuUbahPassword() throws ParseException {
+    public void ControlMenuUbahPassword() {
         ViewAdmin viewAdminEditPassword = new ViewAdmin();
         viewAdminEditPassword.MenuEditPassword();
         

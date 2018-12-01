@@ -7,7 +7,6 @@ package controller;
 
 import java.util.ArrayList;
 import model.Kompetensi;
-import org.json.simple.parser.ParseException;
 
 import view.ViewKompetensi;
 
@@ -20,7 +19,7 @@ public class ControllerKompetensi {
     ViewKompetensi viewKompetensi;
     ControllerAdmin ctrAdmin;
     
-    public void ControlMenuKelolaKompetensi() throws ParseException{ 
+    public void ControlMenuKelolaKompetensi() { 
         System.out.println("## Daftar Kompetensi  ##");
         readKompetensi();
         
@@ -72,7 +71,7 @@ public class ControllerKompetensi {
         tambahKompetensi(viewKompetensi.getId(), viewKompetensi.getNama(), viewKompetensi.getPrasyarat(), viewKompetensi.getSks(), viewKompetensi.isHasPraktikum());
     }
     
-    public void ControlMenuEditKompetensi() throws ParseException{
+    public void ControlMenuEditKompetensi() {
             
         ViewKompetensi viewKompetensi = new ViewKompetensi();
         viewKompetensi.MenuCekEditKompetensi();
@@ -132,7 +131,7 @@ public class ControllerKompetensi {
         }      
      }
     
-    public void ControlMenuHapusKompetensi() throws ParseException{
+    public void ControlMenuHapusKompetensi(){
         //ViewHapusKompetensi viewHapusKompetensi = new ViewHapusKompetensi();
         //viewHapusKompetensi.MenuHapusAkun();
         
@@ -159,28 +158,28 @@ public class ControllerKompetensi {
         System.out.println("Kompetensi berhasil ditambahkan");
     }
     
-    public void editNamaKompetensi (String id, String nama) throws ParseException{
+    public void editNamaKompetensi (String id, String nama) {
         kompetensi = new Kompetensi(id, nama, null, 0, false);
         kompetensi.EditKompetensiFromJson();
         System.out.println("Edit nama berhasil");
         ControlMenuKelolaKompetensi();
     }
     
-    public void editPrasyaratKompetensi (String id , ArrayList<Kompetensi> listPrasyarat) throws ParseException{
+    public void editPrasyaratKompetensi (String id , ArrayList<Kompetensi> listPrasyarat) {
         kompetensi = new Kompetensi(id, null, listPrasyarat, 0, false);
         kompetensi.EditKompetensiFromJson();
         System.out.println("Edit prasyarat berhasil");
         ControlMenuKelolaKompetensi();
     }
       
-    public void editSksKompetensi (String id,  int sks) throws ParseException{
+    public void editSksKompetensi (String id,  int sks) {
         kompetensi = new Kompetensi(id, null, null,sks, false);
         kompetensi.EditKompetensiFromJson();
         System.out.println("Edit SKS berhasil");
         ControlMenuKelolaKompetensi();
     }
     
-    public void hapusKompetensi (String id) throws ParseException{
+    public void hapusKompetensi (String id) {
         kompetensi = new Kompetensi(id);
         kompetensi.HapusKompetensiFromJson();
         System.out.println("Kompetensi telah dihapus");

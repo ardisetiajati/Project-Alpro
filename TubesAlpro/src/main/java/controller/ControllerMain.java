@@ -27,7 +27,7 @@ public class ControllerMain {
     
     
     
-    public void run() throws ParseException{
+    public void run() {
         
         User user = new User(viewLogin.getUsername(),viewLogin.getPassword());
         

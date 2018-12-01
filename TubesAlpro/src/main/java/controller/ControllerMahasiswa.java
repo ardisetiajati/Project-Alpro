@@ -32,7 +32,7 @@ public class ControllerMahasiswa {
         return user;
     }
     
-    public void ControlMenuMahasiswa() throws ParseException{
+    public void ControlMenuMahasiswa() {
         //System.out.println(user.getUsername());
         ViewMahasiswa viewMahasiswa = new ViewMahasiswa();
         viewMahasiswa.menuMahasiswa();
@@ -61,7 +61,7 @@ public class ControllerMahasiswa {
         }
     }
     
-    public void ControlMenuKelolaAkun() throws ParseException{
+    public void ControlMenuKelolaAkun() {
         System.out.println("## Profile");
         readAkun();
         ViewMahasiswa viewMahasiswaKelolaAkun = new ViewMahasiswa();
@@ -102,7 +102,7 @@ public class ControllerMahasiswa {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void ControlMenuUbahPassword() throws ParseException {
+    public void ControlMenuUbahPassword() {
         ViewMahasiswa viewMahasiswaEditPassword = new ViewMahasiswa();
         viewMahasiswaEditPassword.MenuEditPassword();
         
@@ -110,7 +110,7 @@ public class ControllerMahasiswa {
         ControlMenuMahasiswa();
     }
 
-    public void ControlMenuEditNama() throws ParseException {
+    public void ControlMenuEditNama() {
         ViewMahasiswa viewMahasiswaEditNama = new ViewMahasiswa();
         viewMahasiswaEditNama.MenuEditNama();
         
@@ -120,7 +120,7 @@ public class ControllerMahasiswa {
     }
 
     
-    public void ControlMenuTambahPekerjaan() throws ParseException {
+    public void ControlMenuTambahPekerjaan() {
         System.out.println("##Daftar Pekerjaan");
         readPekerjaan();
         ViewMahasiswa viewMahasiswaTambahPekerjaan = new ViewMahasiswa();
@@ -129,7 +129,7 @@ public class ControllerMahasiswa {
         tambahPekerjaan(viewMahasiswaTambahPekerjaan.getPekerjaan());
     }
     
-    public void ControlMenuTambahKompetensi() throws ParseException {
+    public void ControlMenuTambahKompetensi() {
         System.out.println("##Daftar Kompetensi");
         readKompetensi();
         ViewMahasiswa viewMahasiswaTambahKompetensi = new ViewMahasiswa();
@@ -152,7 +152,7 @@ public class ControllerMahasiswa {
     
     }
 
-    private void tambahKompetensi(ArrayList<Kompetensi> kompetensi) throws ParseException {
+    private void tambahKompetensi(ArrayList<Kompetensi> kompetensi)  {
         mhs = new Mahasiswa(null,null,null,0,kompetensi,0,null,user.getUsername(),null,0);
         mhs.EditKompetensiFromJson();
         System.out.println("Berhasil menambahkan kompetensi..");
@@ -160,7 +160,7 @@ public class ControllerMahasiswa {
         
     }
     
-    private void tambahPekerjaan(ArrayList<Pekerjaan> pekerjaan) throws ParseException {
+    private void tambahPekerjaan(ArrayList<Pekerjaan> pekerjaan)  {
         mhs = new Mahasiswa(null,null,pekerjaan,0,null,0,null,user.getUsername(),null,0);
         mhs.EditPekerjaanFromJson();
         System.out.println("Berhasil menambahkan pekerjaan..");
