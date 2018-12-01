@@ -33,7 +33,7 @@ public class Kompetensi {
     private ArrayList<Kompetensi> prasyarat = new ArrayList<Kompetensi>();
     private int sks;
     private boolean hasPraktikum;
-    private float biaya;
+    private long biaya;
     //private Kelas tatapMuka;
     //private Kelas Praktikum;
     //jam
@@ -78,6 +78,37 @@ public class Kompetensi {
     public int getSks() {
         return sks;
     }
+
+    public long getBiaya() {
+        return biaya;
+    }
+    
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public void setPrasyarat(ArrayList<Kompetensi> prasyarat) {
+        this.prasyarat = prasyarat;
+    }
+
+    public void setSks(int sks) {
+        this.sks = sks;
+    }
+
+    public void setHasPraktikum(boolean hasPraktikum) {
+        this.hasPraktikum = hasPraktikum;
+    }
+
+    public void setBiaya(long biaya) {
+        this.biaya = biaya;
+    }
+    
+    
 
     public void ReadKompetensiFromJson() {
         JSONObject root = new JSONObject();

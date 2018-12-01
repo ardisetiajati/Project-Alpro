@@ -52,10 +52,40 @@ public class Mahasiswa extends User{
         this.pekerjaan = pekerjaan;
         this.kompetensi = kompetensi;
     }
-    
-    public void InsertMahasiswaToKelas(ArrayList<String> listMahasiswa){
-        
+
+    public String getNim() {
+        return nim;
     }
+
+    public void setNim(String nim) {
+        this.nim = nim;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public ArrayList<Pekerjaan> getPekerjaan() {
+        return pekerjaan;
+    }
+
+    public void setPekerjaan(ArrayList<Pekerjaan> pekerjaan) {
+        this.pekerjaan = pekerjaan;
+    }
+
+    public ArrayList<Kompetensi> getKompetensi() {
+        return kompetensi;
+    }
+
+    public void setKompetensi(ArrayList<Kompetensi> kompetensi) {
+        this.kompetensi = kompetensi;
+    }
+    
+    
     
     public ArrayList<String> getListMahasiswa(){
         JSONObject root = new JSONObject();
@@ -79,7 +109,7 @@ public class Mahasiswa extends User{
                     JSONObject itemArr = (JSONObject)array.get(i);
                     long roles = (long) itemArr.get("role");
             
-                    if(roles ==  2){
+                    if(roles ==  1){
                         listMahasiswa.add(itemArr.get("username"));
                     }
                     
