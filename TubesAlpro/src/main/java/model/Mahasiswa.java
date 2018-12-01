@@ -31,17 +31,13 @@ public class Mahasiswa extends User{
     private String nim;
     private String nama;
     private ArrayList<Pekerjaan> pekerjaan;
-    private int jmlMatkulDiambil;
-    private Kompetensi[] matkulDiambil;
-    private int jmlMatkulDimiliki;
-    private Kompetensi[] matkulDimiliki;
     private ArrayList<Kompetensi> kompetensi;
 
     public Mahasiswa() {
     }
 
     public Mahasiswa(String username, String password, int role) {
-        super(username, password, role);
+        super(username, password, role);    
     }
 
     public Mahasiswa(String username, String nama) {
@@ -49,21 +45,12 @@ public class Mahasiswa extends User{
         this.nama = nama;
     }
     
-    
-    
     public Mahasiswa(String nim, String nama, ArrayList<Pekerjaan> pekerjaan, int jmlMatkulDiambil,ArrayList<Kompetensi> kompetensi, int jmlMatkulDimiliki, Kompetensi[] matkulDimiliki, String username, String password, int role) {
         super(username, password, role);
         this.nim = nim;
         this.nama = nama;
         this.pekerjaan = pekerjaan;
-        this.jmlMatkulDiambil = jmlMatkulDiambil;
         this.kompetensi = kompetensi;
-        this.jmlMatkulDimiliki = jmlMatkulDimiliki;
-        this.matkulDimiliki = matkulDimiliki;
-    }
-
-    public Mahasiswa(String username, ArrayList<Kompetensi> kompetensi) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void InsertMahasiswaToKelas(ArrayList<String> listMahasiswa){
@@ -137,7 +124,6 @@ public class Mahasiswa extends User{
                         System.out.println("Pekerjaan : " + (JSONArray) itemArr.get("prasyarat"));
                         break;
                     }
-                    
                 }
                 
             } catch (FileNotFoundException e) {

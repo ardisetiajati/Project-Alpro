@@ -29,7 +29,7 @@ public class Kelas {
     private String nipDosen;
     private String namaDosen;
     private ArrayList<String> daftarPeserta = new ArrayList<String>();
-    private float tarifPerPeserta;
+    private double tarifPerPeserta;
     private double pendapatanTotal;
 
     public Kelas() {
@@ -56,11 +56,11 @@ public class Kelas {
         return daftarPeserta;
     }
 
-    public float getTarifPerPeserta() {
+    public double getTarifPerPeserta() {
         return tarifPerPeserta;
     }
     
-    public void setTarifPerPeserta(float tarifPerPeserta) {
+    public void setTarifPerPeserta(double tarifPerPeserta) {
         this.tarifPerPeserta = tarifPerPeserta;
     }
 
@@ -108,7 +108,7 @@ public class Kelas {
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ParseException ex) {
-                Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Kelas.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -139,7 +139,7 @@ public class Kelas {
             root.put("kelas", kelas);
         }
 
-        try (FileWriter file = new FileWriter(ConfigDirektori.direktoriKompetensi)) {
+        try (FileWriter file = new FileWriter(ConfigDirektori.direktoriKelas)) {
             file.write(root.toJSONString());
             file.flush();
 
@@ -148,7 +148,7 @@ public class Kelas {
         }
     }
     
-     public void ReadKompetensiFromJson() {
+    public void ReadKelasFromJson() {
         JSONObject root = new JSONObject();
         JSONArray kelas = new JSONArray();
         JSONParser parser = new JSONParser();
@@ -164,26 +164,29 @@ public class Kelas {
                 array = (JSONArray) jsonObject.get("kelas");
 
                 String tbl = "| %-3s | %-14s | %-48s | %-28s | %-7s |%n";
-                System.out.format("+-----+----------------+--------------------------------------------------+------------------------------+---------+%n");
-                System.out.format("| No  |    Kompetensi  | NIP Dosen     | Nama Dosen    | Tarif Peserta | Daftar Peserta%n");
-                System.out.format("+-----+----------------+--------------------------------------------------+------------------------------+---------+%n");
+                System.out.format("%nDaftar Kelas%n");
+                System.out.format("+-----+--------------+---------------+---------------+-------------------+------------------+-------------+----------------|%n");
+                System.out.format("| No  |  Kompetensi  | NIP Dosen     | Nama Dosen    | Tarif per Peserta | Total Keuntungan | Jml Peserta | Daftar Peserta %n");
+                System.out.format("+-----|--------------+---------------+---------------+-------------------+------------------+-------------+----------------|%n");
                
                 for (int i = 0; i < array.size(); i++) {
-                    char kode;
+
+                    char kode = 0;
+            
                     // get all JSON Object
                     JSONObject itemArr = (JSONObject) array.get(i);
-                    String nama = (String) itemArr.get("nama");
-                    String id = (String) itemArr.get("id");
-                    long bobot = (long) itemArr.get("sks");
-                    boolean hasPraktikum = (boolean) itemArr.get("hasPraktikum");
-                    // loop array
-                    JSONArray msg = (JSONArray) itemArr.get("prasyarat");
-                    Iterator<String> iterator = msg.iterator();
-
+       
+                    String namaKelas = (String) itemArr.get("namaKelas");
+                    String nipDosen = (String) itemArr.get("nipDosen");
+                    String namaDosen = (String) itemArr.get("namaDosen");
+                    JSONArray daftarPeserta = (JSONArray) itemArr.get("daftarPeserta");
+                    double tarifPerPeserta = (double) itemArr.get("tarifPerPeserta");
+                    double pendapatanTotal = (double) itemArr.get("pendapatanTotal");
                     
-                    //System.out.format(tbl, i + 1, id, nama + " [" + kode + "]", msg, bobot);
+                    System.out.format(tbl, i + 1, namaKelas, nipDosen, namaDosen,tarifPerPeserta,pendapatanTotal,daftarPeserta);
+
                 }
-                System.out.format("+-----+----------------+--------------------------------------------------+------------------------------+---------+%n");
+                System.out.format("+-----|--------------+---------------+---------------+-------------------+------------------+-------------+----------------%n");
                 System.out.println("");
                 
             } catch (FileNotFoundException e) {
@@ -191,8 +194,10 @@ public class Kelas {
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (ParseException ex) {
-                Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Kelas.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
+
 }
+

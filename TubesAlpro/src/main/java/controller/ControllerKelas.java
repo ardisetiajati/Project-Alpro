@@ -41,7 +41,6 @@ public class ControllerKelas {
     }
     
     public void Optimasi2(){
-        
     }
 }
 
