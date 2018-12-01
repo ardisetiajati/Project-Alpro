@@ -196,11 +196,3 @@ public class Kelas {
         }
     }
 }
-
-
-    String idMahasiswa;
-    String namaMahasiswa;
-    long jumlahTagihan;
-    boolean statusPembayaran;
-    private ArrayList<String> kompetensiDiambil;
-    private ArrayList<Long> tarifKompetensiDiambil;
