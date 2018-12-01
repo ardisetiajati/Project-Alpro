@@ -1,5 +1,10 @@
 package controller;
 
+import java.util.ArrayList;
+import model.Kelas;
+import model.Mahasiswa;
+import view.ViewKelas;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,15 +16,31 @@ package controller;
  * @author Ardhi Rizki Harahap
  */
 public class ControllerKelas {
+    Kelas kelas;
+    ViewKelas viewKelas;
+    Mahasiswa mahasiswa;
     
-    private String namaKompetensiKelas;
-    private String kodeDosen;
-    private String namaDosen;
-    private ArrayList<String> daftarPeserta = new ArrayList<String>();
-    private int tarifPerPeserta;
-    private double pendapatanTotal;
+    public void ControlMenuOptimasi(){
+        viewKelas = new ViewKelas();
+        viewKelas.menuOptimasi();
+        
+        switch(viewKelas.getPilihan()){
+            case 1:
+                Optimasi1();
+                break;
+            case 2:
+                Optimasi2();
+                break;
+        }
+    }
     
-    void ControlInsertMahasiswaToKelasUsingOptimasi2(){
+    public void Optimasi1(){
+        mahasiswa = new Mahasiswa();
+        ArrayList<String> list = mahasiswa.getListMahasiswa();
+        
+    }
+    
+    public void Optimasi2(){
         
     }
 }

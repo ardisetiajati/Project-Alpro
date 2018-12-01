@@ -39,6 +39,7 @@ public class ControllerAdmin {
         ctrKompetensi = new ControllerKompetensi();
         ctrPekerjaan = new ControllerPekerjaan();
         ctrJadwal = new ControllerJadwal();
+        ctrKelas = new ControllerKelas();
     }
     
     
@@ -68,7 +69,6 @@ public class ControllerAdmin {
             case "4":
                 break;
             case "5":
-                ctrJadwal.ReadJadwalFromJson();
                 break;
             case "6":
                 break;
@@ -76,7 +76,7 @@ public class ControllerAdmin {
                 break;
             case "8":
                 ctrJadwal.ControlBangkitkanJadwal();
-                ctrKelas.ControlInsertMahasiswaToKelasUsingOptimasi2();
+                ctrKelas.ControlMenuOptimasi();
                 ControlMenuAdmin();
                 break;
             case "9":

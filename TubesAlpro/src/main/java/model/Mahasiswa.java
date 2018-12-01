@@ -66,6 +66,50 @@ public class Mahasiswa extends User{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    public void InsertMahasiswaToKelas(ArrayList<String> listMahasiswa){
+        
+    }
+    
+    public ArrayList<String> getListMahasiswa(){
+        JSONObject root = new JSONObject();
+        JSONArray kompetensi= new JSONArray();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+        JSONArray listMahasiswa = new JSONArray();
+
+        File f = new File(ConfigDirektori.direktoriAkun);
+        
+        if (f.exists() && !f.isDirectory()) {
+            try {
+                //JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+                Object obj = parser.parse(new FileReader(ConfigDirektori.direktoriAkun));
+
+                JSONObject jsonObject = (JSONObject) obj;
+                //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
+                array = (JSONArray) jsonObject .get("users");
+
+                for (int i = 0; i < array.size(); i++) {
+                    JSONObject itemArr = (JSONObject)array.get(i);
+                    long roles = (long) itemArr.get("role");
+            
+                    if(roles ==  2){
+                        listMahasiswa.add(itemArr.get("username"));
+                    }
+                    
+                }
+                
+            } catch (FileNotFoundException e) {
+             e.printStackTrace();
+            } catch (IOException e) {
+             e.printStackTrace();
+            } catch (ParseException ex) {
+             Logger.getLogger(Mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return listMahasiswa;
+    }
+    
     public void ReadAkunFromJson(){
         JSONObject root = new JSONObject();
         JSONArray kompetensi= new JSONArray();
@@ -101,7 +145,7 @@ public class Mahasiswa extends User{
             } catch (IOException e) {
              e.printStackTrace();
             } catch (ParseException ex) {
-             Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(Mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         

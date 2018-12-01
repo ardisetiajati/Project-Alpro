@@ -11,22 +11,18 @@ import java.util.Scanner;
  *
  * @author Ardiansyah Setiajati
  */
-public class ViewJadwal {
-    int minggu, pilihan;
+public class ViewKelas {
+    int pilihan;
     Scanner input = new Scanner(System.in);
 
-    public ViewJadwal() {
-    }
-
-    public int getMinggu() {
-        return minggu;
+    public int getPilihan() {
+        return pilihan;
     }
     
-    public void menuPilihanJadwal(){
-        System.out.print("Masukkan pilihan minggu (1-11): ");
-        minggu = input.nextInt();
+    public void menuOptimasi(){
+        System.out.println("1. Optimasi 1");
+        System.out.println("2. Optimasi 2");
+        System.out.print("Masukkan pilihan optimasi : ");
+        pilihan = input.nextInt();
     }
-    
-    
-    
 }

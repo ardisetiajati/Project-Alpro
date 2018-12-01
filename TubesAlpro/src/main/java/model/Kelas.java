@@ -181,7 +181,7 @@ public class Kelas {
                     Iterator<String> iterator = msg.iterator();
 
                     
-                    System.out.format(tbl, i + 1, id, nama + " [" + kode + "]", msg, bobot);
+                    //System.out.format(tbl, i + 1, id, nama + " [" + kode + "]", msg, bobot);
                 }
                 System.out.format("+-----+----------------+--------------------------------------------------+------------------------------+---------+%n");
                 System.out.println("");

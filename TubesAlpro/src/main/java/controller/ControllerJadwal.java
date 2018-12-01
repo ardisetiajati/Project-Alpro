@@ -92,7 +92,8 @@ public class ControllerJadwal {
     }
     
     public void readJadwal(int minggu){
-        
+        jadwal = new Jadwal();
+        jadwal.ReadJadwalFromJson();
     }
 
 }
