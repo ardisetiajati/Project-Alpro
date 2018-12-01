@@ -7,6 +7,7 @@ package controller;
 
 import model.Jadwal;
 import model.Kompetensi;
+import view.ViewJadwal;
 
 /**
  *
@@ -15,6 +16,7 @@ import model.Kompetensi;
 public class ControllerJadwal {
     Kompetensi kompetensi;
     Jadwal jadwal;
+    ViewJadwal viewJadwal;
 
     public ControllerJadwal() {
         jadwal = new Jadwal();
@@ -28,9 +30,49 @@ public class ControllerJadwal {
         return jadwal;
     }
     
-    public void ReadJadwalFromJson(){
+    public void ControlMenuPilihMinggu(){
+        viewJadwal = new ViewJadwal();
+        viewJadwal.menuPilihanJadwal();
+        
+        switch(viewJadwal.getMinggu()){
+            case 1:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 2:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 3:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 4:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 5:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 6:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 7:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 8:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 9:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 10:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+            case 11:
+                readJadwal(viewJadwal.getMinggu());
+                break;
+        }
         
     }
+    
+    
     
     void ControlBangkitkanJadwal() {
        // System.out.println("wakwaw");
@@ -47,6 +89,10 @@ public class ControllerJadwal {
         //}
     //}
     
-}
+    }
+    
+    public void readJadwal(int minggu){
+        
+    }
 
 }

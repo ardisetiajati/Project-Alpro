@@ -43,6 +43,10 @@ public class Jadwal {
         return jamSelesai;
     }
     
+    public void ReadJadwalFromJson(){
+        
+    }
+    
     public void ReadKompetensiFromJsonToObject() {
         JSONParser parser = new JSONParser();
         JSONArray array = null;
