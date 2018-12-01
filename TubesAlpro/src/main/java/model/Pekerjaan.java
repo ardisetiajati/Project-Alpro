@@ -291,10 +291,10 @@ public class Pekerjaan {
                 //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
                 array = (JSONArray) jsonObject .get("pekerjaan");
 
-                String tbl = "| %-3s | %-40s | %-45s |%n";
-                System.out.format("+-----+------------------------------------------+-----------------------------------------------+%n");
-                System.out.format("| No  | Nama Pekerjaan                           | Kompetensi                                    |%n");
-                System.out.format("+-----+------------------------------------------+-----------------------------------------------+%n");
+                String tbl = "| %-13s | %-40s | %-45s |%n";
+                System.out.format("+---------------+------------------------------------------+-----------------------------------------------+%n");
+                System.out.format("| ID Pekerjaan  | Nama Pekerjaan                           | Kompetensi                                    |%n");
+                System.out.format("+---------------+------------------------------------------+-----------------------------------------------+%n");
 
                 for (int i = 0; i < array.size(); i++) {
                     char kode;
@@ -308,9 +308,9 @@ public class Pekerjaan {
                     Iterator<String> iterator = msg.iterator();
 
 
-                    System.out.format(tbl, i+1, nama, msg);
+                    System.out.format(tbl, id, nama, msg);
                 }
-                System.out.format("+-----+------------------------------------------+-----------------------------------------------+%n");
+                System.out.format("+---------------+------------------------------------------+-----------------------------------------------+%n");
                 System.out.println("");
             
             } catch (FileNotFoundException e) {
@@ -321,5 +321,31 @@ public class Pekerjaan {
              Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
             }
         }      
+    }
+    
+    public boolean CekUserFromJson() {
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+        boolean found = false;
+        
+        try {
+            JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriPekerjaan));
+            array = (JSONArray) objFromFile.get("users");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for (int i = 0; i < array.size(); i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            
+            if(itemArr.get("id").equals(id)){ // check if id exist
+                found = true;
+            }       
+        }
+        return found;
     }
 }

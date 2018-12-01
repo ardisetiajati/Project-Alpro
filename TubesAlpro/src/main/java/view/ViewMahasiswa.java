@@ -69,13 +69,19 @@ public class ViewMahasiswa {
     public void MenuTambahPekerjaan() {
         String inPekerjaan;
         int i=1;
-        while(i<=3){
-            System.out.println("Masukan pekerjaan diinginkan ke-"+ i);
-            inPekerjaan = input.nextLine();
-            Pekerjaan p = new Pekerjaan (inPekerjaan);
-            pekerjaan.add(p);
-            i++;
-        }
+        do {
+            System.out.println("Masukan ID pekerjaan yang diinginkan ke-"+ i);
+            inPekerjaan = input.next();
+            if(inPekerjaan.matches("[0-9_]+")== false){
+                System.out.println("ID yang anda masukan salah! Lihat Daftar Pekerjaan diatas!");
+            } else {
+                Pekerjaan p = new Pekerjaan (inPekerjaan);
+                pekerjaan.add(p);
+                i++;
+            }
+            
+            
+        }while(i<=3);
     }
     
     public String getNama() {
