@@ -96,9 +96,12 @@ public class ControllerAdmin {
  */
     
     public void ControlMenuKelolaAkun(){
+        
+        readUser();
+        
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuKelolaAkun();
-       
+        
         switch (viewAdmin.getPilihan()){
             case "1":
                 ControlMenuTambahAkun();
@@ -172,19 +175,9 @@ public class ControllerAdmin {
      
         
     }
-    
-      
-    
-        /**
- *  Read  from Model
- * 
- */ 
-      
-      
       
      /**
  *  Tambah  to Model
- * 
  */ 
     
     public void tambahUser(String username, String password, int role){
@@ -193,10 +186,6 @@ public class ControllerAdmin {
         System.out.println("Akun berhasil ditambahkan");
         
     }
-    
-    
-    
-  
     
     /**
  *  Edit to Model
@@ -209,13 +198,8 @@ public class ControllerAdmin {
         System.out.println("password telah diset ke default");
     }
     
-    
-      
-    
-    
     /**
  * Hapus to Model
- * 
  */
        
     public void hapusUser (String username){
@@ -224,22 +208,19 @@ public class ControllerAdmin {
         System.out.println("akun telah dihapus");
     }
     
-    
-    
-    
     /**
  * validasi
- * 
  */
     
     public boolean  cekUser (String username){
-
         user = new User(username);
         return user.CekUserFromJson();
     }
     
-    
-    
+    public void readUser(){
+        user = new User();
+        user.ReadUserFromJson();
+    }
     
      
      
