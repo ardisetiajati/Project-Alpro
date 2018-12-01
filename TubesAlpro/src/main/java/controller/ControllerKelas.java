@@ -55,16 +55,16 @@ public class ControllerKelas {
     }
     
     public void Optimasi2(){
-        ArrayList<neededDataForOptimasi2> dataNimKompetensi = new ArrayList<neededDataForOptimasi2>();
-        neededDataForOptimasi2 tempData = new neededDataForOptimasi2();
+        ArrayList<dataOfMahasiswaForOptimasi2> dataNimKompetensi = new ArrayList<dataOfMahasiswaForOptimasi2>();
+        dbOfPekerjaanAndKompetensi dbData = new dbOfPekerjaanAndKompetensi();
+        dbOfMahasiswa dbMahasiswa = new dbOfMahasiswa();
         
-        
-        for(Kompetensi item : tempData.daftarKompetensiUtama){
+        for(Kompetensi item : dbData.daftarKompetensiUtama){
             System.out.println("id : "+item.getId() +"  hi -> "+item.getPrasyarat().toString());
         }
         
         
-        for(Pekerjaan item : tempData.daftarPekerjaanUtama){
+        for(Pekerjaan item : dbData.daftarPekerjaanUtama){
             System.out.println("id p : "+item.getNama());
         }
     }
@@ -74,6 +74,7 @@ class dataOfMahasiswaForOptimasi2 {
     String nim;
     String nama;
     ArrayList<Kompetensi> thisMahasiswaKompetensi;
+    ArrayList<Pekerjaan> thisMahasiswaPekerjaan;
     Tagihan thisMahasiswaTagihan;
 }
 
@@ -173,6 +174,27 @@ class dbOfPekerjaanAndKompetensi{
         }
         return kompetensiListToReturn;
     }
+    
+    public Kompetensi getKompetensiObject(String idKompetensi){
+        Kompetensi objectToReturn = new Kompetensi();
+        
+        for(Kompetensi item: daftarKompetensiUtama){
+            if(item.getNama().compareTo(idKompetensi)==0)
+                objectToReturn = item;
+        }
+        return objectToReturn;
+    }
+    
+    public Pekerjaan getPekerjaanObject(String idPekerjaan){
+        Pekerjaan objectToReturn = new Pekerjaan();
+        
+        for (Pekerjaan item : daftarPekerjaanUtama){
+            if(item.getId().compareTo(idPekerjaan)==0)
+                objectToReturn = item;
+        }
+        
+        return objectToReturn;
+    }
 }
 
 class dbOfMahasiswa{
@@ -183,12 +205,16 @@ class dbOfMahasiswa{
     }
     public ArrayList<Mahasiswa> getMahasiswaListFromJSON(){
      
+        //json
         JSONObject root = new JSONObject();
         JSONArray kompetensi= new JSONArray();
         JSONParser parser = new JSONParser();
         JSONArray array = null;
+        
+        //java
         ArrayList<Mahasiswa> listMahasiswaToReturn = new ArrayList<Mahasiswa>();
-
+        dbOfPekerjaanAndKompetensi dbData = new dbOfPekerjaanAndKompetensi();
+        
         File f = new File(ConfigDirektori.direktoriAkun);
         
         if (f.exists() && !f.isDirectory()) {
@@ -218,12 +244,18 @@ class dbOfMahasiswa{
                         ArrayList<Pekerjaan> listOfMahasiswaObjectPekerjaan = new ArrayList<Pekerjaan>();
                         
                         for(String item : listOfMahasiswaIdKompetensi){
-                            
+                            listOfMahasiswaObjectKompetensi.add(dbData.getKompetensiObject(item));
                         }
+                        
+                        newMahasiswaToAdd.setKompetensi(listOfMahasiswaObjectKompetensi);
+                        
+                        for(String item : listOfMahasiswaIdPekerjaan){
+                            listOfMahasiswaObjectPekerjaan.add(dbData.getPekerjaanObject(item));
+                        }
+                        newMahasiswaToAdd.setPekerjaan(listOfMahasiswaObjectPekerjaan);
                         
                         listMahasiswaToReturn.add(newMahasiswaToAdd);
                     }
-                    
                 }
                 
             } catch (FileNotFoundException e) {
@@ -234,7 +266,6 @@ class dbOfMahasiswa{
              Logger.getLogger(Mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
         return listMahasiswaToReturn;
     
     }
