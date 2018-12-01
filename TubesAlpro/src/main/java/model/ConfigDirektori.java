@@ -42,7 +42,12 @@ public class ConfigDirektori {
 //    public static final String direktoriCutiDosen = "C:\\Git\\Project-Alpro-New\\json\\cutidosen.json";
     
     //TAMBAHAN
+
     //public static final String direktoriKelas = "C:\\Git\\Project-Alpro-New\\json\\kelas.json";
+
+    //public static final String direktoriKelas = "C:\\Git\\Project-Alpro-New\\json\\kelas.json";
+    //public static final String direktoriTagihan = "C:\\Git\\Project-Alpro-New\\json\\tagihan.json";
+
     
 
    //fiqri
