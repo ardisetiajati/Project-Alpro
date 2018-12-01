@@ -66,6 +66,10 @@ public class Pekerjaan {
     public ArrayList<Kompetensi> getListKompetensi() {
         return listKompetensi;
     }
+
+    public void setListKompetensi(ArrayList<Kompetensi> listKompetensi) {
+        this.listKompetensi = listKompetensi;
+    }
     
     public void TulisPekerjaanToJson(){
         JSONObject root = new JSONObject();
