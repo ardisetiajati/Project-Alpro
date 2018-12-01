@@ -11,6 +11,7 @@ import model.Mahasiswa;
 import model.Pekerjaan;
 import model.User;
 import view.ViewMahasiswa;
+import org.json.simple.parser.ParseException;
 
 
 /**
@@ -22,6 +23,7 @@ public class ControllerMahasiswa {
     Mahasiswa mhs;
     Pekerjaan pekerjaan;
     Kompetensi kompetensi;
+    ControllerMain ctrMain;
     
     public ControllerMahasiswa(User user){
         this.user = user;
@@ -31,41 +33,57 @@ public class ControllerMahasiswa {
         return user;
     }
     
-    public void ControlMenuMahasiswa(){
+    public void ControlMenuMahasiswa() throws ParseException{
         //System.out.println(user.getUsername());
         ViewMahasiswa viewMahasiswa = new ViewMahasiswa();
         viewMahasiswa.menuMahasiswa();
-        if(viewMahasiswa.getPilihan()==1){
-            ControlMenuKelolaAkun();
-        }
-        else if(viewMahasiswa.getPilihan()==2){
-            //System.out.println("wakwaw");
-            ControlMenuKelolaJadwal();
-        }
-        else if(viewMahasiswa.getPilihan()==3){
-            //System.out.println("wakwaw");
-            ControlMenuLihatTagihan();
-        }
-        else if(viewMahasiswa.getPilihan()==4){
-            //System.out.println("wakwaw");
-            ControlMenuUbahPassword();
-        }
-        else if(viewMahasiswa.getPilihan()==0){
-            System.exit(0);
+        
+        switch(viewMahasiswa.getPilihan()){
+            case "1":
+                ControlMenuKelolaAkun();
+                break;
+            case "2":
+                ControlMenuKelolaJadwal();
+                break;
+            case "3":
+                ControlMenuLihatTagihan();
+                break;
+            case "4":
+                ControlMenuUbahPassword();
+                break;
+            case "0":
+                ctrMain = new ControllerMain();
+                ctrMain.run();
+                break;
+            default:
+                System.out.println("Inputan Salah!");
+                //ControlMenuKelolaAkun();
+                break;
         }
     }
     
-    public void ControlMenuKelolaAkun(){
+    public void ControlMenuKelolaAkun() throws ParseException{
         ViewMahasiswa viewMahasiswaKelolaAkun = new ViewMahasiswa();
         viewMahasiswaKelolaAkun.menuKelolaAkun();
-        if(viewMahasiswaKelolaAkun.getPilihan()==1){
-            ControlMenuEditNama();
-        }
-        else if (viewMahasiswaKelolaAkun.getPilihan()==2){
-            ControlMenuTambahPekerjaan();
-        }
-        else if (viewMahasiswaKelolaAkun.getPilihan()==3){
-            ControlMenuTambahKompetensi();
+        
+        
+        switch(viewMahasiswaKelolaAkun.getPilihan()){
+            case "1":
+                ControlMenuEditNama();
+                break;
+            case "2":
+                ControlMenuTambahPekerjaan();
+                break;
+            case "3":
+                ControlMenuTambahKompetensi();
+                break;
+            case "0":
+                ControlMenuMahasiswa();
+                break;
+            default:
+                System.out.println("Inputan Salah!");
+                //ControlMenuKelolaAkun();
+                break;
         }
     }
     
@@ -83,7 +101,7 @@ public class ControllerMahasiswa {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void ControlMenuUbahPassword() {
+    public void ControlMenuUbahPassword() throws ParseException {
         ViewMahasiswa viewMahasiswaEditPassword = new ViewMahasiswa();
         viewMahasiswaEditPassword.MenuEditPassword();
         
@@ -91,7 +109,7 @@ public class ControllerMahasiswa {
         ControlMenuMahasiswa();
     }
 
-    public void ControlMenuEditNama() {
+    public void ControlMenuEditNama() throws ParseException {
         ViewMahasiswa viewMahasiswaEditNama = new ViewMahasiswa();
         viewMahasiswaEditNama.MenuEditNama();
         
@@ -100,7 +118,7 @@ public class ControllerMahasiswa {
         
     }
 
-    public void ControlMenuTambahPekerjaan() {
+    public void ControlMenuTambahPekerjaan() throws ParseException {
         System.out.println("##Daftar Pekerjaan");
         readPekerjaan();
         ViewMahasiswa viewMahasiswaTambahPekerjaan = new ViewMahasiswa();
@@ -109,7 +127,7 @@ public class ControllerMahasiswa {
         tambahPekerjaan(viewMahasiswaTambahPekerjaan.getPekerjaan());
     }
     
-    public void ControlMenuTambahKompetensi() {
+    public void ControlMenuTambahKompetensi() throws ParseException {
         System.out.println("##Daftar Kompetensi");
         readKompetensi();
         ViewMahasiswa viewMahasiswaTambahKompetensi = new ViewMahasiswa();
@@ -132,7 +150,7 @@ public class ControllerMahasiswa {
     
     }
 
-    private void tambahKompetensi(ArrayList<Kompetensi> kompetensi) {
+    private void tambahKompetensi(ArrayList<Kompetensi> kompetensi) throws ParseException {
         mhs = new Mahasiswa(null,null,null,0,kompetensi,0,null,user.getUsername(),null,0);
         mhs.EditKompetensiFromJson();
         System.out.println("Berhasil menambahkan kompetensi..");
@@ -140,7 +158,7 @@ public class ControllerMahasiswa {
         
     }
     
-    private void tambahPekerjaan(ArrayList<Pekerjaan> pekerjaan) {
+    private void tambahPekerjaan(ArrayList<Pekerjaan> pekerjaan) throws ParseException {
         mhs = new Mahasiswa(null,null,pekerjaan,0,null,0,null,user.getUsername(),null,0);
         mhs.EditPekerjaanFromJson();
         System.out.println("Berhasil menambahkan pekerjaan..");
