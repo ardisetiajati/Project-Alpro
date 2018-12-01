@@ -28,6 +28,10 @@ public class ControllerJadwal {
         return jadwal;
     }
     
+    public void ReadJadwalFromJson(){
+        
+    }
+    
     void ControlBangkitkanJadwal() {
        // System.out.println("wakwaw");
         for (int i = 1; i <= 11; i++) {

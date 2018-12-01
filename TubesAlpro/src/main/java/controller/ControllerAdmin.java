@@ -67,6 +67,7 @@ public class ControllerAdmin {
             case "4":
                 break;
             case "5":
+                ctrJadwal.ReadJadwalFromJson();
                 break;
             case "6":
                 break;

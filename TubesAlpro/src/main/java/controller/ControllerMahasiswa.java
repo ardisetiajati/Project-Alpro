@@ -62,6 +62,8 @@ public class ControllerMahasiswa {
     }
     
     public void ControlMenuKelolaAkun() throws ParseException{
+        System.out.println("## Profile");
+        readAkun();
         ViewMahasiswa viewMahasiswaKelolaAkun = new ViewMahasiswa();
         viewMahasiswaKelolaAkun.menuKelolaAkun();
         
@@ -164,6 +166,10 @@ public class ControllerMahasiswa {
         System.out.println("Berhasil menambahkan pekerjaan..");
         ControlMenuMahasiswa(); 
         
+    }
+    
+    public void readAkun(){
+        mhs = new Mahasiswa();
     }
     
     public void readPekerjaan(){

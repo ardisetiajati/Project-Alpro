@@ -11,12 +11,12 @@ package model;
  */
 public class ConfigDirektori {
     // Ardi
- // public static final String direktoriAkun = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Tugas\\Project Alpro\\json\\user.json";
-  //public static final String direktoriKompetensi = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Tugas\\Project Alpro\\json\\kompetensi.json";
- // public static final String direktoriPekerjaan = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Tugas\\Project Alpro\\json\\pekerjaan.json";
- // public static final String direktoriKalender = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Tugas\\Project Alpro\\json\\kalender.json";
- // public static final String direktoriSlot = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Tugas\\Project Alpro\\json\\jadwal.json";
- // public static final String direktoriAlokasiSlot = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Tugas\\Project Alpro\\json\\alokasislot.json";  
+  public static final String direktoriAkun = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\user.json";
+  public static final String direktoriKompetensi = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\kompetensi.json";
+  public static final String direktoriPekerjaan = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\pekerjaan.json";
+  public static final String direktoriKalender = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\kalender.json";
+  public static final String direktoriSlot = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\jadwal.json";
+  public static final String direktoriAlokasiSlot = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\alokasislot.json";  
    
    //Izu
 
@@ -31,14 +31,14 @@ public class ConfigDirektori {
 
    
   // Ardhi
-  public static final String direktoriAkun = "C:\\Git\\Project-Alpro-New\\json\\user.json";
-  public static final String direktoriKompetensi = "C:\\Git\\Project-Alpro-New\\json\\kompetensi.json";
-  public static final String direktoriPekerjaan = "C:\\Git\\Project-Alpro-New\\json\\pekerjaan.json";
-  public static final String direktoriKalender = "C:\\Git\\Project-Alpro-New\\json\\kalender.json";
-  public static final String direktoriSlot = "C:\\Git\\Project-Alpro-New\\json\\jadwal\\";
-  public static final String direktoriAlokasiSlot = "C:\\Git\\Project-Alpro-New\\json\\alokasislot.json";  
-   public static final String direktoriCutiDosen = "C:\\Git\\Project-Alpro-New\\json\\cutidosen.json";
-  
+//  public static final String direktoriAkun = "C:\\Git\\Project-Alpro-New\\json\\user.json";
+//  public static final String direktoriKompetensi = "C:\\Git\\Project-Alpro-New\\json\\kompetensi.json";
+//  public static final String direktoriPekerjaan = "C:\\Git\\Project-Alpro-New\\json\\pekerjaan.json";
+//  public static final String direktoriKalender = "C:\\Git\\Project-Alpro-New\\json\\kalender.json";
+//  public static final String direktoriSlot = "C:\\Git\\Project-Alpro-New\\json\\jadwal\\";
+//  public static final String direktoriAlokasiSlot = "C:\\Git\\Project-Alpro-New\\json\\alokasislot.json";  
+//  public static final String direktoriCutiDosen = "C:\\Git\\Project-Alpro-New\\json\\cutidosen.json";
+//  
    //fiqri
   // public static final String direktoriAkun = "D:\\Kuliah Pasca\\github\\praktikum\\Project-Alpro\\json\\user.json";
    //public static final String direktoriKompetensi = "D:\\Kuliah Pasca\\github\\praktikum\\Project-Alpro\\json\\kompetensi.json";
