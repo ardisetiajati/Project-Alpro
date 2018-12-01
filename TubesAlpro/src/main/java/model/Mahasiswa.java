@@ -36,7 +36,7 @@ public class Mahasiswa extends User{
     private ArrayList<Kompetensi> kompetensi;
 
     public Mahasiswa(String username, String password, int role) {
-        super(username, password, role);
+        super(username, password, role);    
     }
 
     public Mahasiswa(String username, String nama) {

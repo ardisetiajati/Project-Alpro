@@ -32,7 +32,7 @@ public class ControllerMain {
         User user = new User(viewLogin.getUsername(),viewLogin.getPassword());
         
         if(user.LoginFromJson(user.getUsername(), user.getPassword())==3){
-            ControllerAdmin ctrAdmin = new ControllerAdmin();
+            ControllerAdmin ctrAdmin = new ControllerAdmin(user);
             ctrAdmin.ControlMenuAdmin();
             
         }

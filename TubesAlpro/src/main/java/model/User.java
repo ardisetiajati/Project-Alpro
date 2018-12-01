@@ -252,6 +252,41 @@ public class User {
         }
     }
     
+    public void EditUserPasswordAdminFromJson(){
+        JSONObject root = new JSONObject();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+        
+        try {
+            JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriAkun));
+            array = (JSONArray) objFromFile.get("users");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for (int i = 0; i < array.size(); i++) {
+            JSONObject itemArr = (JSONObject)array.get(i);
+            //System.out.println(itemArr.get(username));
+            //System.out.println(username);
+            if(itemArr.get("username").equals(username)){
+                itemArr.put("password", password);
+            }       
+            root.put("users",array);
+            try (FileWriter file = new FileWriter(ConfigDirektori.direktoriAkun)) {
+
+            file.write(root.toJSONString());
+            file.flush();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
     public void EditUserMahasiswaFromJson(){
         JSONObject root = new JSONObject();
         JSONParser parser = new JSONParser();
