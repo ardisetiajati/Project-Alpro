@@ -13,6 +13,7 @@ import model.Dosen;
 import model.Kompetensi;
 import model.Mahasiswa;
 import model.User;
+import org.json.simple.parser.ParseException;
 import view.ViewAdmin;
 import view.ViewKompetensi;
 
@@ -48,7 +49,7 @@ public class ControllerAdmin {
  * Controller  Utama
  * 
  */
-    public void ControlMenuAdmin(){
+    public void ControlMenuAdmin() throws ParseException{
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuAdmin();
         switch (viewAdmin.getPilihan()){
@@ -95,10 +96,14 @@ public class ControllerAdmin {
  * 
  */
     
-    public void ControlMenuKelolaAkun(){
+
+    
+
+    public void ControlMenuKelolaAkun() throws ParseException{
+
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuKelolaAkun();
-       
+        
         switch (viewAdmin.getPilihan()){
             case "1":
                 ControlMenuTambahAkun();
@@ -127,7 +132,7 @@ public class ControllerAdmin {
  */
     
     
-    public void ControlMenuTambahAkun(){
+    public void ControlMenuTambahAkun() throws ParseException{
         //ViewTambahAkun viewTambahAkun = new ViewTambahAkun();
         //viewTambahAkun.menuTambahAkun();
         ViewAdmin viewAdmin = new ViewAdmin();
@@ -137,7 +142,7 @@ public class ControllerAdmin {
         ControlMenuAdmin();
     }
     
-    public void ControlMenuEditAkun(){
+    public void ControlMenuEditAkun() throws ParseException{
         //ViewEditAkun viewEditAkun = new ViewEditAkun();
         //viewEditAkun.MenuEditAkun();
         ViewAdmin viewAdmin = new ViewAdmin();
@@ -154,7 +159,7 @@ public class ControllerAdmin {
      
     }
     
-    public void ControlMenuHapusAkun(){
+    public void ControlMenuHapusAkun() throws ParseException{
         //ViewHapusAkun viewHapusAkun = new ViewHapusAkun();
         //viewHapusAkun.MenuHapusAkun();
         
@@ -172,19 +177,9 @@ public class ControllerAdmin {
      
         
     }
-    
-      
-    
-        /**
- *  Read  from Model
- * 
- */ 
-      
-      
       
      /**
  *  Tambah  to Model
- * 
  */ 
     
     public void tambahUser(String username, String password, int role){
@@ -193,10 +188,6 @@ public class ControllerAdmin {
         System.out.println("Akun berhasil ditambahkan");
         
     }
-    
-    
-    
-  
     
     /**
  *  Edit to Model
@@ -209,13 +200,8 @@ public class ControllerAdmin {
         System.out.println("password telah diset ke default");
     }
     
-    
-      
-    
-    
     /**
  * Hapus to Model
- * 
  */
        
     public void hapusUser (String username){
@@ -224,22 +210,19 @@ public class ControllerAdmin {
         System.out.println("akun telah dihapus");
     }
     
-    
-    
-    
     /**
  * validasi
- * 
  */
     
     public boolean  cekUser (String username){
-
         user = new User(username);
         return user.CekUserFromJson();
     }
     
-    
-    
+    public void readUser(){
+        user = new User();
+        user.ReadUserFromJson();
+    }
     
      
      

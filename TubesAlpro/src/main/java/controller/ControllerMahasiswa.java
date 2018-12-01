@@ -13,7 +13,6 @@ import model.User;
 import view.ViewMahasiswa;
 import org.json.simple.parser.ParseException;
 
-
 /**
  *
  * @author ASUS
@@ -118,6 +117,7 @@ public class ControllerMahasiswa {
         
     }
 
+    
     public void ControlMenuTambahPekerjaan() throws ParseException {
         System.out.println("##Daftar Pekerjaan");
         readPekerjaan();

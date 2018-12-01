@@ -14,7 +14,7 @@ import model.Pekerjaan;
  * @author ASUS
  */
 public class ViewMahasiswa {
-    private int pilihan;
+    private String pilihan;
     private String username, password, nama;
     Scanner input = new Scanner(System.in);
     private ArrayList<Kompetensi> kompetensi = new ArrayList<Kompetensi>();
@@ -30,7 +30,7 @@ public class ViewMahasiswa {
         System.out.println("4.  Ubah Password");
         System.out.println("5.  Keluar");
         System.out.print("Pilih Menu : ");
-        pilihan = input.nextInt();
+        pilihan = input.next();
     }
     
     public void menuKelolaAkun(){
@@ -38,7 +38,7 @@ public class ViewMahasiswa {
         System.out.println("2. Tambah Pekerjaan");
         System.out.println("3. Tambah Kompetensi yang dimiliki");
         System.out.print("Pilihan Menu : ");
-        pilihan = input.nextInt();
+        pilihan = input.next();
     }
     
     public void MenuEditNama(){
@@ -60,7 +60,7 @@ public class ViewMahasiswa {
             inKompetensi = input.nextLine();
             Kompetensi k = new Kompetensi(inKompetensi);
             kompetensi.add(k);
-            System.out.print("Apakah ingin menambahkan prasyarat lagi? (1 untuk yes/0 untuk no)" );
+            System.out.print("\nApakah ingin menambahkan kompetensi lagi? (1 untuk yes/0 untuk no)" );
             lanjut = input.nextInt();
         }
         while (lanjut == 1);
@@ -82,7 +82,7 @@ public class ViewMahasiswa {
         return nama;
     }
     
-    public int getPilihan() {
+    public String getPilihan() {
         return pilihan;
     }
     

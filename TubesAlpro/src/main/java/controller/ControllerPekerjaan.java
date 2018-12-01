@@ -8,6 +8,7 @@ package controller;
 import java.util.ArrayList;
 import model.Kompetensi;
 import model.Pekerjaan;
+import org.json.simple.parser.ParseException;
 import view.ViewPekerjaan;
 
 /**
@@ -22,7 +23,7 @@ public class ControllerPekerjaan {
         viewPekerjaan = new ViewPekerjaan();
     }
     
-    public void ControlMenuKelolaPekerjaan(){ 
+    public void ControlMenuKelolaPekerjaan() throws ParseException{ 
         System.out.println("## Daftar Pekerjaan  ##");
         readPekerjaan();
         
@@ -37,13 +38,13 @@ public class ControllerPekerjaan {
         }  
     }
     
-    public void ControlMenuTambahPekerjaan(){
+    public void ControlMenuTambahPekerjaan() throws ParseException{
         viewPekerjaan.menuTambahPekerjaan();
         
         tambahPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getNama(), viewPekerjaan.getListKompetensi());
     }
     
-    public void ControlMenuEditPekerjaan(){
+    public void ControlMenuEditPekerjaan() throws ParseException{
         viewPekerjaan.MenuCekEditPekerjaan();
         
         if (!cekIdPekerjaan(viewPekerjaan.getId())) {
@@ -68,7 +69,7 @@ public class ControllerPekerjaan {
         }
     }
     
-    public void ControlMenuHapusPekerjaan(){
+    public void ControlMenuHapusPekerjaan() throws ParseException{
         viewPekerjaan.MenuHapusPekerjaan();
         
         if (!cekIdPekerjaan(viewPekerjaan.getId())) {
@@ -89,28 +90,33 @@ public class ControllerPekerjaan {
         pekerjaan.ReadPekerjaanFromJson();
     }
     
-    public void tambahPekerjaan(String id, String nama, ArrayList<Kompetensi> listKompetensi){
+    public void tambahPekerjaan(String id, String nama, ArrayList<Kompetensi> listKompetensi) throws ParseException{
         pekerjaan = new Pekerjaan(id, nama, listKompetensi);
         pekerjaan.TulisPekerjaanToJson();
         System.out.println("Pekerjaan berhasil ditambahkan");
+        
+        ControlMenuKelolaPekerjaan();
     }
     
-    public void editNamaPekerjaan (String id, String nama){
+    public void editNamaPekerjaan (String id, String nama) throws ParseException{
         pekerjaan = new Pekerjaan(id, nama, null);
         pekerjaan.EditPekerjaanFromJson();
         System.out.println("Edit nama pekerjaan berhasil");
+        ControlMenuKelolaPekerjaan();
     }
     
-    public void editKompetensiPekerjaan (String id, ArrayList<Kompetensi> listKompetensi){
+    public void editKompetensiPekerjaan (String id, ArrayList<Kompetensi> listKompetensi) throws ParseException{
         pekerjaan = new Pekerjaan(id, null, listKompetensi);
         pekerjaan.EditListKompetensiFromJson();
         System.out.println("Edit prasyarat berhasil");
+        ControlMenuKelolaPekerjaan();
     }
     
-    public void hapusPekerjaan (String id){
+    public void hapusPekerjaan (String id) throws ParseException{
         pekerjaan = new Pekerjaan(id);
         pekerjaan.HapusPekerjaanFromJson();
         System.out.println("Pekerjaan telah dihapus");
+        ControlMenuKelolaPekerjaan();
     }
 
 }

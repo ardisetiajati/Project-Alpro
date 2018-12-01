@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONArray;
@@ -331,5 +332,66 @@ public class User {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    public void ReadUserFromJson(){
+        JSONObject root = new JSONObject();
+        JSONArray pekerjaan = new JSONArray();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+
+        File f = new File(ConfigDirektori.direktoriAkun);
+        
+        if (f.exists() && !f.isDirectory()) {
+        
+            try {
+                //JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+                Object obj = parser.parse(new FileReader(ConfigDirektori.direktoriAkun));
+
+                JSONObject jsonObject = (JSONObject) obj;
+                //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
+                array = (JSONArray) jsonObject .get("users");
+
+                
+                String tbl = "| %-6s | %-20s | %-30s |%-30s |%n";
+                System.out.format("%nDaftar Akun%n");
+                System.out.format("+----------+----------------------+--------------------------------+--------------------------------+%n");
+                System.out.format("|Role      | Username             | Password                       | Nama                           |%n");
+                System.out.format("+----------+----------------------+--------------------------------+--------------------------------+%n");
+
+                for (int i = 0; i < array.size(); i++) {
+                    char kode;
+                    // get all JSON Object
+                    JSONObject itemArr = (JSONObject)array.get(i);
+                    String username = (String) itemArr.get("username");
+                    String name = "";
+                    Long role = (Long) itemArr.get("role");
+                    if(role!=3){
+                        name = (String) itemArr.get("nama");
+                    }
+                    
+                    //set role Name
+                    String roleName = "";
+                    if(role==1)
+                        roleName = "Mhswa";
+                    else if(role==2)
+                        roleName = "Dosen";
+                    else
+                        roleName = "Admin";
+                        
+                    String password = (String) itemArr.get("password");
+                    System.out.format(tbl, role.toString() +"("+roleName+")", username, password, name);
+                }
+                System.out.format("+----------+----------------------+--------------------------------+--------------------------------+%n");
+                System.out.println("");
+            
+            } catch (FileNotFoundException e) {
+             e.printStackTrace();
+            } catch (IOException e) {
+             e.printStackTrace();
+            } catch (ParseException ex) {
+             Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }      
     }
 }
