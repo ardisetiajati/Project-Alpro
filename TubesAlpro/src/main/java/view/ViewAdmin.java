@@ -6,15 +6,17 @@
 package view;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author Ardiansyah Setiajati
  */
 public class ViewAdmin {
-    private int pilihan;
+    private String pilihan;
     private String username, password;
     private int role;
+    Pattern pattern = Pattern.compile("[A-Za-z0-9_]+");
     Scanner input = new Scanner(System.in);
 
     public ViewAdmin() {
@@ -33,18 +35,23 @@ public class ViewAdmin {
         System.out.println("9.  Ubah Password");
         System.out.println("0.  Keluar");
         System.out.print("Pilih Menu : ");
-        pilihan = input.nextInt();
+        pilihan = input.next();
     }
     
     public void menuKelolaAkun(){
         System.out.println("1. Tambah Akun");
         System.out.println("2. Edit Akun");
         System.out.println("3. Hapus Akun");
-        System.out.print("Pilihan Menu : ");
-        pilihan = input.nextInt();
+        System.out.println("0. Kembali");
+        System.out.print("Pilih Menu : ");
+        pilihan = input.next();
+        
     }
     
     public void menuTambahAkun(){
+        //String nim = new String ("itb");
+        String cekitb,cekni;
+        
         System.out.println("Pilihan role");
         System.out.println("1. Mahasiswa");
         System.out.println("2. Dosen");
@@ -54,39 +61,52 @@ public class ViewAdmin {
         switch  (role) {
             case 1:
                 do {
+                   
                     System.out.print("Masukkan username : ");
-                    username = input.nextLine();
-                    if (username.length() != 11) {
+                    username = input.next();
+                    cekitb = username.substring(0, 3);
+                    cekni = username.substring(3);
+                     
+                    if (cekitb.equals("itb") == false || username.length() != 11 || cekni.matches("[0-9_]+")== false) {
                         System.out.println("username tidak valid, harus terdiri dari itb<NIM>, mis: itb23518001 ");
                     }
-                }while (username.length() != 11);
+                    
+                    //return input=true;
+                }while (cekitb.equals("itb") == false || username.length() != 11 || cekni.matches("[0-9_]+")== false);
                 System.out.print("Masukkan password : ");
-                password = input.nextLine();
+                password = input.next();
                 break;
             case 2:
                 do {
                     System.out.print("Masukkan username : ");
-                    username = input.nextLine();
-                    if (username.length() != 13) {
+                    username = input.next();
+                    cekitb = username.substring(0, 3);
+                    cekni = username.substring(3);
+                    
+                    if (cekitb.equals("itb") == false || username.length() != 13 || cekni.matches("[0-9_]+")== false) {
                         System.out.println("username tidak valid, harus terdiri dari itb<NIP>, mis: itb9904201611");
                     }
-                }while (username.length() != 13);
+                }while (cekitb.equals("itb") == false || username.length() != 13 || cekni.matches("[0-9_]+")== false);
                 System.out.print("Masukkan password : ");
-                password = input.nextLine();
+                password = input.next();
                 break;
             case 3:
                 do {
                     System.out.print("Masukkan username : ");
-                    username = input.nextLine();
-                    if (!username.contains("admin")) {
+                    username = input.next();
+                    cekitb = username.substring(0, 5);
+                    cekni = username.substring(5);
+                    
+                    if (cekitb.equals("admin") == false || username.length() != 15 || cekni.matches("[0-9_]+")== false) {
                         System.out.println("username tidak valid, harus terdiri dari admin<NIP>, mis: admin9904201611");
                     }
-                }while (!username.contains("admin"));
+                }while (cekitb.equals("admin") == false || username.length() != 15 || cekni.matches("[0-9_]+")== false);
                 System.out.print("Masukkan password : ");
-                password = input.nextLine();
+                password = input.next();
                 break;
             default:
                 System.out.println("role tidak ditemukan");
+                menuTambahAkun();
                 break;
         }
            
@@ -114,7 +134,7 @@ public class ViewAdmin {
         return role;
     }    
     
-    public int getPilihan() {
+    public String getPilihan() {
         return pilihan;
     }
     

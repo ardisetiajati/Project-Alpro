@@ -28,6 +28,7 @@ public class ViewMahasiswa {
         System.out.println("2.  Kelola Jadwal");
         System.out.println("3.  Lihat Riwayat Tagihan");
         System.out.println("4.  Ubah Password");
+        System.out.println("5.  Keluar");
         System.out.print("Pilih Menu : ");
         pilihan = input.nextInt();
     }

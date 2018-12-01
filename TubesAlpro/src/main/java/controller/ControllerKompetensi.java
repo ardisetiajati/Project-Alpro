@@ -7,6 +7,8 @@ package controller;
 
 import java.util.ArrayList;
 import model.Kompetensi;
+import org.json.simple.parser.ParseException;
+
 import view.ViewKompetensi;
 
 /**
@@ -16,23 +18,46 @@ import view.ViewKompetensi;
 public class ControllerKompetensi {
     Kompetensi kompetensi;
     ViewKompetensi viewKompetensi;
+    ControllerAdmin ctrAdmin;
     
-    public void ControlMenuKelolaKompetensi(){ 
+    public void ControlMenuKelolaKompetensi() throws ParseException{ 
         System.out.println("## Daftar Kompetensi  ##");
         readKompetensi();
         
         viewKompetensi = new ViewKompetensi();
         viewKompetensi.menuKelolaKompetensi();
         
-        if (viewKompetensi.getPilihan() == 1) {
-            ControlMenuTambahKompetensi();
-        } 
-        else if (viewKompetensi.getPilihan() == 2) {
-            ControlMenuEditKompetensi();
-        } 
-        else if (viewKompetensi.getPilihan() == 3){
-            ControlMenuHapusKompetensi();
-        }  
+        
+        switch (viewKompetensi.getPilihan()){
+            case "1":
+                ControlMenuTambahKompetensi();
+                break;
+            case "2":
+                ControlMenuEditKompetensi();
+                break;
+            case "3":
+                ControlMenuHapusKompetensi();
+                break;
+            case "0":
+                ctrAdmin = new ControllerAdmin();
+                ctrAdmin.ControlMenuAdmin();
+                break;
+            default:
+                System.out.println("Inputan Salah!");
+                ControlMenuKelolaKompetensi();
+                break;
+                
+        }
+        
+//        if (viewKompetensi.getPilihan() == "1") {
+//            ControlMenuTambahKompetensi();
+//        } 
+//        else if (viewKompetensi.getPilihan() == "2") {
+//            ControlMenuEditKompetensi();
+//        } 
+//        else if (viewKompetensi.getPilihan() == "3"){
+//            ControlMenuHapusKompetensi();
+//        }  
     }
     
     public void ControlMenuTambahKompetensi(){
@@ -47,39 +72,67 @@ public class ControllerKompetensi {
         tambahKompetensi(viewKompetensi.getId(), viewKompetensi.getNama(), viewKompetensi.getPrasyarat(), viewKompetensi.getSks(), viewKompetensi.isHasPraktikum());
     }
     
-    public void ControlMenuEditKompetensi(){
+    public void ControlMenuEditKompetensi() throws ParseException{
             
         ViewKompetensi viewKompetensi = new ViewKompetensi();
         viewKompetensi.MenuCekEditKompetensi();
 
         if (!cekIdKompetensi(viewKompetensi.getId())) {
              System.out.println("Id Kompetensi tidak dapat ditemukan");
+             ControlMenuEditKompetensi();
         }
         else {
             //viewEditKompetensi.MenuEditKompetensi();
+//            viewKompetensi.MenuEditKompetensi();
+//            if (viewKompetensi.getPilihan() == "1") {
+//                viewKompetensi.MenuEditNama();
+//                 //System.out.println(viewEditKompetensi.getId());
+//                editNamaKompetensi(viewKompetensi.getId(), viewKompetensi.getNama());
+//            } 
+//            else if (viewKompetensi.getPilihan() == "2") {
+//                viewKompetensi.MenuEditPrasyarat();
+//                editPrasyaratKompetensi(viewKompetensi.getId() , viewKompetensi.getPrasyarat());
+//                //System.out.println("wakwaw2");
+//            } 
+//            else if (viewKompetensi.getPilihan() == "3") {
+//                //System.out.println("wakwaw3");
+//                viewKompetensi.MenuEditSKS();
+//                editSksKompetensi(viewKompetensi.getId(), viewKompetensi.getSks());
+//            } 
+//            else  {
+//                ControlMenuKelolaKompetensi();
+//            }
+//            viewKompetensi = new ViewKompetensi();
             viewKompetensi.MenuEditKompetensi();
-            if (viewKompetensi.getPilihan() == 1) {
-                viewKompetensi.MenuEditNama();
+            switch (viewKompetensi.getPilihan()){
+                case "1":
+                    viewKompetensi.MenuEditNama();
                  //System.out.println(viewEditKompetensi.getId());
-                editNamaKompetensi(viewKompetensi.getId(), viewKompetensi.getNama());
-            } 
-            else if (viewKompetensi.getPilihan() == 2) {
-                viewKompetensi.MenuEditPrasyarat();
-                editPrasyaratKompetensi(viewKompetensi.getId() , viewKompetensi.getPrasyarat());
-                //System.out.println("wakwaw2");
-            } 
-            else if (viewKompetensi.getPilihan() == 3) {
-                //System.out.println("wakwaw3");
-                viewKompetensi.MenuEditSKS();
-                editSksKompetensi(viewKompetensi.getId(), viewKompetensi.getSks());
-            } 
-            else  {
-                viewKompetensi.MenuCekEditKompetensi();
+                    editNamaKompetensi(viewKompetensi.getId(), viewKompetensi.getNama());
+                    break;
+                case "2":
+                    viewKompetensi.MenuEditPrasyarat();
+                    editPrasyaratKompetensi(viewKompetensi.getId() , viewKompetensi.getPrasyarat());
+                    break;
+                case "3":
+                    viewKompetensi.MenuEditSKS();
+                    editSksKompetensi(viewKompetensi.getId(), viewKompetensi.getSks());
+                    System.out.println(viewKompetensi.getId());
+                    break;
+                case "0":
+                    ControlMenuEditKompetensi();
+                    break;
+                default:
+                    System.out.println("Inputan Salah!");
+                    ControlMenuKelolaKompetensi();
+                    break;
+
             }
+            
         }      
      }
     
-    public void ControlMenuHapusKompetensi(){
+    public void ControlMenuHapusKompetensi() throws ParseException{
         //ViewHapusKompetensi viewHapusKompetensi = new ViewHapusKompetensi();
         //viewHapusKompetensi.MenuHapusAkun();
         
@@ -88,6 +141,7 @@ public class ControllerKompetensi {
 
         if (!cekIdKompetensi(viewKompetensi.getId())) {
             System.out.println("Id tidak ditemukan");
+            ControlMenuHapusKompetensi();
         }
         else{
             hapusKompetensi(viewKompetensi.getId());
@@ -105,28 +159,32 @@ public class ControllerKompetensi {
         System.out.println("Kompetensi berhasil ditambahkan");
     }
     
-    public void editNamaKompetensi (String id, String nama){
+    public void editNamaKompetensi (String id, String nama) throws ParseException{
         kompetensi = new Kompetensi(id, nama, null, 0, false);
         kompetensi.EditKompetensiFromJson();
         System.out.println("Edit nama berhasil");
+        ControlMenuKelolaKompetensi();
     }
     
-    public void editPrasyaratKompetensi (String id , ArrayList<Kompetensi> listPrasyarat){
+    public void editPrasyaratKompetensi (String id , ArrayList<Kompetensi> listPrasyarat) throws ParseException{
         kompetensi = new Kompetensi(id, null, listPrasyarat, 0, false);
         kompetensi.EditKompetensiFromJson();
         System.out.println("Edit prasyarat berhasil");
+        ControlMenuKelolaKompetensi();
     }
       
-    public void editSksKompetensi (String id,  int sks){
+    public void editSksKompetensi (String id,  int sks) throws ParseException{
         kompetensi = new Kompetensi(id, null, null,sks, false);
         kompetensi.EditKompetensiFromJson();
         System.out.println("Edit SKS berhasil");
+        ControlMenuKelolaKompetensi();
     }
     
-    public void hapusKompetensi (String id){
+    public void hapusKompetensi (String id) throws ParseException{
         kompetensi = new Kompetensi(id);
         kompetensi.HapusKompetensiFromJson();
         System.out.println("Kompetensi telah dihapus");
+        ControlMenuKelolaKompetensi();
     }
     
     public boolean  cekIdKompetensi (String id){

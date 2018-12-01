@@ -27,7 +27,7 @@ public class ControllerDosen {
     Dosen dsn;
     Dosen dsnAlokasi;
     Kompetensi kompetensi;
-    
+
     public ControllerDosen(String username){
         this.username = username;
     }
