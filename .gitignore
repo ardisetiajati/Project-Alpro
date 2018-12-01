@@ -1,3 +1,16 @@
 
 TubesAlpro/src/main/java/model/ConfigDirektori.java
 TubesAlpro/src/main/java/model/ConfigDirektori.java
+TubesAlpro/target/classes/controller/ControllerAdmin.class
+TubesAlpro/target/classes/controller/ControllerKompetensi.class
+TubesAlpro/target/classes/controller/ControllerPekerjaan.class
+TubesAlpro/target/classes/model/Admin.class
+TubesAlpro/target/classes/model/ConfigDirektori.class
+TubesAlpro/target/classes/model/Dosen.class
+TubesAlpro/target/classes/model/Jadwal.class
+TubesAlpro/target/classes/model/Kelas.class
+TubesAlpro/target/classes/model/Kompetensi.class
+TubesAlpro/target/classes/model/Mahasiswa.class
+TubesAlpro/target/classes/model/Pekerjaan.class
+TubesAlpro/target/classes/model/Tagihan.class
+TubesAlpro/target/classes/model/User.class
