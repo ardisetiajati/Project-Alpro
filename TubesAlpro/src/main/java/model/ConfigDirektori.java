@@ -11,23 +11,23 @@ package model;
  */
 public class ConfigDirektori {
     // Ardi
-  public static final String direktoriAkun = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\user.json";
-  public static final String direktoriKompetensi = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\kompetensi.json";
-  public static final String direktoriPekerjaan = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\pekerjaan.json";
-  public static final String direktoriKalender = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\kalender.json";
-  public static final String direktoriSlot = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\jadwal.json";
-  public static final String direktoriAlokasiSlot = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\alokasislot.json";  
+  //public static final String direktoriAkun = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\user.json";
+  //public static final String direktoriKompetensi = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\kompetensi.json";
+  //public static final String direktoriPekerjaan = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\pekerjaan.json";
+  //public static final String direktoriKalender = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\kalender.json";
+  //public static final String direktoriSlot = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\jadwal.json";
+  //public static final String direktoriAlokasiSlot = "D:\\A-Ardi\\02-IF\\Semester 1\\Algoritma dan Pemrograman\\Project Alpro\\json\\alokasislot.json";  
    
    //Izu
 
-//  public static final String direktoriAkun = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/user.json";
-//   public static final String direktoriKompetensi = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kompetensi.json";
-//   public static final String direktoriPekerjaan = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/pekerjaan.json";
-//   public static final String direktoriKalender = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kalender.json";
-//   // lihat ini, ada perubahan
-//   public static final String direktoriSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/jadwal/";
-//   public static final String direktoriAlokasiSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/alokasislot.json";
-//   public static final String direktoriCutiDosen = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/cutidosen.json";
+ public static final String direktoriAkun = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/user.json";
+   public static final String direktoriKompetensi = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kompetensi.json";
+   public static final String direktoriPekerjaan = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/pekerjaan.json";
+   public static final String direktoriKalender = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kalender.json";
+   // lihat ini, ada perubahan
+   public static final String direktoriSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/jadwal/";
+   public static final String direktoriAlokasiSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/alokasislot.json";
+   public static final String direktoriCutiDosen = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/cutidosen.json";
 
    
   // Ardhi
