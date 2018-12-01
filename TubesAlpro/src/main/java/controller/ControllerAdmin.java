@@ -13,6 +13,7 @@ import model.Dosen;
 import model.Kompetensi;
 import model.Mahasiswa;
 import model.User;
+import org.json.simple.parser.ParseException;
 import view.ViewAdmin;
 import view.ViewKompetensi;
 
@@ -48,7 +49,7 @@ public class ControllerAdmin {
  * Controller  Utama
  * 
  */
-    public void ControlMenuAdmin(){
+    public void ControlMenuAdmin() throws ParseException{
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuAdmin();
         switch (viewAdmin.getPilihan()){
@@ -95,17 +96,11 @@ public class ControllerAdmin {
  * 
  */
     
-<<<<<<< HEAD
+
     
 
     public void ControlMenuKelolaAkun() throws ParseException{
 
-=======
-    public void ControlMenuKelolaAkun(){
-        
-        readUser();
-        
->>>>>>> 8f8f6ee7ddfb24c7972eba55be97e75e7f70dca2
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuKelolaAkun();
         
@@ -137,7 +132,7 @@ public class ControllerAdmin {
  */
     
     
-    public void ControlMenuTambahAkun(){
+    public void ControlMenuTambahAkun() throws ParseException{
         //ViewTambahAkun viewTambahAkun = new ViewTambahAkun();
         //viewTambahAkun.menuTambahAkun();
         ViewAdmin viewAdmin = new ViewAdmin();
@@ -147,7 +142,7 @@ public class ControllerAdmin {
         ControlMenuAdmin();
     }
     
-    public void ControlMenuEditAkun(){
+    public void ControlMenuEditAkun() throws ParseException{
         //ViewEditAkun viewEditAkun = new ViewEditAkun();
         //viewEditAkun.MenuEditAkun();
         ViewAdmin viewAdmin = new ViewAdmin();
@@ -164,7 +159,7 @@ public class ControllerAdmin {
      
     }
     
-    public void ControlMenuHapusAkun(){
+    public void ControlMenuHapusAkun() throws ParseException{
         //ViewHapusAkun viewHapusAkun = new ViewHapusAkun();
         //viewHapusAkun.MenuHapusAkun();
         

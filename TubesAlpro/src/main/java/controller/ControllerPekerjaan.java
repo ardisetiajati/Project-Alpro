@@ -8,6 +8,7 @@ package controller;
 import java.util.ArrayList;
 import model.Kompetensi;
 import model.Pekerjaan;
+import org.json.simple.parser.ParseException;
 import view.ViewPekerjaan;
 
 /**
@@ -22,7 +23,7 @@ public class ControllerPekerjaan {
         viewPekerjaan = new ViewPekerjaan();
     }
     
-    public void ControlMenuKelolaPekerjaan(){ 
+    public void ControlMenuKelolaPekerjaan() throws ParseException{ 
         System.out.println("## Daftar Pekerjaan  ##");
         readPekerjaan();
         
@@ -43,7 +44,7 @@ public class ControllerPekerjaan {
         tambahPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getNama(), viewPekerjaan.getListKompetensi());
     }
     
-    public void ControlMenuEditPekerjaan(){
+    public void ControlMenuEditPekerjaan() throws ParseException{
         viewPekerjaan.MenuCekEditPekerjaan();
         
         if (!cekIdPekerjaan(viewPekerjaan.getId())) {
