@@ -48,6 +48,12 @@ public class Dosen extends User{
         this.username = username;
         this.nama = nama;
     }
+
+    public ArrayList<Kompetensi> getKompetensi() {
+        return kompetensi;
+    }
+    
+    
     
     public void EditUserDosenFromJson(){
         JSONObject root = new JSONObject();
@@ -118,7 +124,8 @@ public class Dosen extends User{
         }
     }
     
-    public void EditKompetensiFromJson(){
+    public boolean EditKompetensiFromJson(){
+         boolean finished = false;
         JSONObject root = new JSONObject();
         JSONParser parser = new JSONParser();
         JSONArray array = null;
@@ -155,11 +162,13 @@ public class Dosen extends User{
 
             file.write(root.toJSONString());
             file.flush();
+            finished = true;
 
         } catch (IOException e) {
             e.printStackTrace();
         }
         }
+        return finished;
     }
     
     public void TambahLiburFromJson(){
@@ -198,6 +207,411 @@ public class Dosen extends User{
             e.printStackTrace();
         }
     }
+
+    public void AlokasiJadwal(int minggu , String gotKompetensi) {
+        JSONObject root = new JSONObject();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+        JSONArray arrayJadwal = null;
+        JSONArray arrayUser = null;
+        long sks = 0;
+        boolean praktikum = false;
+        String getKompetensi = null;
+        ArrayList <String> getLibur = new ArrayList<String>();
+        
+        try {
+            JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+            array = (JSONArray) objFromFile.get("kompetensi");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriSlot+"jadwal"+minggu+".json"));
+            arrayJadwal = (JSONArray) objFromFile.get("minggu"+minggu);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+           try {
+            JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriAkun));
+            arrayUser = (JSONArray) objFromFile.get("users");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+          // pre requiresite= libur dosen
+         boolean found = false;
+        for (int z = 0; z < arrayUser.size() && found == false; z++) {
+                JSONObject itemArr = (JSONObject)arrayUser.get(z);
+                String getUsernameDosen = (String) itemArr.get("username");
+                //System.out.println(username);
+                //System.out.println(getUsernameDosen);
+                
+                if (getUsernameDosen.equals(username)){
+                             getLibur = (ArrayList<String>) itemArr.get("libur");
+                             //System.out.println(getLibur);
+                             found = true;
+                }
+        }
+        // pre requiresite= kompetensi
+        found = false;
+        for (int i = 0; i < array.size() && found == false; i++) {
+                JSONObject itemArr = (JSONObject)array.get(i);
+                System.out.println(itemArr.get("id"));
+                System.out.println(gotKompetensi);
+                if (itemArr.get("id").equals(gotKompetensi)) {
+                                long getSKS = (long) itemArr.get("sks");
+                                boolean getPraktikum = (boolean) itemArr.get("hasPraktikum");
+                               getKompetensi = (String) itemArr.get("id");
+                                sks = getSKS;
+                                praktikum = getPraktikum;
+                                found = true;
+                                }
+        }
+                
+                 // pre requiresite= cek cuti
+                boolean cuti = true;
+                boolean read = false;
+               for (int j = 0; j < arrayJadwal.size() && read == false; j++) {
+                JSONObject itemArrJadwal = (JSONObject)arrayJadwal.get(j);
+                String tanggal = (String) itemArrJadwal.get("tanggal");
+                 //  System.out.println(arrayJadwal.size());
+                   //System.out.println(tanggal);
+                                if (getLibur != null){
+                                for (int i = 0; i <getLibur.size() && cuti == true; i++) {
+                                                if (getLibur.get(i).equals(tanggal)) {
+                                                            cuti = false;
+                                                }
+                                }
+                                
+                                }else{
+                                            cuti = false;
+                                        }
+                
+                                
+                   if (!cuti) {
+                                String inputan = getKompetensi+"_"+username;
+                                if (sks == 5) {
+                                    
+
+                                    if (itemArrJadwal.get("hari").equals("Jumat")) {
+                                            continue;  
+                                    }else {
+
+                                             if (itemArrJadwal.get("jam7kelas1") == null) {
+
+                                             
+                                             if (praktikum) {
+                                                                                    itemArrJadwal.put("jam7kelas1", inputan);
+                                                                    itemArrJadwal.put("jam8kelas1", inputan);
+                                                                    itemArrJadwal.put("jam9kelas1", inputan);
+                                                                    itemArrJadwal.put("jam10kelas1", inputan);
+                                                                    itemArrJadwal.put("jam11kelas1", inputan);
+                                                                               JSONObject itemArrJadwalPraktikum= (JSONObject)arrayJadwal.get(j+1);
+                                                                              itemArrJadwalPraktikum.put("jam7kelas1", inputan);
+                                                                                itemArrJadwalPraktikum.put("jam8kelas1", inputan);
+                                                                                itemArrJadwalPraktikum.put("jam9kelas1", inputan);
+                                                                                itemArrJadwalPraktikum.put("jam10kelas1", inputan);
+                                                                                itemArrJadwalPraktikum.put("jam11kelas1", inputan);
+                                                                                read = true;
+                                                                 }else{
+                                                                  itemArrJadwal.put("jam7kelas1", inputan);
+                                                                    itemArrJadwal.put("jam8kelas1", inputan);
+                                                                    itemArrJadwal.put("jam9kelas1", inputan);
+                                                                    itemArrJadwal.put("jam10kelas1", inputan);
+                                                                    itemArrJadwal.put("jam11kelas1", inputan);
+                                                                    read = true;
+                                             }
+                                             }else if (itemArrJadwal.get("jam7kelas2") == null){
+
+                                                             String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
+                                                             String cekDosen = kelasDosen.substring(7);
+                                                             if (cekDosen.equals(username)) {
+                                                                     continue;
+                                                             }else{
+
+                                                                              itemArrJadwal.put("jam7kelas2", inputan);
+                                                                              itemArrJadwal.put("jam8kelas2", inputan);
+                                                                              itemArrJadwal.put("jam9kelas2", inputan);
+                                                                              itemArrJadwal.put("jam10kelas2", inputan);
+                                                                              itemArrJadwal.put("jam11kelas2", inputan);
+                                                                              read = true;
+                                                                             if (praktikum) {
+                                                                                    itemArrJadwal.put("jam7kelas2", inputan);
+                                                                              itemArrJadwal.put("jam8kelas2", inputan);
+                                                                              itemArrJadwal.put("jam9kelas2", inputan);
+                                                                              itemArrJadwal.put("jam10kelas2", inputan);
+                                                                              itemArrJadwal.put("jam11kelas2", inputan);
+                                                                               JSONObject itemArrJadwalPraktikum= (JSONObject)arrayJadwal.get(j+1);
+
+                                                                               itemArrJadwalPraktikum.put("jam7kelas2", inputan);
+                                                                              itemArrJadwalPraktikum.put("jam8kelas2", inputan);
+                                                                              itemArrJadwalPraktikum.put("jam9kelas2", inputan);
+                                                                              itemArrJadwalPraktikum.put("jam10kelas2", inputan);
+                                                                              itemArrJadwalPraktikum.put("jam11kelas2", inputan);
+                                                                              read = true;
+                                                                 }
+
+                                                             }
+
+                                             }else if (itemArrJadwal.get("jam7kelas3") == null){
+                                             //alokasi
+                                                             String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
+                                                             String cekDosen = kelasDosen.substring(7);
+                                                             String kelasDosen1 = (String) itemArrJadwal.get("jam7kelas2");
+                                                             String cekDosen1 = kelasDosen1.substring(7);
+                                                             if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
+                                                                     continue;
+                                                             }else{
+
+                                                                             itemArrJadwal.put("jam7kelas3", inputan);
+                                                                             itemArrJadwal.put("jam8kelas3", inputan);
+                                                                             itemArrJadwal.put("jam9kelas3", inputan);
+                                                                             itemArrJadwal.put("jam10kelas3", inputan);
+                                                                             itemArrJadwal.put("jam11kelas3", inputan);
+                                                                             read = true;
+                                                                              if (praktikum) {
+                                                                                    itemArrJadwal.put("jam7kelas3", inputan);
+                                                                             itemArrJadwal.put("jam8kelas3", inputan);
+                                                                             itemArrJadwal.put("jam9kelas3", inputan);
+                                                                             itemArrJadwal.put("jam10kelas3", inputan);
+                                                                             itemArrJadwal.put("jam11kelas3", inputan);
+                                                                               JSONObject itemArrJadwalPraktikum= (JSONObject)arrayJadwal.get(j+1);
+
+                                                                                itemArrJadwalPraktikum.put("jam7kelas3", inputan);
+                                                                             itemArrJadwalPraktikum.put("jam8kelas3", inputan);
+                                                                             itemArrJadwalPraktikum.put("jam9kelas3", inputan);
+                                                                             itemArrJadwalPraktikum.put("jam10kelas3", inputan);
+                                                                             itemArrJadwalPraktikum.put("jam11kelas3", inputan);
+                                                                             read = true;
+                                                                 }
+
+                                                             }
+                                             }else {
+                                             continue;
+                                             }
+                                    }
+                                }else if(sks == 4){
+                                    //boolean flag = false;
+                                                if (itemArrJadwal.get("hari").equals("Jumat")) {
+                                            continue;  
+                                    }else {
+                                                                if (itemArrJadwal.get("jam7kelas1") == null) {
+
+                                                                
+                                                                if (praktikum) {
+                                                                                                     itemArrJadwal.put("jam7kelas1", inputan);
+                                                                                                    itemArrJadwal.put("jam8kelas1", inputan);
+                                                                                                    itemArrJadwal.put("jam9kelas1", inputan);
+                                                                                                    itemArrJadwal.put("jam10kelas1", inputan);
+                                                                                                  JSONObject itemArrJadwalPraktikum= (JSONObject)arrayJadwal.get(j+1);
+                                                                                                     itemArrJadwalPraktikum.put("jam7kelas1", inputan);
+                                                                                                    itemArrJadwalPraktikum.put("jam8kelas1", inputan);
+                                                                                                    itemArrJadwalPraktikum.put("jam9kelas1", inputan);
+                                                                                                    itemArrJadwalPraktikum.put("jam10kelas1", inputan);
+                                                                                                    read = true;
+                                                                                    }else{
+                                                                                     itemArrJadwal.put("jam7kelas1", inputan);
+                                                                                    itemArrJadwal.put("jam8kelas1", inputan);
+                                                                                    itemArrJadwal.put("jam9kelas1", inputan);
+                                                                                    itemArrJadwal.put("jam10kelas1", inputan);
+                                                                                    read = true;
+                                                                }
+                                                                }else if (itemArrJadwal.get("jam7kelas2") == null){
+
+                                                                                String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
+                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                if (cekDosen.equals(username)) {
+                                                                                       // flag = true;
+                                                                                }else{
+
+                                                                                                itemArrJadwal.put("jam7kelas2", inputan);
+                                                                                                itemArrJadwal.put("jam8kelas2", inputan);
+                                                                                                itemArrJadwal.put("jam9kelas2", inputan);
+                                                                                                itemArrJadwal.put("jam10kelas2", inputan);
+                                                                                                read = true;
+                                                                                                if (praktikum) {
+                                                                                                     itemArrJadwal.put("jam7kelas2", inputan);
+                                                                                                itemArrJadwal.put("jam8kelas2", inputan);
+                                                                                                itemArrJadwal.put("jam9kelas2", inputan);
+                                                                                                itemArrJadwal.put("jam10kelas2", inputan);
+                                                                                                  JSONObject itemArrJadwalPraktikum= (JSONObject)arrayJadwal.get(j+1);
+
+                                                                                                   itemArrJadwalPraktikum.put("jam7kelas2", inputan);
+                                                                                                itemArrJadwalPraktikum.put("jam8kelas2", inputan);
+                                                                                                itemArrJadwalPraktikum.put("jam9kelas2", inputan);
+                                                                                                itemArrJadwalPraktikum.put("jam10kelas2", inputan);
+                                                                                                read = true;
+                                                                                    }
+
+                                                                                }
+
+                                                                }else if (itemArrJadwal.get("jam7kelas3") == null ){
+                                                                 //   flag = false;
+                                                                //alokasi
+                                                                                String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
+                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String kelasDosen1 = (String) itemArrJadwal.get("jam7kelas2");
+                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
+                                                                                      //  flag = true;
+                                                                                }else{
+
+                                                                                                itemArrJadwal.put("jam7kelas3", inputan);
+                                                                                                itemArrJadwal.put("jam8kelas3", inputan);
+                                                                                                itemArrJadwal.put("jam9kelas3", inputan);
+                                                                                                itemArrJadwal.put("jam10kelas3", inputan);
+                                                                                                read = true;
+                                                                                                 if (praktikum) {
+                                                                                                      itemArrJadwal.put("jam7kelas3", inputan);
+                                                                                                itemArrJadwal.put("jam8kelas3", inputan);
+                                                                                                itemArrJadwal.put("jam9kelas3", inputan);
+                                                                                                itemArrJadwal.put("jam10kelas3", inputan);
+                                                                                                  JSONObject itemArrJadwalPraktikum= (JSONObject)arrayJadwal.get(j+1);
+
+                                                                                                  itemArrJadwalPraktikum.put("jam7kelas3", inputan);
+                                                                                                itemArrJadwalPraktikum.put("jam8kelas3", inputan);
+                                                                                                itemArrJadwalPraktikum.put("jam9kelas3", inputan);
+                                                                                                itemArrJadwalPraktikum.put("jam10kelas3", inputan);
+                                                                                                read = true;
+                                                                                    }
+
+                                                                                }
+                                                                } else
+                                                                if (itemArrJadwal.get("jam13kelas1") == null ) {
+                                                                            //alokasi
+                                                                             itemArrJadwal.put("jam13kelas1", inputan);
+                                                                             itemArrJadwal.put("jam14kelas1", inputan);
+                                                                             itemArrJadwal.put("jam15kelas1", inputan);
+                                                                             itemArrJadwal.put("jam16kelas1", inputan);
+                                                                             read = true;
+                                                                if (praktikum) {
+                                                                                                  itemArrJadwal.put("jam13kelas1", inputan);
+                                                                                                itemArrJadwal.put("jam14kelas1", inputan);
+                                                                                                itemArrJadwal.put("jam15kelas1", inputan);
+                                                                                                itemArrJadwal.put("jam16kelas1", inputan);
+                                                                                                  JSONObject itemArrJadwalPraktikum= (JSONObject)arrayJadwal.get(j+1);
+                                                                                                  itemArrJadwalPraktikum.put("jam13kelas1", inputan);
+                                                                                                itemArrJadwalPraktikum.put("jam14kelas1", inputan);
+                                                                                                itemArrJadwalPraktikum.put("jam15kelas1", inputan);
+                                                                                                itemArrJadwalPraktikum.put("jam16kelas1", inputan);
+                                                                                                read = true;
+                                                                                    }
+                                                                }else if (itemArrJadwal.get("jam13kelas2") == null){
+                                                                                
+                                                                                String kelasDosen = (String) itemArrJadwal.get("jam13kelas1");
+                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                if (cekDosen.equals(username)) {
+                                                                                        
+                                                                                }else{
+
+                                                                                              itemArrJadwal.put("jam13kelas2", inputan);
+                                                                                              itemArrJadwal.put("jam14kelas2", inputan);
+                                                                                              itemArrJadwal.put("jam15kelas2", inputan);
+                                                                                              itemArrJadwal.put("jam16kelas2", inputan);
+                                                                                              read = true;
+                                                                                                if (praktikum) {
+                                                                                                      itemArrJadwal.put("jam13kelas2", inputan);
+                                                                                              itemArrJadwal.put("jam14kelas2", inputan);
+                                                                                              itemArrJadwal.put("jam15kelas2", inputan);
+                                                                                              itemArrJadwal.put("jam16kelas2", inputan);
+                                                                                                  JSONObject itemArrJadwalPraktikum= (JSONObject)arrayJadwal.get(j+1);
+
+                                                                                                 itemArrJadwalPraktikum.put("jam13kelas2", inputan);
+                                                                                                 itemArrJadwalPraktikum.put("jam14kelas2", inputan);
+                                                                                                 itemArrJadwalPraktikum.put("jam15kelas2", inputan);
+                                                                                                 itemArrJadwalPraktikum.put("jam16kelas2", inputan);
+                                                                                                 read = true;
+                                                                                    }
+
+                                                                                }
+
+                                                                }else if (itemArrJadwal.get("jam13kelas3") == null){
+                                                                //alokasi
+                                                                                String kelasDosen = (String) itemArrJadwal.get("jam13kelas1");
+                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String kelasDosen1 = (String) itemArrJadwal.get("jam13kelas2");
+                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
+
+                                                                                }else{
+
+                                                                                               itemArrJadwal.put("jam13kelas3", inputan);
+                                                                                               itemArrJadwal.put("jam14kelas3", inputan);
+                                                                                               itemArrJadwal.put("jam15kelas3", inputan);
+                                                                                               itemArrJadwal.put("jam16kelas3", inputan);
+                                                                                               read = true;
+                                                                                                 if (praktikum) {
+                                                                                                      itemArrJadwal.put("jam13kelas3", inputan);
+                                                                                               itemArrJadwal.put("jam14kelas3", inputan);
+                                                                                               itemArrJadwal.put("jam15kelas3", inputan);
+                                                                                               itemArrJadwal.put("jam16kelas3", inputan);
+                                                                                                  JSONObject itemArrJadwalPraktikum= (JSONObject)arrayJadwal.get(j+1);
+
+                                                                                                 itemArrJadwalPraktikum.put("jam13kelas3", inputan);
+                                                                                                 itemArrJadwalPraktikum.put("jam14kelas3", inputan);
+                                                                                                 itemArrJadwalPraktikum.put("jam15kelas3", inputan);
+                                                                                                 itemArrJadwalPraktikum.put("jam16kelas3", inputan);
+                                                                                                 read = true;
+                                                                                    }
+
+                                                                                }
+                                                                }else {
+                                                                break;
+                                                                }
+                                                
+                                                }
+                                                
+
+                                }else if(sks == 3){
+
+                                }else if(sks == 2){
+
+                                }else{
+                                    System.out.println("cuma menerima sks > 1 & sks < 6");
+                                    break;
+                                }
+
+            
+                   }
+                
+               }
+               
+               root.put("minggu"+minggu,arrayJadwal);
+                    try (FileWriter file = new FileWriter(ConfigDirektori.direktoriSlot+"jadwal"+minggu+".json")) {
+                    file.write(root.toJSONString());
+                    file.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+//                    
+//                 root.put("minggu"+minggu,arrayJadwal);
+//                    try (FileWriter file = new FileWriter(ConfigDirektori.direktoriSlot+"jadwal"+minggu+".json")) {
+//                    file.write(root.toJSONString());
+//                    file.flush();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+        
+                
+        }
+    
+    
+    
+    
 }
     
 

@@ -25,6 +25,7 @@ public class ControllerDosen {
     String username;
     User user;
     Dosen dsn;
+    Dosen dsnAlokasi;
     Kompetensi kompetensi;
 
     public ControllerDosen(String username){
@@ -122,6 +123,16 @@ public class ControllerDosen {
      public void editKompetensi(ArrayList<Kompetensi> kompetensi) {
         dsn = new Dosen(null,null,kompetensi,user.getUsername(), null , 0, null);
         dsn.EditKompetensiFromJson();
+         if (dsn.EditKompetensiFromJson()) {
+              for (int j = 0; j < dsn.getKompetensi().size(); j++) {
+                    
+              for (int i = 2; i <= 11; i++) {
+                        dsn.AlokasiJadwal(i, dsn.getKompetensi().get(j).getId());
+             }
+                 
+             }
+         }
+       
         System.out.println("Kompetensi telah ditambahkan");
         ControlMenuDosen();
     }
