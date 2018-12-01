@@ -169,7 +169,7 @@ public class Kelas {
                 System.out.format("+-----+----------------+--------------------------------------------------+------------------------------+---------+%n");
                
                 for (int i = 0; i < array.size(); i++) {
-                    char kode;
+                    char kode = 0;
                     // get all JSON Object
                     JSONObject itemArr = (JSONObject) array.get(i);
                     String nama = (String) itemArr.get("nama");
