@@ -29,17 +29,23 @@ import view.ViewKompetensi;
  */
 public class ControllerAdmin {
     User user;
+    Admin admin;
     Kompetensi kompetensi;
     ControllerKompetensi ctrKompetensi;
     ControllerPekerjaan ctrPekerjaan;
     ControllerJadwal ctrJadwal;
+    ControllerKelas ctrKelas;
 
     public ControllerAdmin() {
         ctrKompetensi = new ControllerKompetensi();
         ctrPekerjaan = new ControllerPekerjaan();
         ctrJadwal = new ControllerJadwal();
+        ctrKelas = new ControllerKelas();
     }
     
+    public ControllerAdmin(User user) {
+        this.user = user;
+    }
     
     public User getUser() {
         return user;
@@ -67,7 +73,6 @@ public class ControllerAdmin {
             case "4":
                 break;
             case "5":
-                ctrJadwal.ReadJadwalFromJson();
                 break;
             case "6":
                 break;
@@ -75,9 +80,11 @@ public class ControllerAdmin {
                 break;
             case "8":
                 ctrJadwal.ControlBangkitkanJadwal();
+                ctrKelas.ControlMenuOptimasi();
                 ControlMenuAdmin();
                 break;
             case "9":
+                ControlMenuUbahPassword();
                 break;
             case "0":
                 System.exit(0);
@@ -223,6 +230,21 @@ public class ControllerAdmin {
     public void readUser(){
         user = new User();
         user.ReadUserFromJson();
+    }
+    
+    public void ControlMenuUbahPassword() throws ParseException {
+        ViewAdmin viewAdminEditPassword = new ViewAdmin();
+        viewAdminEditPassword.MenuEditPassword();
+        
+        editPassword(viewAdminEditPassword.getUsername(), viewAdminEditPassword.getPassword());
+        ControlMenuAdmin();
+    }
+    
+    public void editPassword(String username, String password) {
+        user = new User(user.getUsername(), password);
+        user.EditUserPasswordAdminFromJson();
+        System.out.println("Password telah diubah...");
+    
     }
     
      

@@ -31,17 +31,13 @@ public class Mahasiswa extends User{
     private String nim;
     private String nama;
     private ArrayList<Pekerjaan> pekerjaan;
-    private int jmlMatkulDiambil;
-    private Kompetensi[] matkulDiambil;
-    private int jmlMatkulDimiliki;
-    private Kompetensi[] matkulDimiliki;
     private ArrayList<Kompetensi> kompetensi;
 
     public Mahasiswa() {
     }
 
     public Mahasiswa(String username, String password, int role) {
-        super(username, password, role);
+        super(username, password, role);    
     }
 
     public Mahasiswa(String username, String nama) {
@@ -49,21 +45,56 @@ public class Mahasiswa extends User{
         this.nama = nama;
     }
     
-    
-    
     public Mahasiswa(String nim, String nama, ArrayList<Pekerjaan> pekerjaan, int jmlMatkulDiambil,ArrayList<Kompetensi> kompetensi, int jmlMatkulDimiliki, Kompetensi[] matkulDimiliki, String username, String password, int role) {
         super(username, password, role);
         this.nim = nim;
         this.nama = nama;
         this.pekerjaan = pekerjaan;
-        this.jmlMatkulDiambil = jmlMatkulDiambil;
         this.kompetensi = kompetensi;
-        this.jmlMatkulDimiliki = jmlMatkulDimiliki;
-        this.matkulDimiliki = matkulDimiliki;
     }
+    
+    public void InsertMahasiswaToKelas(ArrayList<String> listMahasiswa){
+        
+    }
+    
+    public ArrayList<String> getListMahasiswa(){
+        JSONObject root = new JSONObject();
+        JSONArray kompetensi= new JSONArray();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+        JSONArray listMahasiswa = new JSONArray();
 
-    public Mahasiswa(String username, ArrayList<Kompetensi> kompetensi) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        File f = new File(ConfigDirektori.direktoriAkun);
+        
+        if (f.exists() && !f.isDirectory()) {
+            try {
+                //JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+                Object obj = parser.parse(new FileReader(ConfigDirektori.direktoriAkun));
+
+                JSONObject jsonObject = (JSONObject) obj;
+                //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
+                array = (JSONArray) jsonObject .get("users");
+
+                for (int i = 0; i < array.size(); i++) {
+                    JSONObject itemArr = (JSONObject)array.get(i);
+                    long roles = (long) itemArr.get("role");
+            
+                    if(roles ==  2){
+                        listMahasiswa.add(itemArr.get("username"));
+                    }
+                    
+                }
+                
+            } catch (FileNotFoundException e) {
+             e.printStackTrace();
+            } catch (IOException e) {
+             e.printStackTrace();
+            } catch (ParseException ex) {
+             Logger.getLogger(Mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return listMahasiswa;
     }
     
     public void ReadAkunFromJson(){
@@ -93,7 +124,6 @@ public class Mahasiswa extends User{
                         System.out.println("Pekerjaan : " + (JSONArray) itemArr.get("prasyarat"));
                         break;
                     }
-                    
                 }
                 
             } catch (FileNotFoundException e) {
@@ -101,7 +131,7 @@ public class Mahasiswa extends User{
             } catch (IOException e) {
              e.printStackTrace();
             } catch (ParseException ex) {
-             Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(Mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
