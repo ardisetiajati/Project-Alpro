@@ -71,7 +71,7 @@ public class ControllerAdmin {
             case "7":
                 break;
             case "8":
-                ctrJadwal.ControlBangkitkanJadwal();
+                //ctrJadwal.ControlBangkitkanJadwal();
                 ctrKelas.ControlMenuOptimasi();
                 ControlMenuAdmin();
                 break;
@@ -85,7 +85,6 @@ public class ControllerAdmin {
                 System.out.println("Inputan Salah!");
                 ControlMenuAdmin();
                 break;
-                
         }
     
 //        
