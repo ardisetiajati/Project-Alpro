@@ -43,6 +43,10 @@ public class Jadwal {
         return jamSelesai;
     }
     
+    public void ReadJadwalFromJson(){
+        
+    }
+    
     public void ReadKompetensiFromJsonToObject() {
         JSONParser parser = new JSONParser();
         JSONArray array = null;
@@ -1292,7 +1296,7 @@ public void BangkitkanAlokasiJadwal(int minggu) {
         }
         
           root.put("minggu"+minggu,slot);
-         try (FileWriter file = new FileWriter("/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/jadwal/jadwal"+minggu+".json")) {
+         try (FileWriter file = new FileWriter(ConfigDirektori.direktoriSlot+"jadwal"+minggu+".json")) {
                       file.write(root.toJSONString());
                       file.flush();
                     } catch (IOException e) {

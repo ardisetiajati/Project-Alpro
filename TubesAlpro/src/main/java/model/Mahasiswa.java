@@ -1,10 +1,12 @@
 package model;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONArray;
@@ -35,6 +37,9 @@ public class Mahasiswa extends User{
     private Kompetensi[] matkulDimiliki;
     private ArrayList<Kompetensi> kompetensi;
 
+    public Mahasiswa() {
+    }
+
     public Mahasiswa(String username, String password, int role) {
         super(username, password, role);    
     }
@@ -59,6 +64,47 @@ public class Mahasiswa extends User{
 
     public Mahasiswa(String username, ArrayList<Kompetensi> kompetensi) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void ReadAkunFromJson(){
+        JSONObject root = new JSONObject();
+        JSONArray kompetensi= new JSONArray();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+
+        File f = new File(ConfigDirektori.direktoriAkun);
+        
+        if (f.exists() && !f.isDirectory()) {
+            try {
+                //JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+                Object obj = parser.parse(new FileReader(ConfigDirektori.direktoriAkun));
+
+                JSONObject jsonObject = (JSONObject) obj;
+                //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
+                array = (JSONArray) jsonObject .get("users");
+
+                for (int i = 0; i < array.size(); i++) {
+                    JSONObject itemArr = (JSONObject)array.get(i);
+            
+                    if(itemArr.get("username").equals(username)){
+                        System.out.println("Username : " + (String) itemArr.get("username"));
+                        System.out.println("Nama : " + (String) itemArr.get("nama"));
+                        System.out.println("NIM : " + (String) itemArr.get("nim"));
+                        System.out.println("Pekerjaan : " + (JSONArray) itemArr.get("prasyarat"));
+                        break;
+                    }
+                    
+                }
+                
+            } catch (FileNotFoundException e) {
+             e.printStackTrace();
+            } catch (IOException e) {
+             e.printStackTrace();
+            } catch (ParseException ex) {
+             Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }
 
     public void EditUserMahasiswaFromJson(){
