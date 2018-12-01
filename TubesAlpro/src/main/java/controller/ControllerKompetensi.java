@@ -7,6 +7,7 @@ package controller;
 
 import java.util.ArrayList;
 import model.Kompetensi;
+
 import view.ViewKompetensi;
 
 /**
@@ -16,7 +17,7 @@ import view.ViewKompetensi;
 public class ControllerKompetensi {
     Kompetensi kompetensi;
     ViewKompetensi viewKompetensi;
-    
+    ControllerAdmin ctrAdmin;
     
     public void ControlMenuKelolaKompetensi(){ 
         System.out.println("## Daftar Kompetensi  ##");
@@ -24,6 +25,7 @@ public class ControllerKompetensi {
         
         viewKompetensi = new ViewKompetensi();
         viewKompetensi.menuKelolaKompetensi();
+        
         
         switch (viewKompetensi.getPilihan()){
             case "1":
@@ -35,7 +37,10 @@ public class ControllerKompetensi {
             case "3":
                 ControlMenuHapusKompetensi();
                 break;
-            
+            case "0":
+                ctrAdmin = new ControllerAdmin();
+                ctrAdmin.ControlMenuAdmin();
+                break;
             default:
                 System.out.println("Inputan Salah!");
                 ControlMenuKelolaKompetensi();
@@ -114,7 +119,7 @@ public class ControllerKompetensi {
                     System.out.println(viewKompetensi.getId());
                     break;
                 case "0":
-                    ControlMenuKelolaKompetensi();
+                    ControlMenuEditKompetensi();
                     break;
                 default:
                     System.out.println("Inputan Salah!");
@@ -157,24 +162,28 @@ public class ControllerKompetensi {
         kompetensi = new Kompetensi(id, nama, null, 0, false);
         kompetensi.EditKompetensiFromJson();
         System.out.println("Edit nama berhasil");
+        ControlMenuKelolaKompetensi();
     }
     
     public void editPrasyaratKompetensi (String id , ArrayList<Kompetensi> listPrasyarat){
         kompetensi = new Kompetensi(id, null, listPrasyarat, 0, false);
         kompetensi.EditKompetensiFromJson();
         System.out.println("Edit prasyarat berhasil");
+        ControlMenuKelolaKompetensi();
     }
       
     public void editSksKompetensi (String id,  int sks){
         kompetensi = new Kompetensi(id, null, null,sks, false);
         kompetensi.EditKompetensiFromJson();
         System.out.println("Edit SKS berhasil");
+        ControlMenuKelolaKompetensi();
     }
     
     public void hapusKompetensi (String id){
         kompetensi = new Kompetensi(id);
         kompetensi.HapusKompetensiFromJson();
         System.out.println("Kompetensi telah dihapus");
+        ControlMenuKelolaKompetensi();
     }
     
     public boolean  cekIdKompetensi (String id){

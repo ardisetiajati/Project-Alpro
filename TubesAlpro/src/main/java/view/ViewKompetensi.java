@@ -29,6 +29,7 @@ public class ViewKompetensi {
         System.out.println("1. Tambah Kompetensi");
         System.out.println("2. Edit Kompetensi");
         System.out.println("3. Hapus Kompetensi");
+        System.out.println("0. Kembali");
         System.out.print("Pilihan Menu : ");
         pilihan = input.next();
     }
