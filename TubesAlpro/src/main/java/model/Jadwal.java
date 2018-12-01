@@ -66,12 +66,11 @@ public class Jadwal {
             String id = (String) itemArr.get("id");
             int  bobot = (int) itemArr.get("sks");
             boolean hasPraktikum = (boolean) itemArr.get("hasPraktikum");
-            boolean hasAllocated = (boolean) itemArr.get("hasAllocated");
              // loop array
             JSONArray msg = (JSONArray) itemArr.get("prasyarat");
             Iterator<String> iterator = msg.iterator();
             
-            Kompetensi kompetensi = new Kompetensi(id,nama,msg,bobot, hasPraktikum, hasAllocated);   
+            Kompetensi kompetensi = new Kompetensi(id,nama,msg,bobot, hasPraktikum);   
             k.add(kompetensi);
         }
         

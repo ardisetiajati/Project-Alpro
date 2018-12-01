@@ -63,7 +63,7 @@ public class ViewDosen {
             inKompetensi = input.nextLine();
             Kompetensi k = new Kompetensi(inKompetensi);
             kompetensi.add(k);
-            System.out.print("Apakah ingin menambahkan prasyarat lagi? (1 untuk yes/0 untuk no)" );
+            System.out.print("\nApakah anda ingin menambah kompetensi lagi? (1 untuk yes/0 untuk no)" );
             lanjut = input.nextInt();
         }
         while (lanjut == 1);
@@ -76,7 +76,7 @@ public class ViewDosen {
             System.out.print("Masukkan hari libur (dd/mm/yyyy): ");
             inLibur = input.nextLine();
             libur.add(inLibur);
-            System.out.print("Apakah ingin menambahkan prasyarat lagi? (1 untuk yes/0 untuk no)" );
+            System.out.print("\nApakah ingin menambahkan hari libur lagi? (1 untuk yes/0 untuk no)" );
             lanjut = input.nextInt();
         }
         while (lanjut == 1);

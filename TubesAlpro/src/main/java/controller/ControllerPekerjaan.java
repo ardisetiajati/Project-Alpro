@@ -8,7 +8,6 @@ package controller;
 import java.util.ArrayList;
 import model.Kompetensi;
 import model.Pekerjaan;
-import org.json.simple.parser.ParseException;
 import view.ViewPekerjaan;
 
 /**
@@ -18,38 +17,24 @@ import view.ViewPekerjaan;
 public class ControllerPekerjaan {
     Pekerjaan pekerjaan;
     ViewPekerjaan viewPekerjaan;
-    ControllerAdmin ctrAdmin;
 
     public ControllerPekerjaan() {
         viewPekerjaan = new ViewPekerjaan();
     }
     
-    public void ControlMenuKelolaPekerjaan() throws ParseException{ 
+    public void ControlMenuKelolaPekerjaan(){ 
         System.out.println("## Daftar Pekerjaan  ##");
         readPekerjaan();
         
         viewPekerjaan.menuKelolaPekerjaan();
         
-        switch(viewPekerjaan.getPilihan()){
-            case "1":
-                ControlMenuTambahPekerjaan();
-                break;
-            case "2":
-                ControlMenuEditPekerjaan();
-                break;
-            case "3":
-                ControlMenuHapusPekerjaan();
-                break;
-            case "0":
-                ctrAdmin = new ControllerAdmin();
-                ctrAdmin.ControlMenuAdmin();
-                break;
-            default:
-                System.out.println("Inputan Salah!");
-                ControlMenuKelolaPekerjaan();
-                break;
-        }
-        
+        if (viewPekerjaan.getPilihan() == 1) {
+            ControlMenuTambahPekerjaan();
+        } else if (viewPekerjaan.getPilihan() == 2) {
+            ControlMenuEditPekerjaan();
+        } else if (viewPekerjaan.getPilihan() == 3){
+            ControlMenuHapusPekerjaan();
+        }  
     }
     
     public void ControlMenuTambahPekerjaan() throws ParseException{
@@ -58,7 +43,7 @@ public class ControllerPekerjaan {
         tambahPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getNama(), viewPekerjaan.getListKompetensi());
     }
     
-    public void ControlMenuEditPekerjaan() throws ParseException{
+    public void ControlMenuEditPekerjaan(){
         viewPekerjaan.MenuCekEditPekerjaan();
         
         if (!cekIdPekerjaan(viewPekerjaan.getId())) {
@@ -67,28 +52,18 @@ public class ControllerPekerjaan {
         else {
             //viewEditKompetensi.MenuEditKompetensi();
             viewPekerjaan.MenuEditPekerjaan();
-            
-            
-            switch(viewPekerjaan.getPilihan()){
-                case "1":
-                    viewPekerjaan.MenuEditNama();
-                    //System.out.println(viewEditKompetensi.getId());
-                   editNamaPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getNama());
-                    break;
-                case "2":
-                    viewPekerjaan.MenuEditKompetensi();
-                    editKompetensiPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getListKompetensi());
-                    break;
-                case "3":
-                    ControlMenuHapusPekerjaan();
-                    break;
-                case "0":
-                    ControlMenuKelolaPekerjaan();
-                    break;
-                default:
-                    System.out.println("Inputan Salah!");
-                     viewPekerjaan.MenuCekEditPekerjaan();
-                     break;
+            if (viewPekerjaan.getPilihan() == 1) {
+                viewPekerjaan.MenuEditNama();
+                 //System.out.println(viewEditKompetensi.getId());
+                editNamaPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getNama());
+            } 
+            else if (viewPekerjaan.getPilihan() == 2) {
+                viewPekerjaan.MenuEditKompetensi();
+                editKompetensiPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getListKompetensi());
+                //System.out.println("wakwaw2");
+            } 
+            else  {
+                viewPekerjaan.MenuCekEditPekerjaan();
             }
         }
     }

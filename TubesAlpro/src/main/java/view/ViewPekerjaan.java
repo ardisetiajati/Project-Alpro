@@ -14,7 +14,7 @@ import model.Kompetensi;
  * @author Ardiansyah Setiajati
  */
 public class ViewPekerjaan {
-    private String pilihan;
+    private int pilihan;
     private String id, nama;
     private ArrayList<Kompetensi> listKompetensi = new ArrayList<Kompetensi>();
     Scanner input = new Scanner(System.in);
@@ -23,49 +23,24 @@ public class ViewPekerjaan {
         System.out.println("1. Tambah Pekerjaan");
         System.out.println("2. Edit Pekerjaan");
         System.out.println("3. Hapus Pekerjaan");
-        System.out.println("0. Kembali");
         System.out.print("Pilihan Menu : ");
-        pilihan = input.next();
+        pilihan = input.nextInt();
     }
     
     public void menuTambahPekerjaan(){
-        String kompetensi,cekid,cekno;
+        String kompetensi;
         int lanjut;
         System.out.print("Masukkan id : ");
-        id = input.next();
+        id = input.nextLine();
         System.out.print("Masukkan nama pekerjaan : ");
         nama = input.nextLine();
-        nama = input.nextLine();
-//        do {
-//            System.out.print("Masukkan ID kompetensi : ");
-//            kompetensi = input.nextLine();
-//            Kompetensi k = new Kompetensi(kompetensi);
-//            listKompetensi.add(k);
-//            System.out.print("Apakah ingin menambahkan kompetensi lagi? (1 untuk yes/0 untuk no)" );
-//            lanjut = input.nextInt();
-//        }while (lanjut == 1);
-        
-         do {
-            //do {
-                System.out.print("Masukkan ID kompetensi prasyarat : ");
-                kompetensi = input.next();
-                
-                cekid = kompetensi.substring(0, 2);
-                cekno = kompetensi.substring(2);
-                
-                if (cekid.equals("IF") == false || kompetensi.length() != 6 || cekno.matches("[0-9_]+")== false) {
-                    System.out.println("Masukan ID kompetensi harus sesuai dengan diatas!");
-                } else {
-                    Kompetensi k = new Kompetensi(kompetensi);
-                    listKompetensi.add(k);
-                   
-                }
-            //}while(cekid.equals("IF") == false || inPrasyarat.length() != 6 || cekno.matches("[0-9_]+")== false);
-                
-                System.out.print("Apakah ingin menambahkan prasyarat lagi? (1 untuk yes/0 untuk no)" );
-                lanjut = input.nextInt();
-            
-            
+        do {
+            System.out.print("Masukkan ID kompetensi : ");
+            kompetensi = input.nextLine();
+            Kompetensi k = new Kompetensi(kompetensi);
+            listKompetensi.add(k);
+            System.out.print("Apakah ingin menambahkan kompetensi lagi? (1 untuk yes/0 untuk no)" );
+            lanjut = input.nextInt();
         }while (lanjut == 1);
     }
     
@@ -75,19 +50,17 @@ public class ViewPekerjaan {
         System.out.println("1. Edit Nama Pekerjaan");
         System.out.println("2. Edit Kompetensi Pekerjaan");
         System.out.print("Masukkan pilihan : ");
-        pilihan = input.next();
+        pilihan = input.nextInt();
     }
     
      public void MenuCekEditPekerjaan(){
         System.out.print("Masukkan ID Pekerjaan yang akan diedit : ");
-        id = input.nextLine();
         id = input.nextLine();
     }
      
     
     public void MenuEditNama(){
         System.out.print("Masukkan nama kompetensi  yg baru: ");
-        nama = input.nextLine();
         nama = input.nextLine();
     }
     
@@ -113,7 +86,7 @@ public class ViewPekerjaan {
         return id;
     }
 
-    public String getPilihan() {
+    public int getPilihan() {
         return pilihan;
     }
 

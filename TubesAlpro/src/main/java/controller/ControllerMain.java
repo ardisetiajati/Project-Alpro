@@ -22,13 +22,13 @@ public class ControllerMain {
     
 
     public ControllerMain() {
-        
+        viewLogin = new ViewLogin();
     }
     
     
     
     public void run() throws ParseException{
-        viewLogin = new ViewLogin();
+        
         User user = new User(viewLogin.getUsername(),viewLogin.getPassword());
         
         if(user.LoginFromJson(user.getUsername(), user.getPassword())==3){
@@ -62,6 +62,4 @@ public class ControllerMain {
     private void elseif(boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
 }

@@ -30,7 +30,6 @@ public class Kompetensi {
     private ArrayList<Kompetensi> prasyarat = new ArrayList<Kompetensi>();
     private int sks;
     private boolean hasPraktikum;
-    private boolean hasAllocated;
     private float biaya;
     //private Kelas tatapMuka;
     //private Kelas Praktikum;
@@ -50,13 +49,12 @@ public class Kompetensi {
         this.id = id;
     }
 
-    public Kompetensi(String id, String nama, ArrayList<Kompetensi> prasyarat, int sks, boolean hasPraktikum, boolean hasAllocated) {
+    public Kompetensi(String id, String nama, ArrayList<Kompetensi> prasyarat, int sks, boolean hasPraktikum) {
         this.id = id;
         this.nama = nama;
         this.prasyarat = prasyarat;
         this.sks = sks;
         this.hasPraktikum =hasPraktikum;
-        this.hasAllocated = hasAllocated;
     }
     
    
@@ -75,10 +73,6 @@ public class Kompetensi {
 
     public boolean isHasPraktikum() {
         return hasPraktikum;
-    }
-    
-    public boolean isHasAllocated() {
-        return hasAllocated;
     }
 
     public int getSks() {
@@ -115,7 +109,6 @@ public class Kompetensi {
                     String id = (String) itemArr.get("id");
                     long  bobot = (long) itemArr.get("sks");
                     boolean hasPraktikum = (boolean) itemArr.get("hasPraktikum");
-                    //boolean hasAllocated = (boolean) itemArr.get("hasAllocated");
                     // loop array
                     JSONArray msg = (JSONArray) itemArr.get("prasyarat");
                     Iterator<String> iterator = msg.iterator();
@@ -236,7 +229,6 @@ public class Kompetensi {
         uo.put("prasyarat", list);
         uo.put("sks", sks);
         uo.put("hasPraktikum", hasPraktikum);
-        uo.put("hasAllocated", false);
         
         if (hasPraktikum) {
             biaya = 750000*sks;
