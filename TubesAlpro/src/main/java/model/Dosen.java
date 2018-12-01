@@ -210,6 +210,7 @@ public class Dosen extends User{
 
     public void AlokasiJadwal(int minggu , String gotKompetensi) {
         JSONObject root = new JSONObject();
+        JSONObject rootCuti = new JSONObject();
         JSONParser parser = new JSONParser();
         JSONArray array = null;
         JSONArray arrayJadwal = null;
@@ -218,6 +219,9 @@ public class Dosen extends User{
         boolean praktikum = false;
         String getKompetensi = null;
         ArrayList <String> getLibur = new ArrayList<String>();
+        String dosenCuti = null;
+        boolean cuti = true;
+        boolean read = false;
         
         try {
             JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
@@ -257,8 +261,7 @@ public class Dosen extends User{
         for (int z = 0; z < arrayUser.size() && found == false; z++) {
                 JSONObject itemArr = (JSONObject)arrayUser.get(z);
                 String getUsernameDosen = (String) itemArr.get("username");
-                //System.out.println(username);
-                //System.out.println(getUsernameDosen);
+                dosenCuti = (String) itemArr.get("username");
                 
                 if (getUsernameDosen.equals(username)){
                              getLibur = (ArrayList<String>) itemArr.get("libur");
@@ -270,8 +273,8 @@ public class Dosen extends User{
         found = false;
         for (int i = 0; i < array.size() && found == false; i++) {
                 JSONObject itemArr = (JSONObject)array.get(i);
-                System.out.println(itemArr.get("id"));
-                System.out.println(gotKompetensi);
+                //System.out.println(itemArr.get("id"));
+                //System.out.println(gotKompetensi);
                 if (itemArr.get("id").equals(gotKompetensi)) {
                                 long getSKS = (long) itemArr.get("sks");
                                 boolean getPraktikum = (boolean) itemArr.get("hasPraktikum");
@@ -283,8 +286,7 @@ public class Dosen extends User{
         }
                 
                  // pre requiresite= cek cuti
-                boolean cuti = true;
-                boolean read = false;
+                
                for (int j = 0; j < arrayJadwal.size() && read == false; j++) {
                 JSONObject itemArrJadwal = (JSONObject)arrayJadwal.get(j);
                 String tanggal = (String) itemArrJadwal.get("tanggal");
@@ -293,7 +295,9 @@ public class Dosen extends User{
                                 if (getLibur != null){
                                 for (int i = 0; i <getLibur.size() && cuti == true; i++) {
                                                 if (getLibur.get(i).equals(tanggal)) {
-                                                            cuti = false;
+                                                    //System.out.println("cuti");
+                                                            cuti = true;
+                                                            continue;
                                                 }
                                 }
                                 
@@ -301,7 +305,7 @@ public class Dosen extends User{
                                             cuti = false;
                                         }
                 
-                                
+                   // System.out.println(cuti);
                    if (!cuti) {
                                 String inputan = "M_"+getKompetensi+"_"+username;
                                 String inputanPraktikum = "P_"+getKompetensi+"_"+username;
@@ -339,7 +343,7 @@ public class Dosen extends User{
                                              }else if (itemArrJadwal.get("jam7kelas2") == null){
 
                                                              String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
-                                                             String cekDosen = kelasDosen.substring(7);
+                                                             String cekDosen = kelasDosen.substring(9);
                                                              if (cekDosen.equals(username)) {
                                                                      continue;
                                                              }else{
@@ -371,9 +375,9 @@ public class Dosen extends User{
                                              }else if (itemArrJadwal.get("jam7kelas3") == null){
                                              //alokasi
                                                              String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
-                                                             String cekDosen = kelasDosen.substring(7);
+                                                             String cekDosen = kelasDosen.substring(9);
                                                              String kelasDosen1 = (String) itemArrJadwal.get("jam7kelas2");
-                                                             String cekDosen1 = kelasDosen1.substring(7);
+                                                             String cekDosen1 = kelasDosen1.substring(9);
                                                              if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
                                                                      continue;
                                                              }else{
@@ -432,7 +436,7 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam7kelas2") == null){
 
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 if (cekDosen.equals(username)) {
                                                                                        // flag = true;
                                                                                 }else{
@@ -462,9 +466,9 @@ public class Dosen extends User{
                                                                  //   flag = false;
                                                                 //alokasi
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 String kelasDosen1 = (String) itemArrJadwal.get("jam7kelas2");
-                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                String cekDosen1 = kelasDosen1.substring(9);
                                                                                 if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
                                                                                       //  flag = true;
                                                                                 }else{
@@ -512,7 +516,7 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam13kelas2") == null){
                                                                                 
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam13kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 if (cekDosen.equals(username)) {
                                                                                         
                                                                                 }else{
@@ -541,9 +545,9 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam13kelas3") == null){
                                                                 //alokasi
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam13kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 String kelasDosen1 = (String) itemArrJadwal.get("jam13kelas2");
-                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                String cekDosen1 = kelasDosen1.substring(9);
                                                                                 if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
 
                                                                                 }else{
@@ -603,7 +607,7 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam7kelas2") == null){
 
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 if (cekDosen.equals(username)) {
                                                                                        // flag = true;
                                                                                 }else{
@@ -633,9 +637,9 @@ public class Dosen extends User{
                                                                  //   flag = false;
                                                                 //alokasi
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam7kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 String kelasDosen1 = (String) itemArrJadwal.get("jam7kelas2");
-                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                String cekDosen1 = kelasDosen1.substring(9);
                                                                                 if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
                                                                                       //  flag = true;
                                                                                 }else{
@@ -682,7 +686,7 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam13kelas2") == null){
                                                                                 
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam13kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 if (cekDosen.equals(username)) {
                                                                                         
                                                                                 }else{
@@ -705,9 +709,9 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam13kelas3") == null){
                                                                 //alokasi
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam13kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 String kelasDosen1 = (String) itemArrJadwal.get("jam13kelas2");
-                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                String cekDosen1 = kelasDosen1.substring(9);
                                                                                 if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
 
                                                                                 }else{
@@ -742,7 +746,7 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam15kelas2") == null){
                                                                                 
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam15kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 if (cekDosen.equals(username)) {
                                                                                         
                                                                                 }else{
@@ -765,9 +769,9 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam15kelas3") == null){
                                                                 //alokasi
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam15kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 String kelasDosen1 = (String) itemArrJadwal.get("jam15kelas2");
-                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                String cekDosen1 = kelasDosen1.substring(9);
                                                                                 if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
 
                                                                                 }else{
@@ -808,7 +812,7 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam10kelas2") == null){
                                                                                 
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam10kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 if (cekDosen.equals(username)) {
                                                                                         
                                                                                 }else{
@@ -831,9 +835,9 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam10kelas3") == null){
                                                                 //alokasi
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam10kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 String kelasDosen1 = (String) itemArrJadwal.get("jam10kelas2");
-                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                String cekDosen1 = kelasDosen1.substring(9);
                                                                                 if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
 
                                                                                 }else{
@@ -869,7 +873,7 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam13kelas2") == null){
                                                                                 
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam13kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 if (cekDosen.equals(username)) {
                                                                                         
                                                                                 }else{
@@ -892,9 +896,9 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam13kelas3") == null){
                                                                 //alokasi
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam13kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 String kelasDosen1 = (String) itemArrJadwal.get("jam13kelas2");
-                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                String cekDosen1 = kelasDosen1.substring(9);
                                                                                 if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
 
                                                                                 }else{
@@ -929,7 +933,7 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam15kelas2") == null){
                                                                                 
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam15kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 if (cekDosen.equals(username)) {
                                                                                         
                                                                                 }else{
@@ -952,9 +956,9 @@ public class Dosen extends User{
                                                                 }else if (itemArrJadwal.get("jam15kelas3") == null){
                                                                 //alokasi
                                                                                 String kelasDosen = (String) itemArrJadwal.get("jam15kelas1");
-                                                                                String cekDosen = kelasDosen.substring(7);
+                                                                                String cekDosen = kelasDosen.substring(9);
                                                                                 String kelasDosen1 = (String) itemArrJadwal.get("jam15kelas2");
-                                                                                String cekDosen1 = kelasDosen1.substring(7);
+                                                                                String cekDosen1 = kelasDosen1.substring(9);
                                                                                 if (cekDosen.equals(username) || cekDosen1.equals(username) ) {
 
                                                                                 }else{
@@ -988,6 +992,20 @@ public class Dosen extends User{
                    }
                 
                }
+               if (cuti) {
+                    JSONObject uo = new JSONObject();
+                      JSONArray slot= new JSONArray();
+                    uo.put("libur", "minggu"+minggu);
+                    slot.add(uo);
+                    rootCuti.put(dosenCuti,slot);
+                    try (FileWriter file = new FileWriter(ConfigDirektori.direktoriCutiDosen)) {
+                    file.write(rootCuti.toJSONString());
+                    file.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            
+                 }
                
                root.put("minggu"+minggu,arrayJadwal);
                     try (FileWriter file = new FileWriter(ConfigDirektori.direktoriSlot+"jadwal"+minggu+".json")) {
