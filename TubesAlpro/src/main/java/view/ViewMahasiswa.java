@@ -60,7 +60,7 @@ public class ViewMahasiswa {
             inKompetensi = input.nextLine();
             Kompetensi k = new Kompetensi(inKompetensi);
             kompetensi.add(k);
-            System.out.print("Apakah ingin menambahkan prasyarat lagi? (1 untuk yes/0 untuk no)" );
+            System.out.print("\nApakah ingin menambahkan kompetensi lagi? (1 untuk yes/0 untuk no)" );
             lanjut = input.nextInt();
         }
         while (lanjut == 1);
