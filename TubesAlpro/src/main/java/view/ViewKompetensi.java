@@ -20,6 +20,7 @@ public class ViewKompetensi {
     private int sks;
     private String pilihan;
     private boolean hasPraktikum = false;
+    private boolean hasAllocated = false;
     Scanner input = new Scanner(System.in);
 
     public ViewKompetensi() {
@@ -70,6 +71,7 @@ public class ViewKompetensi {
                 
                 System.out.print("Apakah ingin menambahkan prasyarat lagi? (1 untuk yes/0 untuk no)" );
                 lanjut = input.nextInt();
+                
             
             
         }while (lanjut == 1);
@@ -177,5 +179,8 @@ public class ViewKompetensi {
 
     public boolean isHasPraktikum() {
         return hasPraktikum;
+    }
+    public boolean isHasAllocated() {
+        return hasAllocated;
     }
 }

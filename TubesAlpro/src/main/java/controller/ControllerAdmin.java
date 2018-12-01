@@ -99,14 +99,9 @@ public class ControllerAdmin {
  * 
  */
     
-<<<<<<< HEAD
+
     public void ControlMenuKelolaAkun() throws ParseException{
-=======
-    public void ControlMenuKelolaAkun(){
-        
-        readUser();
-        
->>>>>>> fab8fed7377b63b1998e692415d9838aa549687d
+
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuKelolaAkun();
         

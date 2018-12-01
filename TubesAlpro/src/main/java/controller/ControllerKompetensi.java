@@ -69,7 +69,7 @@ public class ControllerKompetensi {
         //String id = viewTambahKompetensi.getId();
         //String nama = viewTambahKompetensi.getNama();
         //int sks = viewTambahKompetensi.getSks();
-        tambahKompetensi(viewKompetensi.getId(), viewKompetensi.getNama(), viewKompetensi.getPrasyarat(), viewKompetensi.getSks(), viewKompetensi.isHasPraktikum());
+        tambahKompetensi(viewKompetensi.getId(), viewKompetensi.getNama(), viewKompetensi.getPrasyarat(), viewKompetensi.getSks(), viewKompetensi.isHasPraktikum(), viewKompetensi.isHasAllocated());
     }
     
     public void ControlMenuEditKompetensi() throws ParseException{
