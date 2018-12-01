@@ -37,7 +37,7 @@ public class Mahasiswa extends User{
     }
 
     public Mahasiswa(String username, String password, int role) {
-        super(username, password, role);
+        super(username, password, role);    
     }
 
     public Mahasiswa(String username, String nama) {
