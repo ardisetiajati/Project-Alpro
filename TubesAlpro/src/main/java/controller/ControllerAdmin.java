@@ -13,6 +13,7 @@ import model.Dosen;
 import model.Kompetensi;
 import model.Mahasiswa;
 import model.User;
+import org.json.simple.parser.ParseException;
 import view.ViewAdmin;
 import view.ViewKompetensi;
 
@@ -32,11 +33,13 @@ public class ControllerAdmin {
     ControllerKompetensi ctrKompetensi;
     ControllerPekerjaan ctrPekerjaan;
     ControllerJadwal ctrJadwal;
+    ControllerMain ctrMain;
 
     public ControllerAdmin() {
         ctrKompetensi = new ControllerKompetensi();
         ctrPekerjaan = new ControllerPekerjaan();
         ctrJadwal = new ControllerJadwal();
+        
     }
     
     
@@ -48,7 +51,7 @@ public class ControllerAdmin {
  * Controller  Utama
  * 
  */
-    public void ControlMenuAdmin(){
+    public void ControlMenuAdmin() throws ParseException{
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuAdmin();
         switch (viewAdmin.getPilihan()){
@@ -78,7 +81,8 @@ public class ControllerAdmin {
             case "9":
                 break;
             case "0":
-                System.exit(0);
+                ctrMain = new ControllerMain();
+                ctrMain.run();
                 break;
             default:
                 System.out.println("Inputan Salah!");
@@ -95,7 +99,7 @@ public class ControllerAdmin {
  * 
  */
     
-    public void ControlMenuKelolaAkun(){
+    public void ControlMenuKelolaAkun() throws ParseException{
         ViewAdmin viewAdmin = new ViewAdmin();
         viewAdmin.menuKelolaAkun();
        
@@ -127,7 +131,7 @@ public class ControllerAdmin {
  */
     
     
-    public void ControlMenuTambahAkun(){
+    public void ControlMenuTambahAkun() throws ParseException{
         //ViewTambahAkun viewTambahAkun = new ViewTambahAkun();
         //viewTambahAkun.menuTambahAkun();
         ViewAdmin viewAdmin = new ViewAdmin();
@@ -137,7 +141,7 @@ public class ControllerAdmin {
         ControlMenuAdmin();
     }
     
-    public void ControlMenuEditAkun(){
+    public void ControlMenuEditAkun() throws ParseException{
         //ViewEditAkun viewEditAkun = new ViewEditAkun();
         //viewEditAkun.MenuEditAkun();
         ViewAdmin viewAdmin = new ViewAdmin();
@@ -154,7 +158,7 @@ public class ControllerAdmin {
      
     }
     
-    public void ControlMenuHapusAkun(){
+    public void ControlMenuHapusAkun() throws ParseException{
         //ViewHapusAkun viewHapusAkun = new ViewHapusAkun();
         //viewHapusAkun.MenuHapusAkun();
         

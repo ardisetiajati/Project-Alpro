@@ -33,7 +33,7 @@ public class ViewAdmin {
         System.out.println("7.  Lihat Hasil Kelas Pendek");
         System.out.println("8.  Hentikan Periode Isi Data");
         System.out.println("9.  Ubah Password");
-        System.out.println("0.  Keluar");
+        System.out.println("0.  Logout");
         System.out.print("Pilih Menu : ");
         pilihan = input.next();
     }
