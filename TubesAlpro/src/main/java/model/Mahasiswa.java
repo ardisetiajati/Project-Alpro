@@ -111,6 +111,7 @@ public class Mahasiswa extends User{
             
                     if(roles ==  1){
                         listMahasiswa.add(itemArr.get("username"));
+                        
                     }
                     
                 }
@@ -125,6 +126,47 @@ public class Mahasiswa extends User{
         }
         
         return listMahasiswa;
+    }
+    
+    public ArrayList<JSONArray> getListPekerjaan(){
+        JSONObject root = new JSONObject();
+        JSONArray kompetensi= new JSONArray();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+        JSONArray listPekerjaan = new JSONArray();
+
+        File f = new File(ConfigDirektori.direktoriAkun);
+        
+        if (f.exists() && !f.isDirectory()) {
+            try {
+                //JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+                Object obj = parser.parse(new FileReader(ConfigDirektori.direktoriAkun));
+
+                JSONObject jsonObject = (JSONObject) obj;
+                //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
+                array = (JSONArray) jsonObject .get("users");
+
+                for (int i = 0; i < array.size(); i++) {
+                    JSONObject itemArr = (JSONObject)array.get(i);
+                    long roles = (long) itemArr.get("role");
+            
+                    if(roles ==  1){
+                        listPekerjaan.add(itemArr.get("pekerjaan"));
+                        
+                    }
+                    
+                }
+                
+            } catch (FileNotFoundException e) {
+             e.printStackTrace();
+            } catch (IOException e) {
+             e.printStackTrace();
+            } catch (ParseException ex) {
+             Logger.getLogger(Mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return listPekerjaan;
     }
     
     public void ReadAkunFromJson(){

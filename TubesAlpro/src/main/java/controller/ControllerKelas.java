@@ -35,6 +35,8 @@ public class ControllerKelas {
     Kelas kelas;
     ViewKelas viewKelas;
     Mahasiswa mahasiswa;
+    Pekerjaan pekerjaan;
+    Kompetensi kompetensi;
 
     public void ControlMenuOptimasi() {
         viewKelas = new ViewKelas();
@@ -52,7 +54,30 @@ public class ControllerKelas {
 
     public void Optimasi1() {
         mahasiswa = new Mahasiswa();
+        pekerjaan = new Pekerjaan();
+        kompetensi = new Kompetensi();
         ArrayList<String> list = mahasiswa.getListMahasiswa();
+        ArrayList<JSONArray> listPekerjaan = mahasiswa.getListPekerjaan();
+        ArrayList<JSONArray> listKompetensi = new ArrayList<JSONArray>();
+        ArrayList<JSONArray> listPrasyarat = new ArrayList<JSONArray>();
+        
+        int i;
+        for (i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i) + " ==> username");
+            for (int j = 0; j < 3; j++) {
+                System.out.println(listPekerjaan.get(i).get(j) + " ==> pekerjaan");
+                listKompetensi.add(pekerjaan.getListKompetensiFromJson((String)listPekerjaan.get(i).get(j)));
+                for (int k = 0; k < listKompetensi.size(); k++) {
+                    System.out.println(listKompetensi.get(j).get(k) + " ==> kompetensi");
+                    listPrasyarat.add(kompetensi.getListPrasyaratFromJson((String) listKompetensi.get(j).get(k)));
+                    
+                    //for (int l = 0; l < listPrasyarat.size(); l++) {
+                        //System.out.println(listPrasyarat.get(j).get(k) + " ==> prasyarat");
+                    //}
+                }
+            }
+            
+        }
     }
 
     public void Optimasi2() {
