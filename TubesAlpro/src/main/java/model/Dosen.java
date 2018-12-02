@@ -1,5 +1,6 @@
 package model;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -215,7 +216,7 @@ public class Dosen extends User{
         JSONArray array = null;
         JSONArray arrayJadwal = null;
         JSONArray arrayUser = null;
-        JSONArray arrayCuti = null;
+        JSONArray arrayCuti = new JSONArray();
         long sks = 0;
         boolean praktikum = false;
         String getKompetensi = null;
@@ -1005,6 +1006,8 @@ public class Dosen extends User{
                if (cuti) {
                    
                JSONObject uo = new JSONObject();
+               File f = new File(ConfigDirektori.direktoriCutiDosen);
+                 if (f.exists() && !f.isDirectory()) {
                         try {
                                         JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriCutiDosen));
                                         arrayCuti= (JSONArray) objFromFile.get(dosenCuti);
@@ -1015,6 +1018,7 @@ public class Dosen extends User{
                                     } catch (ParseException ex) {
                                         Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
                                     }
+                        }
                         uo.put("libur", "minggu"+minggu);
                     arrayCuti.add(uo);
                     rootCuti.put(dosenCuti,arrayCuti);
@@ -1050,6 +1054,8 @@ public class Dosen extends User{
           JSONParser parser = new JSONParser();
            JSONArray arrayCuti = null;
         int jmlCuti= 0;
+                File f = new File(ConfigDirektori.direktoriCutiDosen);
+                 if (f.exists() && !f.isDirectory()) {
                              try {
                                         JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriCutiDosen));
                                         arrayCuti= (JSONArray) objFromFile.get(username);
@@ -1061,7 +1067,7 @@ public class Dosen extends User{
                                         Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
                                     }
                 jmlCuti = arrayCuti.size();
-        
+                 }
         return jmlCuti;
     }
 
@@ -1906,6 +1912,10 @@ public class Dosen extends User{
              System.out.println(perulangan);
         perulangan++;
          }
+         
+         
+         File f = new File(ConfigDirektori.direktoriCutiDosen);
+         f.delete();
         
        
     }
