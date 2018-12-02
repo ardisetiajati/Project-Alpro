@@ -29,12 +29,14 @@ public class ControllerAdmin {
     ControllerPekerjaan ctrPekerjaan;
     ControllerJadwal ctrJadwal;
     ControllerKelas ctrKelas;
+    ControllerMain ctrMain;
 
     public ControllerAdmin(User user) {
         ctrKompetensi = new ControllerKompetensi();
         ctrPekerjaan = new ControllerPekerjaan();
         ctrJadwal = new ControllerJadwal();
         ctrKelas = new ControllerKelas();
+        
         this.user = user;
     }
 
@@ -83,7 +85,8 @@ public class ControllerAdmin {
                 ControlMenuUbahPassword();
                 break;
             case "0":
-                System.exit(0);
+                ctrMain = new ControllerMain();
+                ctrMain.run();
                 break;
             default:
                 System.out.println("Inputan Salah!");
