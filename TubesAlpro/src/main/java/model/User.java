@@ -117,8 +117,6 @@ public class User {
             uo.put("NIP", username.substring(3));
              
             JSONArray list2 = new JSONArray();
-            list2.add(null);
-           
             uo.put("kompetensi", list2);
         
         } 
@@ -130,14 +128,10 @@ public class User {
              uo.put("NIM", username.substring(3));
              
              JSONArray list = new JSONArray();
-            list.add(null);
-            list.add(null);
-            list.add(null);
-
+            
             uo.put("pekerjaan", list);
             
             JSONArray list2 = new JSONArray();
-            list2.add(null);
            
             uo.put("kompetensi", list2);
         } 

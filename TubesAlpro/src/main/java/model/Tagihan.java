@@ -31,6 +31,8 @@ public class Tagihan {
     private ArrayList<Long> tarifKompetensiDiambil;
 
     public Tagihan() {
+        kompetensiDiambil = new ArrayList<String>();
+        tarifKompetensiDiambil = new ArrayList<Long>();
     }
 
     public Tagihan(String idMahasiswa, String namaMahasiswa, long jumlahTagihan, boolean sudahDibayar, ArrayList<String> kompetensiDiambil, ArrayList<Long> tarifKompetensiDiambil) {
