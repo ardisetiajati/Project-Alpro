@@ -132,6 +132,24 @@ public class ControllerDosen {
                  
              }
          }
+         int jmlCutiDosen = dsn.cekCutiDosen();
+         if (jmlCutiDosen > 0) {
+                            int numMinggu = 10 - jmlCutiDosen;
+                            int numCuti = jmlCutiDosen;
+                            
+                             int itemsPerBucket = (numCuti / numMinggu);
+                             int remainingItems = (numCuti % numMinggu);
+                 for (int j = 0; j < dsn.getKompetensi().size(); j++) {
+                             for (int i = 1; i <= numMinggu; i++)
+                                {
+                                    int extra = (i <= remainingItems) ? 1:0;
+                                    int minggu = i+jmlCutiDosen+1;
+                                    int pertemuan = itemsPerBucket + extra;
+                                   dsn.AlokasiJadwalDosenCuti(minggu, pertemuan, dsn.getKompetensi().get(j).getId());
+                                }
+                 }
+             
+         }
        
         System.out.println("Kompetensi telah ditambahkan");
         ControlMenuDosen();
