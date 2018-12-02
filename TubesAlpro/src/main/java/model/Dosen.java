@@ -1361,7 +1361,7 @@ public class Dosen extends User{
                                                                                     }
 
                                                                                 }
-                                                                } else
+                                                                } 
                                                                 if (itemArrJadwal.get("jam13kelas1") == null ) {
                                                                             //alokasi
                                                                              itemArrJadwal.put("jam13kelas1", inputan);
@@ -1598,7 +1598,7 @@ public class Dosen extends User{
                                                                                     }
 
                                                                                 }
-                                                                }else if (itemArrJadwal.get("jam15kelas1") == null ) {
+                                                                } if (itemArrJadwal.get("jam15kelas1") == null ) {
                                                                             //alokasi
                                                                              itemArrJadwal.put("jam15kelas1", inputan);
                                                                              itemArrJadwal.put("jam16kelas1", inputan);
@@ -1725,7 +1725,7 @@ public class Dosen extends User{
 
                                                                                 }
                                                                 }
-                                        else  if (itemArrJadwal.get("jam13kelas1") == null ) {
+                                         if (itemArrJadwal.get("jam13kelas1") == null ) {
                                                                             //alokasi
                                                                              itemArrJadwal.put("jam13kelas1", inputan);
                                                                              itemArrJadwal.put("jam14kelas1", inputan);
@@ -1785,7 +1785,7 @@ public class Dosen extends User{
                                                                                     }
 
                                                                                 }
-                                                                }else if (itemArrJadwal.get("jam15kelas1") == null ) {
+                                                                } if (itemArrJadwal.get("jam15kelas1") == null ) {
                                                                             //alokasi
                                                                              itemArrJadwal.put("jam15kelas1", inputan);
                                                                              itemArrJadwal.put("jam16kelas1", inputan);
