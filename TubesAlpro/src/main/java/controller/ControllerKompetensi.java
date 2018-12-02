@@ -60,15 +60,10 @@ public class ControllerKompetensi {
     }
     
     public void ControlMenuTambahKompetensi(){
-        //ViewTambahKompetensi viewTambahKompetensi = new ViewTambahKompetensi();
-        //viewTambahKompetensi.menuTambahKompetensi();
-        
         viewKompetensi = new ViewKompetensi();
         viewKompetensi.menuTambahKompetensi();
-        //String id = viewTambahKompetensi.getId();
-        //String nama = viewTambahKompetensi.getNama();
-        //int sks = viewTambahKompetensi.getSks();
         tambahKompetensi(viewKompetensi.getId(), viewKompetensi.getNama(), viewKompetensi.getPrasyarat(), viewKompetensi.getSks(), viewKompetensi.isHasPraktikum());
+        
     }
     
     public void ControlMenuEditKompetensi() {
@@ -144,6 +139,7 @@ public class ControllerKompetensi {
         }
         else{
             hapusKompetensi(viewKompetensi.getId());
+            //ControlMenuKelolaKompetensi();
         }
     }
     
@@ -156,6 +152,7 @@ public class ControllerKompetensi {
         kompetensi = new Kompetensi(id, nama, prasyarat, sks, hasPraktikum);
         kompetensi.TulisKompetensiToJson();
         System.out.println("Kompetensi berhasil ditambahkan");
+        ControlMenuKelolaKompetensi();
     }
     
     public void editNamaKompetensi (String id, String nama) {
