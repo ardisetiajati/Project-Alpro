@@ -20,7 +20,7 @@ public class ConfigDirektori {
    
    //Izu
 
-// public static final String direktoriAkun = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/user.json";
+//   public static final String direktoriAkun = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/user.json";
 //   public static final String direktoriKompetensi = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kompetensi.json";
 //   public static final String direktoriPekerjaan = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/pekerjaan.json";
 //   public static final String direktoriKalender = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kalender.json";
@@ -28,10 +28,11 @@ public class ConfigDirektori {
 //   public static final String direktoriSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/jadwal/";
 //   public static final String direktoriAlokasiSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/alokasislot.json";
 //   public static final String direktoriCutiDosen = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/cutidosen.json";
-//    public static final String direktoriKelas = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kelas.json";
+//   public static final String direktoriKelas = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kelas.json";
 
    
   // Ardhi
+
 //    public static final String direktoriAkun = "C:\\Git\\Project-Alpro-New\\json\\user.json";
 //    public static final String direktoriKompetensi = "C:\\Git\\Project-Alpro-New\\json\\kompetensi.json";
 //    public static final String direktoriPekerjaan = "C:\\Git\\Project-Alpro-New\\json\\pekerjaan.json";
@@ -54,5 +55,6 @@ public class ConfigDirektori {
    public static final String direktoriCutiDosen = "D:\\Kuliah Pasca\\github\\Project-Alpro\\json\\cutidosen.json";
    public static final String direktoriKelas = "D:\\Kuliah Pasca\\github\\Project-Alpro\\json\\kelas.json";
    public static final String direktoriTagihan = "D:\\Kuliah Pasca\\github\\Project-Alpro\\json\\tagihan.json";
+
 
 }

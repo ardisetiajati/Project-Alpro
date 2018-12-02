@@ -215,12 +215,13 @@ public class Dosen extends User{
         JSONArray array = null;
         JSONArray arrayJadwal = null;
         JSONArray arrayUser = null;
+        JSONArray arrayCuti = null;
         long sks = 0;
         boolean praktikum = false;
         String getKompetensi = null;
         ArrayList <String> getLibur = new ArrayList<String>();
         String dosenCuti = null;
-        boolean cuti = false;
+         boolean cuti = false;
         boolean read = false;
         
         try {
@@ -274,7 +275,7 @@ public class Dosen extends User{
         for (int i = 0; i < array.size() && found == false; i++) {
                 JSONObject itemArr = (JSONObject)array.get(i);
                 //System.out.println(itemArr.get("id"));
-                //System.out.println(gotKompetensi);
+               // System.out.println(gotKompetensi);
                 if (itemArr.get("id").equals(gotKompetensi)) {
                                 long getSKS = (long) itemArr.get("sks");
                                 boolean getPraktikum = (boolean) itemArr.get("hasPraktikum");
@@ -288,16 +289,22 @@ public class Dosen extends User{
                  // pre requiresite= cek cuti
                 
                for (int j = 0; j < arrayJadwal.size() && read == false; j++) {
+                cuti = false;
+                   System.out.println("1");
                 JSONObject itemArrJadwal = (JSONObject)arrayJadwal.get(j);
                 String tanggal = (String) itemArrJadwal.get("tanggal");
                  //  System.out.println(arrayJadwal.size());
                    //System.out.println(tanggal);
                                 if (getLibur != null){
-                                for (int i = 0; i <getLibur.size() && cuti == true; i++) {
+                                    System.out.println("2");
+                                for (int i = 0; i <getLibur.size() && cuti == false ; i++) {
+                                    System.out.println("3");
+                                   //System.out.println("tanggal hari"+tanggal);
+                                   //System.out.println("tanggal libur"+getLibur.get(i));
                                                 if (getLibur.get(i).equals(tanggal)) {
                                                     //System.out.println("cuti");
                                                             cuti = true;
-                                                            continue;
+                                                            break;
                                                 }
                                 }
                                 
@@ -307,6 +314,7 @@ public class Dosen extends User{
                 
                    // System.out.println(cuti);
                    if (!cuti) {
+                       System.out.println("mashook pak eko");
                                 String inputan = "M_"+getKompetensi+"_"+username;
                                 String inputanPraktikum = "P_"+getKompetensi+"_"+username;
                                 if (sks == 5) {
@@ -992,12 +1000,24 @@ public class Dosen extends User{
                    }
                 
                }
+               
+               
                if (cuti) {
-                    JSONObject uo = new JSONObject();
-                      JSONArray slot= new JSONArray();
-                    uo.put("libur", "minggu"+minggu);
-                    slot.add(uo);
-                    rootCuti.put(dosenCuti,slot);
+                   
+               JSONObject uo = new JSONObject();
+                        try {
+                                        JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriCutiDosen));
+                                        arrayCuti= (JSONArray) objFromFile.get(dosenCuti);
+                                    } catch (FileNotFoundException ex) {
+                                        Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+                                    } catch (IOException ex) {
+                                        Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+                                    } catch (ParseException ex) {
+                                        Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                        uo.put("libur", "minggu"+minggu);
+                    arrayCuti.add(uo);
+                    rootCuti.put(dosenCuti,arrayCuti);
                     try (FileWriter file = new FileWriter(ConfigDirektori.direktoriCutiDosen)) {
                     file.write(rootCuti.toJSONString());
                     file.flush();
