@@ -23,6 +23,7 @@ public class ViewPekerjaan {
         System.out.println("1. Tambah Pekerjaan");
         System.out.println("2. Edit Pekerjaan");
         System.out.println("3. Hapus Pekerjaan");
+        System.out.println("0. Kembali");
         System.out.print("Pilihan Menu : ");
         pilihan = input.next();
     }

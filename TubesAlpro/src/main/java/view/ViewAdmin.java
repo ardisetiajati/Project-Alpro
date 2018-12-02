@@ -57,6 +57,7 @@ public class ViewAdmin {
         System.out.println("1. Mahasiswa");
         System.out.println("2. Dosen");
         System.out.println("3. Admin");
+        System.out.println("0. Kembali");
         System.out.print("Masukkan role : ");
         role = input.nextInt();
         switch  (role) {
@@ -104,6 +105,9 @@ public class ViewAdmin {
                 }while (cekitb.equals("admin") == false || username.length() != 15 || cekni.matches("[0-9_]+")== false);
                 System.out.print("Masukkan password : ");
                 password = input.next();
+                break;
+            case 0:
+                menuKelolaAkun();
                 break;
             default:
                 System.out.println("role tidak ditemukan");

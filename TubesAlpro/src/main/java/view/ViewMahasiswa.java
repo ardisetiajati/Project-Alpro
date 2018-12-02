@@ -67,13 +67,15 @@ public class ViewMahasiswa {
     }
     
     public void MenuTambahPekerjaan() {
-        String inPekerjaan;
+        String inPekerjaan,cekid,cekno;
         int i=1;
         do {
             System.out.println("Masukan ID pekerjaan yang diinginkan ke-"+ i);
             inPekerjaan = input.next();
-            if(inPekerjaan.matches("[0-9_]+")== false){
-                System.out.println("ID yang anda masukan salah! Lihat Daftar Pekerjaan diatas!");
+            cekid = inPekerjaan.substring(0, 1);
+            cekno = inPekerjaan.substring(1);
+            if(cekno.matches("[0-9_]+")== false||cekid.equals("P")==false||inPekerjaan.length()!=5){
+                System.out.println("ID yang anda masukan salah! Lihat Daftar Pekerjaan diatas! P<kode>,misal: P0001");
             } else {
                 Pekerjaan p = new Pekerjaan (inPekerjaan);
                 pekerjaan.add(p);

@@ -327,14 +327,14 @@ public class Pekerjaan {
         }      
     }
     
-    public boolean CekUserFromJson() {
+    public boolean CekIDFromJson() {
         JSONParser parser = new JSONParser();
         JSONArray array = null;
         boolean found = false;
         
         try {
             JSONObject  objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriPekerjaan));
-            array = (JSONArray) objFromFile.get("users");
+            array = (JSONArray) objFromFile.get("pekerjaan");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

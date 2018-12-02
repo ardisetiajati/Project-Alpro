@@ -39,7 +39,7 @@ public class ControllerAdmin {
     }
 
     ControllerAdmin() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
@@ -244,6 +244,8 @@ public class ControllerAdmin {
     
     public void editPassword(String username, String password) {
         user = new User(user.getUsername(), password);
+        //System.out.println(password);
+        //System.out.println(user.getUsername());
         user.EditUserPasswordAdminFromJson();
         System.out.println("Password telah diubah...");
     
