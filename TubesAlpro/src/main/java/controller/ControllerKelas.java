@@ -88,7 +88,7 @@ public class ControllerKelas {
                         //iterasi utk setiap kompetensi didalam pekerjaan
                         for (Kompetensi kompetensiPekerjaan : opsiPekerjaanMhs.getListKompetensi()) {
                             structMahasiswaWithKelasDetail newMhsData = new structMahasiswaWithKelasDetail();
-
+                            
                             // set atribut container
                             newMhsData.nim = mhsToDo.getNim();
                             newMhsData.nama = mhsToDo.getNama();
@@ -113,8 +113,10 @@ public class ControllerKelas {
         dbNimKelasPekerjaanTarif.printList();
         dbNimKelasPekerjaanTarif.sortByTarifDesc();
         dbNimKelasPekerjaanTarif.printList();
+        
     }
 }
+
 
 class dbOfPekerjaanAndKompetensi {
 
@@ -437,7 +439,6 @@ class structKompetensiWithItsDosen {
 }
 
 class structMahasiswaWithKelasDetail {
-
     String nim;
     String nama;
     Kompetensi kompetensi;
@@ -475,7 +476,6 @@ class dbOfMahasiswaPerKompetensiPerPekerjaan {
         
         // need to be fixed
         Collections.sort(data, new Comparator<structMahasiswaWithKelasDetail>() {
-            
             public int compare(structMahasiswaWithKelasDetail o1, structMahasiswaWithKelasDetail o2) {
                 if(o1.tarif>=o2.tarif)
                     return -1;

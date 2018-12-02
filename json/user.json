@@ -1,1 +1,277 @@
-{"users":[{"password":"admin","role":3,"username":"admin"},{"kompetensi":[null],"password":"makanayam","role":1,"NIM":"23518039","nama":"itb23518039","pekerjaan":[null,null,null],"username":"itb23518039"},{"password":"makanayam","role":3,"username":"admin9904201611"},{"kompetensi":["IF3260"],"password":"udahdigantiya","role":2,"nama":"pak fiqri","NIP":"9904201801","username":"itb9904201801"},{"kompetensi":[],"password":"kipli","role":1,"NIM":"23518034","nama":"Fiqri ASu","pekerjaan":["Game & Mobile Developer","System Security","ERP Consultant"],"username":"itb23518034"},{"kompetensi":["IF9014"],"password":"9904202902","role":2,"nama":"Steward Rio","NIP":"9904202902","username":"itb9904202902"},{"kompetensi":["IF9003"],"password":"9803191903","role":2,"nama":"Hasan Minhaj","NIP":"9803191901","username":"itb9803191901"},{"kompetensi":["IF9004"],"password":"7802272804","role":2,"nama":"Trinarto Rein","NIP":"7802272801","username":"itb7802272801"},{"kompetensi":["IF9005"],"password":"8603175805","role":2,"nama":"Sumarso Tria","NIP":"8603175803","username":"itb8603175803"},{"kompetensi":["IF9006"],"password":"7904111306","role":2,"nama":"Badrui Salam","NIP":"7904111306","username":"itb7904111306"},{"kompetensi":["IF9007"],"password":"9302175807","role":2,"nama":"Prita Hapsah","NIP":"9302175807","username":"itb9302175807"},{"kompetensi":["IF9008"],"password":"9501245108","role":2,"nama":"Maysaroh Kenneth","NIP":"9501245108","username":"itb9501245108"},{"kompetensi":["IF9009"],"password":"8645713309","role":2,"nama":"Juli Adrian","NIP":"8645713309","username":"itb8645713309"},{"kompetensi":["IF9010"],"password":"9756135310","role":2,"nama":"Peter Sumarno","NIP":"9756135310","username":"itb9756135310"},{"kompetensi":["IF9011"],"password":"7904111411","role":2,"nama":"Jingga White","NIP":"7904111411","username":"itb7904111411"},{"kompetensi":["IF9012"],"password":"9302175812","role":2,"nama":"Kemuning Johnson","NIP":"9302175812","username":"itb9302175812"},{"kompetensi":["IF9013"],"password":"9501245113","role":2,"nama":"Kitkat Indriansyah","NIP":"9501245113","username":"itb9501245113"},{"kompetensi":["IF9014"],"password":"8645713014","role":2,"nama":"Yunny Lucky","NIP":"8645713014","username":"itb8645713014"},{"kompetensi":["IF9090"],"libur":["01\/06\/2019","02\/06\/2019","03\/06\/2019","04\/06\/2019","05\/06\/2019","06\/06\/2019","07\/06\/2019","08\/06\/2019","09\/06\/2019","10\/06\/2019","11\/06\/2019","12\/06\/2019","13\/06\/2019","14\/06\/2019","15\/06\/2019","16\/06\/2019","17\/06\/2019","18\/06\/2019","19\/06\/2019","20\/06\/2019","21\/06\/2019","22\/06\/2019","23\/06\/2019","24\/06\/2019","25\/06\/2019","26\/06\/2019","27\/06\/2019","28\/06\/2019","29\/06\/2019","30\/06\/2019","01\/07\/2019","02\/07\/2019","03\/07\/2019","04\/07\/2019","05\/07\/2019","06\/07\/2019","07\/07\/2019","08\/07\/2019","09\/07\/2019","10\/07\/2019","11\/07\/2019","12\/07\/2019","13\/07\/2019","14\/07\/2019","15\/07\/2019","16\/07\/2019","17\/07\/2019","18\/07\/2019","19\/07\/2019","20\/07\/2019","21\/07\/2019","22\/07\/2019","23\/07\/2019","24\/07\/2019","25\/07\/2019","26\/07\/2019","27\/07\/2019","28\/07\/2019","29\/07\/2019","30\/07\/2019","31\/07\/2019"],"password":"1234","role":2,"nama":"Jensen Mandra","NIP":"9756135015","username":"itb9756135015"},{"kompetensi":[null],"password":"23518001","role":1,"NIM":"23518001","nama":"Emon Racer","pekerjaan":["P0001","P0004","P0005"],"username":"itb23518001"}]}
+{
+    "users": [
+        {
+            "password": "admin",
+            "role": 3,
+            "username": "admin"
+        },
+        {
+            "kompetensi": [],
+            "password": "makanayam",
+            "role": 1,
+            "NIM": "23518039",
+            "nama": "itb23518039",
+            "pekerjaan": [],
+            "username": "itb23518039"
+        },
+        {
+            "password": "makanayam",
+            "role": 3,
+            "username": "admin9904201611"
+        },
+        {
+            "kompetensi": [
+                "IF3260"
+            ],
+            "password": "udahdigantiya",
+            "role": 2,
+            "nama": "pak fiqri",
+            "NIP": "9904201801",
+            "username": "itb9904201801"
+        },
+        {
+            "kompetensi": [],
+            "password": "kipli",
+            "role": 1,
+            "NIM": "23518034",
+            "nama": "Fiqri ASu",
+            "pekerjaan": [
+                "P0001",
+                "P0003",
+                "P0002"
+            ],
+            "username": "itb23518034"
+        },
+        {
+            "kompetensi": [
+                "IF9014"
+            ],
+            "password": "9904202902",
+            "role": 2,
+            "nama": "Steward Rio",
+            "NIP": "9904202902",
+            "username": "itb9904202902"
+        },
+        {
+            "kompetensi": [
+                "IF9003"
+            ],
+            "password": "9803191903",
+            "role": 2,
+            "nama": "Hasan Minhaj",
+            "NIP": "9803191901",
+            "username": "itb9803191901"
+        },
+        {
+            "kompetensi": [
+                "IF9004"
+            ],
+            "password": "7802272804",
+            "role": 2,
+            "nama": "Trinarto Rein",
+            "NIP": "7802272801",
+            "username": "itb7802272801"
+        },
+        {
+            "kompetensi": [
+                "IF9005"
+            ],
+            "password": "8603175805",
+            "role": 2,
+            "nama": "Sumarso Tria",
+            "NIP": "8603175803",
+            "username": "itb8603175803"
+        },
+        {
+            "kompetensi": [
+                "IF9006"
+            ],
+            "password": "7904111306",
+            "role": 2,
+            "nama": "Badrui Salam",
+            "NIP": "7904111306",
+            "username": "itb7904111306"
+        },
+        {
+            "kompetensi": [
+                "IF9007"
+            ],
+            "password": "9302175807",
+            "role": 2,
+            "nama": "Prita Hapsah",
+            "NIP": "9302175807",
+            "username": "itb9302175807"
+        },
+        {
+            "kompetensi": [
+                "IF9008"
+            ],
+            "password": "9501245108",
+            "role": 2,
+            "nama": "Maysaroh Kenneth",
+            "NIP": "9501245108",
+            "username": "itb9501245108"
+        },
+        {
+            "kompetensi": [
+                "IF9009"
+            ],
+            "password": "8645713309",
+            "role": 2,
+            "nama": "Juli Adrian",
+            "NIP": "8645713309",
+            "username": "itb8645713309"
+        },
+        {
+            "kompetensi": [
+                "IF9010"
+            ],
+            "password": "9756135310",
+            "role": 2,
+            "nama": "Peter Sumarno",
+            "NIP": "9756135310",
+            "username": "itb9756135310"
+        },
+        {
+            "kompetensi": [
+                "IF9011"
+            ],
+            "password": "7904111411",
+            "role": 2,
+            "nama": "Jingga White",
+            "NIP": "7904111411",
+            "username": "itb7904111411"
+        },
+        {
+            "kompetensi": [
+                "IF9012"
+            ],
+            "password": "9302175812",
+            "role": 2,
+            "nama": "Kemuning Johnson",
+            "NIP": "9302175812",
+            "username": "itb9302175812"
+        },
+        {
+            "kompetensi": [
+                "IF9013"
+            ],
+            "password": "9501245113",
+            "role": 2,
+            "nama": "Kitkat Indriansyah",
+            "NIP": "9501245113",
+            "username": "itb9501245113"
+        },
+        {
+            "kompetensi": [
+                "IF9014"
+            ],
+            "password": "8645713014",
+            "role": 2,
+            "nama": "Yunny Lucky",
+            "NIP": "8645713014",
+            "username": "itb8645713014"
+        },
+        {
+            "kompetensi": [
+                "IF9090"
+            ],
+            "libur": [
+                "01\/06\/2019",
+                "02\/06\/2019",
+                "03\/06\/2019",
+                "04\/06\/2019",
+                "05\/06\/2019",
+                "06\/06\/2019",
+                "07\/06\/2019",
+                "08\/06\/2019",
+                "09\/06\/2019",
+                "10\/06\/2019",
+                "11\/06\/2019",
+                "12\/06\/2019",
+                "13\/06\/2019",
+                "14\/06\/2019",
+                "15\/06\/2019",
+                "16\/06\/2019",
+                "17\/06\/2019",
+                "18\/06\/2019",
+                "19\/06\/2019",
+                "20\/06\/2019",
+                "21\/06\/2019",
+                "22\/06\/2019",
+                "23\/06\/2019",
+                "24\/06\/2019",
+                "25\/06\/2019",
+                "26\/06\/2019",
+                "27\/06\/2019",
+                "28\/06\/2019",
+                "29\/06\/2019",
+                "30\/06\/2019",
+                "01\/07\/2019",
+                "02\/07\/2019",
+                "03\/07\/2019",
+                "04\/07\/2019",
+                "05\/07\/2019",
+                "06\/07\/2019",
+                "07\/07\/2019",
+                "08\/07\/2019",
+                "09\/07\/2019",
+                "10\/07\/2019",
+                "11\/07\/2019",
+                "12\/07\/2019",
+                "13\/07\/2019",
+                "14\/07\/2019",
+                "15\/07\/2019",
+                "16\/07\/2019",
+                "17\/07\/2019",
+                "18\/07\/2019",
+                "19\/07\/2019",
+                "20\/07\/2019",
+                "21\/07\/2019",
+                "22\/07\/2019",
+                "23\/07\/2019",
+                "24\/07\/2019",
+                "25\/07\/2019",
+                "26\/07\/2019",
+                "27\/07\/2019",
+                "28\/07\/2019",
+                "29\/07\/2019",
+                "30\/07\/2019",
+                "31\/07\/2019"
+            ],
+            "password": "1234",
+            "role": 2,
+            "nama": "Jensen Mandra",
+            "NIP": "9756135015",
+            "username": "itb9756135015"
+        },
+        {
+            "kompetensi": [],
+            "password": "23518001",
+            "role": 1,
+            "NIM": "23518001",
+            "nama": "Emon Racer",
+            "pekerjaan": [
+                "P0001",
+                "P0004",
+                "P0005"
+            ],
+            "username": "itb23518001"
+        },
+        {
+            "kompetensi": [
+                "IF9015"
+            ],
+            "password": "23518065",
+            "role": 1,
+            "NIM": "23518065",
+            "nama": "itb23518065",
+            "pekerjaan": [
+                "P0001",
+                "P0003",
+                "P0005"
+            ],
+            "username": "itb23518065"
+        }
+    ]
+}
