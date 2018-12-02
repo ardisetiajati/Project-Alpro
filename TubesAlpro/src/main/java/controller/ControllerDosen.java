@@ -133,7 +133,9 @@ public class ControllerDosen {
              }
          }
          int jmlCutiDosen = dsn.cekCutiDosen();
+         System.out.println("cutidosen "+jmlCutiDosen);
          if (jmlCutiDosen > 0) {
+             System.out.println("masukcuti");
                             int numMinggu = 10 - jmlCutiDosen;
                             int numCuti = jmlCutiDosen;
                             
