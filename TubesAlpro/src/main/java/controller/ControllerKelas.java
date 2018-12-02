@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import static java.util.Collections.list;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.ConfigDirektori;
@@ -58,7 +61,7 @@ public class ControllerKelas {
     public void Optimasi2() {
         dbOfKelas dbKelasAkhir = new dbOfKelas();
         dbOfTagihanMahasiswa dbTagihan = new dbOfTagihanMahasiswa();
-        
+
         dbOfMahasiswaPerKompetensiPerPekerjaan dbNimKelasPekerjaanTarif = new dbOfMahasiswaPerKompetensiPerPekerjaan();
         dbOfPekerjaanAndKompetensi dbData = new dbOfPekerjaanAndKompetensi();
         dbOfMahasiswa dbMahasiswa = new dbOfMahasiswa();
@@ -113,62 +116,130 @@ public class ControllerKelas {
                 // not implemented
             }
         }
-        
+
         //sort data tiap mahasasiswa berdasarkan tarif, terbesar paling awal
         dbNimKelasPekerjaanTarif.sortByTarifDesc();
-        
+
         //masukkan data tiap NIM kelas pekerjaan tarif ke Tagihan
-        for(structMahasiswaWithKelasDetail item: dbNimKelasPekerjaanTarif.data){
-            
+        for (structMahasiswaWithKelasDetail item : dbNimKelasPekerjaanTarif.data) {
+
             int indexOnDbTagihan = dbTagihan.checkIndexForThisNim(item.nim);
-            if(indexOnDbTagihan>-1){
+            if (indexOnDbTagihan > -1) {
                 //getThat Tagihan Object, then edit
-                dbTagihan.data.get(indexOnDbTagihan).setJumlahTagihan(dbTagihan.data.get(indexOnDbTagihan).getJumlahTagihan()+item.tarif);
+                dbTagihan.data.get(indexOnDbTagihan).setJumlahTagihan(dbTagihan.data.get(indexOnDbTagihan).getJumlahTagihan() + item.tarif);
                 dbTagihan.data.get(indexOnDbTagihan).getKompetensiDiambil().add(item.kompetensi.getId());
                 dbTagihan.data.get(indexOnDbTagihan).getTarifKompetensiDiambil().add(item.tarif);
-            }
-            else{
+            } else {
                 //buat new Tagihan object
                 Tagihan tgh = new Tagihan();
-                
+
                 tgh.setIdMahasiswa(item.nim);
                 tgh.setNamaMahasiswa(item.nama);
                 tgh.setSudahDibayar(false);
                 tgh.setJumlahTagihan(item.tarif);
                 tgh.getKompetensiDiambil().add(item.kompetensi.getId());
                 tgh.getTarifKompetensiDiambil().add(item.kompetensi.getBiaya());
-                
+
                 dbTagihan.data.add(tgh);
             }
         }
-        
+
         dbTagihan.printList();
         
-        //buat kelas utk setiap Kompetensi Available
-        
-        for(structKompetensiWithItsDosen item: dbKompetensiAvailable.data){
-            
+        for(Tagihan tgh: dbTagihan.data){
+            tgh.TulisTagihanToJson();
         }
         
-        for(Tagihan item: dbTagihan.data){
+
+        //buat kelas utk setiap Kompetensi Available
+        for (structKompetensiWithItsDosen item : dbKompetensiAvailable.data) {
+            int indexOnDbKelas = dbKelasAkhir.checkIndexForThisNamaKelas(item.kompetensi.getId());
+            if (indexOnDbKelas == -1) {
+
+                Kelas kls = new Kelas();
+
+                kls.setNamaDosen(item.namaDosen);
+                kls.setNipDosen(item.nipDosen);
+                kls.setNamaKelas(item.kompetensi.getId());
+                kls.setPendapatanTotal(0);
+                kls.setBobot(item.kompetensi.getSks());
+                kls.setTarifPerPeserta(item.kompetensi.getBiaya());
+
+                dbKelasAkhir.data.add(kls);
+            }
+        }
+
+        for (Tagihan tgh : dbTagihan.data) {
+            for (String kmptId : tgh.getKompetensiDiambil()) {
+                int indexOnDbKelas = dbKelasAkhir.checkIndexForThisNamaKelas(kmptId);
+                if(indexOnDbKelas!=-1)
+                    dbKelasAkhir.data.get(indexOnDbKelas).getDaftarPeserta().add(tgh.getIdMahasiswa());
+            }
+        }
+        
+        //recount pendapatan total
+        
+        for (Iterator<Kelas> iterator = dbKelasAkhir.data.iterator(); iterator.hasNext(); ) {
+            Kelas value = iterator.next();
             
+            if (value.getDaftarPeserta().size()==0) 
+                iterator.remove();
+            else
+                value.setPendapatanTotal(value.getTarifPerPeserta()*value.getDaftarPeserta().size());
+                value.TulisKelasToJson();
+        }
+        
+        for(Kelas kls : dbKelasAkhir.data){
+            kls.TulisKelasToJson();
+        }
+        
+        dbKelasAkhir.printList();
+        
+        
+
+    }
+}
+
+class dbOfTagihanMahasiswa {
+
+    ArrayList<Tagihan> data;
+
+    dbOfTagihanMahasiswa() {
+        data = new ArrayList<Tagihan>();
+    }
+
+    public int checkIndexForThisNim(String nim) {
+        int index = -1;
+        for (Tagihan item : data) {
+            index++;
+            if (item.getIdMahasiswa().equals(nim)) {
+                return index;
+            }
+        }
+        return -1;
+    }
+
+    public void printList() {
+        System.out.println("\nDaftar Tagihan");
+        for (Tagihan item : data) {
+            System.out.println("NIM : " + item.getIdMahasiswa() + "-> Total :" + item.getJumlahTagihan() + "\n\tKompetensi " + item.getKompetensiDiambil() + "\n\tTarif Item " + item.getTarifKompetensiDiambil());
         }
     }
 }
 
+class dbOfKelas {
 
-class dbOfTagihanMahasiswa{
-    ArrayList<Tagihan> data;
-    
-    dbOfTagihanMahasiswa(){
-        data = new ArrayList<Tagihan>();
+    ArrayList<Kelas> data;
+
+    dbOfKelas() {
+        data = new ArrayList<Kelas>();
     }
-    
-    public int checkIndexForThisNim(String nim){
+
+    public int checkIndexForThisNamaKelas(String idKompetensi) {
         int index = -1;
-        for(Tagihan item: data){
+        for (Kelas item : data) {
             index++;
-            if(item.getIdMahasiswa().equals(nim)){
+            if (item.getNamaKelas().equals(idKompetensi)) {
                 return index;
             }
         }
@@ -176,18 +247,15 @@ class dbOfTagihanMahasiswa{
     }
     
     public void printList(){
-        System.out.println("\nDaftar Tagihan");
-        for(Tagihan item: data){
-            System.out.println("NIM : "+item.getIdMahasiswa()+"-> Total :"+item.getJumlahTagihan()+"\n\tKompetensi "+item.getKompetensiDiambil()+ "\n\tTarif Item " +item.getTarifKompetensiDiambil());
+        System.out.println("\nData Kelas");
+        for(Kelas kls: data){
+            System.out.println("Kelas : "+kls.getNamaKelas());
+            System.out.println("\tTarif : "+kls.getTarifPerPeserta());
+            System.out.println("\tSks   : "+kls.getBobot());
+            System.out.println("\tDosen : "+kls.getNipDosen()+"-"+ kls.getNamaDosen());
+            System.out.println("\tDana  : "+kls.getPendapatanTotal());
+            System.out.println("\tPsrta : "+kls.getDaftarPeserta());
         }
-    }
-}
-
-class dbOfKelas{
-    ArrayList<Kelas> data;
-    
-    dbOfKelas(){
-        data = new ArrayList<Kelas>();
     }
 }
 

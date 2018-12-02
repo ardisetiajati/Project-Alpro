@@ -28,6 +28,7 @@ public class Kelas {
     private String namaKelas;
     private String nipDosen;
     private String namaDosen;
+    private int bobot;
     private ArrayList<String> daftarPeserta = new ArrayList<String>();
     private double tarifPerPeserta;
     private double pendapatanTotal;
@@ -35,14 +36,14 @@ public class Kelas {
     public Kelas() {
     }
 
-    public Kelas(String namaKelas, String nipDosen, String namaDosen, float tarifPerPeserta, double pendapatanTotal) {
+    public Kelas(String namaKelas, String nipDosen, String namaDosen, int bobot, float tarifPerPeserta, double pendapatanTotal) {
         this.namaKelas = namaKelas;
         this.nipDosen = nipDosen;
         this.namaDosen = namaDosen;
+        this.bobot = bobot;
         this.tarifPerPeserta = tarifPerPeserta;
         this.pendapatanTotal = pendapatanTotal;
     }
-
 
     public String getNamaKelas() {
         return namaKelas;
@@ -50,6 +51,14 @@ public class Kelas {
 
     public void setNamaKelas(String namaKelas) {
         this.namaKelas = namaKelas;
+    }
+
+    public int getBobot() {
+        return bobot;
+    }
+
+    public void setBobot(int bobot) {
+        this.bobot = bobot;
     }
 
     public ArrayList<String> getDaftarPeserta() {
@@ -119,10 +128,10 @@ public class Kelas {
         uo.put("nipDosen", nipDosen);
         uo.put("namaDosen", namaDosen);
 
-        JSONArray listOfPeserta = new JSONArray();
-        for (int i = 0; i < daftarPeserta.size(); i++) {
-            listOfPeserta.add(daftarPeserta.get(i));
-        }
+//        JSONArray listOfPeserta = new JSONArray();
+//        for (int i = 0; i < daftarPeserta.size(); i++) {
+//            listOfPeserta.add(daftarPeserta.get(i));
+//        }
         
         uo.put("daftarPeserta", daftarPeserta);
         uo.put("tarifPerPeserta", tarifPerPeserta);
