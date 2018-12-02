@@ -1,1 +1,43 @@
-{"pekerjaan":[{"kompetensi":["IF9001","IF9002","IF9003","IF9004"],"nama":"Data Scientist","id":"P0001"},{"kompetensi":["IF9005","IF9006","IF9007","IF9008"],"nama":"Web Developer","id":"P0002"},{"kompetensi":["IF9009","IF9010","IF9011","IF9012"],"nama":"System Analyst","id":"P0003"},{"kompetensi":["IF9013","IF9014","IF9015"],"nama":"Game & Mobile Developer","id":"P0004"},{"kompetensi":["Developer","IF0001","IF0002"],"nama":"Game","id":"P0005"}]}
+{
+    "pekerjaan": [
+        {
+            "kompetensi": [
+                "IF9001",
+                "IF9002",
+                "IF9003",
+                "IF9004"
+            ],
+            "nama": "Data Scientist",
+            "id": "P0001"
+        },
+        {
+            "kompetensi": [
+                "IF9005",
+                "IF9006",
+                "IF9007",
+                "IF9008"
+            ],
+            "nama": "Web Developer",
+            "id": "P0002"
+        },
+        {
+            "kompetensi": [
+                "IF9009",
+                "IF9010",
+                "IF9011",
+                "IF9012"
+            ],
+            "nama": "System Analyst",
+            "id": "P0003"
+        },
+        {
+            "kompetensi": [
+                "IF9013",
+                "IF9014",
+                "IF9015"
+            ],
+            "nama": "Game & Mobile Developer",
+            "id": "P0004"
+        }
+    ]
+}
