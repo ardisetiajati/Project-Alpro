@@ -28,14 +28,30 @@ public class ControllerPekerjaan {
         readPekerjaan();
         
         viewPekerjaan.menuKelolaPekerjaan();
-        
-        if (viewPekerjaan.getPilihan() == 1) {
-            ControlMenuTambahPekerjaan();
-        } else if (viewPekerjaan.getPilihan() == 2) {
-            ControlMenuEditPekerjaan();
-        } else if (viewPekerjaan.getPilihan() == 3){
-            ControlMenuHapusPekerjaan();
-        }  
+        switch(viewPekerjaan.getPilihan()){
+            case "1":
+                ControlMenuTambahPekerjaan();
+                break;
+            case "2":
+                ControlMenuEditPekerjaan();
+                break;
+            case "3":
+                ControlMenuHapusPekerjaan();
+                break;
+            case "0":
+                break;
+            default:
+                System.out.println("Inputan Salah!");
+                ControlMenuKelolaPekerjaan();
+                break;
+        }
+//        if (viewPekerjaan.getPilihan() == 1) {
+//            ControlMenuTambahPekerjaan();
+//        } else if (viewPekerjaan.getPilihan() == 2) {
+//            ControlMenuEditPekerjaan();
+//        } else if (viewPekerjaan.getPilihan() == 3){
+//            ControlMenuHapusPekerjaan();
+//        }  
     }
     
     public void ControlMenuTambahPekerjaan() {
@@ -49,23 +65,41 @@ public class ControllerPekerjaan {
         
         if (!cekIdPekerjaan(viewPekerjaan.getId())) {
              System.out.println("Pekerjaan tidak dapat ditemukan");
+             ControlMenuKelolaPekerjaan();
         }
         else {
             //viewEditKompetensi.MenuEditKompetensi();
             viewPekerjaan.MenuEditPekerjaan();
-            if (viewPekerjaan.getPilihan() == 1) {
-                viewPekerjaan.MenuEditNama();
-                 //System.out.println(viewEditKompetensi.getId());
-                editNamaPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getNama());
-            } 
-            else if (viewPekerjaan.getPilihan() == 2) {
-                viewPekerjaan.MenuEditKompetensi();
-                editKompetensiPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getListKompetensi());
-                //System.out.println("wakwaw2");
-            } 
-            else  {
-                viewPekerjaan.MenuCekEditPekerjaan();
+            switch(viewPekerjaan.getPilihan()){
+                case "1":
+                    viewPekerjaan.MenuEditNama();
+                    //System.out.println(viewEditKompetensi.getId());
+                    editNamaPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getNama());
+                    break;
+                case "2":
+                    viewPekerjaan.MenuEditKompetensi();
+                    editKompetensiPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getListKompetensi());
+                    break;
+                case "0":
+                    break;
+                default:
+                    System.out.println("Inputan Salah");
+                    viewPekerjaan.MenuCekEditPekerjaan();
+                    break;
             }
+//            if (viewPekerjaan.getPilihan() == 1) {
+//                viewPekerjaan.MenuEditNama();
+//                 //System.out.println(viewEditKompetensi.getId());
+//                editNamaPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getNama());
+//            } 
+//            else if (viewPekerjaan.getPilihan() == 2) {
+//                viewPekerjaan.MenuEditKompetensi();
+//                editKompetensiPekerjaan(viewPekerjaan.getId(), viewPekerjaan.getListKompetensi());
+//                //System.out.println("wakwaw2");
+//            } 
+//            else  {
+//                viewPekerjaan.MenuCekEditPekerjaan();
+//            }
         }
     }
     
@@ -74,6 +108,7 @@ public class ControllerPekerjaan {
         
         if (!cekIdPekerjaan(viewPekerjaan.getId())) {
             System.out.println("Id tidak ditemukan");
+            ControlMenuKelolaPekerjaan();
         }
         else{
             hapusPekerjaan(viewPekerjaan.getId());

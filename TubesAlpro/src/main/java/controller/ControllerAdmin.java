@@ -37,6 +37,10 @@ public class ControllerAdmin {
         ctrKelas = new ControllerKelas();
         this.user = user;
     }
+
+    ControllerAdmin() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     public User getUser() {
@@ -71,7 +75,7 @@ public class ControllerAdmin {
             case "7":
                 break;
             case "8":
-                ctrJadwal.ControlBangkitkanJadwal();
+                //ctrJadwal.ControlBangkitkanJadwal();
                 ctrKelas.ControlMenuOptimasi();
                 ControlMenuAdmin();
                 break;
@@ -85,7 +89,6 @@ public class ControllerAdmin {
                 System.out.println("Inputan Salah!");
                 ControlMenuAdmin();
                 break;
-                
         }
     
 //        
