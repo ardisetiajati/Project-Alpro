@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -43,8 +44,128 @@ public class Jadwal {
         return jamSelesai;
     }
     
-    public void ReadJadwalFromJson(){
-        
+    public void ReadJadwalFromJson(int minggu){
+        JSONObject root = new JSONObject();
+        JSONArray jadwal = new JSONArray();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+
+        File f = new File(ConfigDirektori.direktoriSlot+"jadwal"+minggu+".json");
+
+        if (f.exists() && !f.isDirectory()) {
+            try {
+                //JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+                Object obj = parser.parse(new FileReader(ConfigDirektori.direktoriSlot+"jadwal"+minggu+".json"));
+
+                JSONObject jsonObject = (JSONObject) obj;
+                //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
+                array = (JSONArray) jsonObject.get("minggu"+minggu);
+
+                String tbl = "| %-3s | %-12s | %-15s | %-7s | %-34s | %-19s |%n";
+                System.out.format("+-----+--------------+-----------------+---------+------------------------------------+---------------------+%n");
+                System.out.format("| No  | Hari         | Tanggal         | Jam     | Kompetensi                         |Dosen                |%n");
+                System.out.format("+-----+--------------+-----------------+---------+------------------------------------+---------------------+%n");
+                //System.out.println("No" +"\t|\t"+ "Id Kompetensi " + "\t|\t"+ "Kompetensi" +"\t\t\t\t\t|\t\t" + "prasyarat" +"\t|\t"+ "Bobot" +"\t|");
+                for (int i = 0; i < array.size(); i++) {
+                    String jam = "";
+                    JSONObject itemArr = (JSONObject) array.get(i);
+                    String hari = (String) itemArr.get("hari");
+                    String tanggal = (String) itemArr.get("tanggal");
+                    //if(itemArr.get(obj))
+//                    String jam7kelas1K = (String) itemArr.get("jam7kelas1".substring(2, 7));
+//                    String jam7kelas1D = (String) itemArr.get("jam7kelas1".substring(9, 21));
+//                    String jam7kelas2K = (String) itemArr.get("jam7kelas2".substring(2, 7));
+//                    String jam7kelas2D = (String) itemArr.get("jam7kelas2".substring(9, 21));
+//                    String jam7kelas3K = (String) itemArr.get("jam7kelas3".substring(2, 7));
+//                    String jam7kelas3D = (String) itemArr.get("jam7kelas3".substring(9, 21));
+//                    String jam8kelas1K = (String) itemArr.get("jam8kelas1".substring(2, 7));
+//                    String jam8kelas1D = (String) itemArr.get("jam8kelas1".substring(9, 21));
+//                    String jam8kelas2K = (String) itemArr.get("jam8kelas2".substring(2, 7));
+//                    String jam8kelas2D = (String) itemArr.get("jam8kelas2".substring(9, 21));
+//                    String jam8kelas3K = (String) itemArr.get("jam8kelas3".substring(2, 7));
+//                    String jam8kelas3D = (String) itemArr.get("jam8kelas3".substring(9, 21));
+//                    String jam9kelas1K = (String) itemArr.get("jam9kelas1".substring(2, 7));
+//                    String jam9kelas1D = (String) itemArr.get("jam9kelas1".substring(9, 21));
+//                    String jam9kelas2K = (String) itemArr.get("jam9kelas2".substring(2, 7));
+//                    String jam9kelas2D = (String) itemArr.get("jam9kelas2".substring(9, 21));
+//                    String jam9kelas3K = (String) itemArr.get("jam9kelas3".substring(2, 7));
+//                    String jam9kelas3D = (String) itemArr.get("jam9kelas3".substring(9, 21));
+//                    String jam10kelas1K = (String) itemArr.get("jam10kelas1".substring(2, 7));
+//                    String jam10kelas1D = (String) itemArr.get("jam10kelas1".substring(9, 21));
+//                    String jam10kelas2K = (String) itemArr.get("jam10kelas2".substring(2, 7));
+//                    String jam10kelas2D = (String) itemArr.get("jam10kelas2".substring(9, 21));
+//                    String jam10kelas3K = (String) itemArr.get("jam10kelas3".substring(2, 7));
+//                    String jam10kelas3D = (String) itemArr.get("jam10kelas3".substring(9, 21));
+//                    String jam11kelas1K = (String) itemArr.get("jam11kelas1".substring(2, 7));
+//                    String jam11kelas1D = (String) itemArr.get("jam11kelas1".substring(9, 21));
+//                    String jam11kelas2K = (String) itemArr.get("jam11kelas2".substring(2, 7));
+//                    String jam11kelas2D = (String) itemArr.get("jam11kelas2".substring(9, 21));
+//                    String jam11kelas3K = (String) itemArr.get("jam11kelas3".substring(2, 7));
+//                    String jam11kelas3D = (String) itemArr.get("jam11kelas3".substring(9, 21));
+//                    String jam13kelas1K = (String) itemArr.get("jam14kelas1".substring(2, 7));
+//                    String jam13kelas1D = (String) itemArr.get("jam14kelas1".substring(9, 21));
+//                    String jam13kelas2K = (String) itemArr.get("jam14kelas2".substring(2, 7));
+//                    String jam13kelas2D = (String) itemArr.get("jam14kelas2".substring(9, 21));
+//                    String jam13kelas3K = (String) itemArr.get("jam14kelas3".substring(2, 7));
+//                    String jam13kelas3D = (String) itemArr.get("jam14kelas3".substring(9, 21));
+//                    String jam15kelas1K = (String) itemArr.get("jam15kelas1".substring(2, 7));
+//                    String jam15kelas1D = (String) itemArr.get("jam15kelas1".substring(9, 21));
+//                    String jam15kelas2K = (String) itemArr.get("jam15kelas2".substring(2, 7));
+//                    String jam15kelas2D = (String) itemArr.get("jam15kelas2".substring(9, 21));
+//                    String jam15kelas3K = (String) itemArr.get("jam15kelas3".substring(2, 7));
+//                    String jam15kelas3D = (String) itemArr.get("jam15kelas3".substring(9, 21));
+//                    String jam16kelas1K = (String) itemArr.get("jam16kelas1".substring(2, 7));
+//                    String jam16kelas1D = (String) itemArr.get("jam16kelas1".substring(9, 21));
+//                    String jam16kelas2K = (String) itemArr.get("jam16kelas2".substring(2, 7));
+//                    String jam16kelas2D = (String) itemArr.get("jam16kelas2".substring(9, 21));
+//                    String jam16kelas3K = (String) itemArr.get("jam16kelas3".substring(2, 7));
+//                    String jam16kelas3D = (String) itemArr.get("jam16kelas3".substring(9, 21));
+                    String s_kompetensi = "";
+                    String s_dosen = "";
+                    for(int j=7; j<17; j++){
+                        int jt = j+1;
+                        jam = j + " - " + jt;
+                        for(int k=1; k<=3; k++){
+                            //System.out.println("0");
+                            //System.out.println(itemArr.get(("jam"+j+"kelas"+k)));
+                            String jamKelas = (String) itemArr.get(("jam"+j+"kelas"+k));
+                            //System.out.println(jamKelas);
+                            if(jamKelas == null){
+                                //System.out.println("1");
+                                s_kompetensi = "Jadwal Kosong";
+                                s_dosen = "Jadwal Kosong";
+                            }
+                            else{
+                                //System.out.println("2");
+                                
+                                String  kompetensiSubstring = (String) itemArr.get("jam"+j+"kelas"+k);
+                                s_kompetensi = kompetensiSubstring.substring(0, 8);
+                                //System.out.println(s_kompetensi);
+                                String dosenSubstring = (String) itemArr.get("jam"+j+"kelas"+k);
+                                s_dosen = dosenSubstring.substring(9);
+                                //System.out.println(s_dosen);
+                            }
+                            System.out.format(tbl, i + 1, hari, tanggal, jam, s_kompetensi, s_dosen);
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+                System.out.format("+-----+--------------+-----------------+---------+------------------------------------+---------------------+%n");
+                System.out.println("");
+                
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ParseException ex) {
+                Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     public void ReadKompetensiFromJsonToObject() {
