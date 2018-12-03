@@ -30,12 +30,14 @@ public class ControllerAdmin {
     ControllerJadwal ctrJadwal;
     ControllerKelas ctrKelas;
     ControllerMain ctrMain;
+    ControllerTagihan ctrTagihan;
 
     public ControllerAdmin(User user) {
         ctrKompetensi = new ControllerKompetensi();
         ctrPekerjaan = new ControllerPekerjaan();
         ctrJadwal = new ControllerJadwal();
         ctrKelas = new ControllerKelas();
+        ctrTagihan = new ControllerTagihan();
         
         this.user = user;
     }
@@ -73,6 +75,8 @@ public class ControllerAdmin {
             case "5":
                 break;
             case "6":
+                ctrTagihan.ControlMenuKelolaTagihan();
+                ControlMenuAdmin();
                 break;
             case "7":
                 break;

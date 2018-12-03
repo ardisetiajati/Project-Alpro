@@ -44,6 +44,10 @@ public class Tagihan {
         this.kompetensiDiambil = kompetensiDiambil;
         this.tarifKompetensiDiambil = tarifKompetensiDiambil;
     }
+
+    public Tagihan(String idMahasiswa) {
+        this.idMahasiswa = idMahasiswa;
+    }
     
     public String getIdMahasiswa() {
         return idMahasiswa;
@@ -174,11 +178,11 @@ public class Tagihan {
                 JSONObject jsonObject = (JSONObject) obj;
                 array = (JSONArray) jsonObject.get("tagihan");
                 
-                String tbl = "| %-3s | %-14s | %-48s | %-28s | %-7s |%n";
+                String tbl = "| %-2s | %-5s | %-10s | %-27s | %-13s | %-20s |%n";
                 System.out.format("%nNama%n");
-                System.out.format("+---+-------+-----------+---------------+---------------+----------------------|%n");
-                System.out.format("| No| Lunas | NIM       | Nama          | Total Tagihan | Jumlah Kelas Diambil |%n");
-                System.out.format("+---|-------+-----------+---------------+---------------+----------------------|%n");
+                System.out.format("+----+-------+------------+-----------------------------+---------------+----------------------|%n");
+                System.out.format("| No | Lunas | NIM        | Nama                        | Total Tagihan | Jumlah Kelas Diambil |%n");
+                System.out.format("+----|-------+------------+-----------------------------+---------------+----------------------|%n");
                
                 for (int i = 0; i < array.size(); i++) {
                     
@@ -268,5 +272,65 @@ public class Tagihan {
         }
     }
     
+    public boolean CekTagihanFromJson() {
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+        boolean found = false;
+
+        try {
+            JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriTagihan));
+            array = (JSONArray) objFromFile.get("tagihan");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        for (int i = 0; i < array.size(); i++) {
+            JSONObject itemArr = (JSONObject) array.get(i);
+
+            if (itemArr.get("idMahasiswa").equals(idMahasiswa)) {
+                found = true;
+            }
+        }
+        return found;
+    }
     
+    public void ValidasiTagihanFromJson() {
+        JSONObject root = new JSONObject();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+
+        try {
+            JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriTagihan));
+            array = (JSONArray) objFromFile.get("tagihan");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Kompetensi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        for (int i = 0; i < array.size(); i++) {
+            JSONObject itemArr = (JSONObject) array.get(i);
+
+            if (itemArr.get("idMahasiswa").equals(idMahasiswa)) {           
+                    itemArr.put("sudahDibayar", true);
+    
+            }
+            root.put("tagihan", array);
+            try (FileWriter file = new FileWriter(ConfigDirektori.direktoriTagihan)) {
+
+                file.write(root.toJSONString());
+                file.flush();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
