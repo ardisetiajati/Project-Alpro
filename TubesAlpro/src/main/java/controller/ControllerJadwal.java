@@ -17,6 +17,7 @@ public class ControllerJadwal {
     Kompetensi kompetensi;
     Jadwal jadwal;
     ViewJadwal viewJadwal;
+    ControllerAdmin ctrAdmin;
 
     public ControllerJadwal() {
         jadwal = new Jadwal();
@@ -34,40 +35,17 @@ public class ControllerJadwal {
         viewJadwal = new ViewJadwal();
         viewJadwal.menuPilihanJadwal();
         
-        switch(viewJadwal.getMinggu()){
+        readJadwal(viewJadwal.getMinggu());
+        
+        viewJadwal.menuPilihanKembali();
+        
+        switch(viewJadwal.getPilihan()){
             case 1:
-                readJadwal(viewJadwal.getMinggu());
+                ControlMenuPilihMinggu();
                 break;
             case 2:
-                readJadwal(viewJadwal.getMinggu());
-                break;
-            case 3:
-                readJadwal(viewJadwal.getMinggu());
-                break;
-            case 4:
-                readJadwal(viewJadwal.getMinggu());
-                break;
-            case 5:
-                readJadwal(viewJadwal.getMinggu());
-                break;
-            case 6:
-                readJadwal(viewJadwal.getMinggu());
-                break;
-            case 7:
-                readJadwal(viewJadwal.getMinggu());
-                break;
-            case 8:
-                readJadwal(viewJadwal.getMinggu());
-                break;
-            case 9:
-                readJadwal(viewJadwal.getMinggu());
-                break;
-            case 10:
-                readJadwal(viewJadwal.getMinggu());
-                break;
-            case 11:
-                readJadwal(viewJadwal.getMinggu());
-                break;
+                ctrAdmin = new ControllerAdmin();
+                ctrAdmin.ControlMenuAdmin();
         }
         
     }
@@ -93,7 +71,7 @@ public class ControllerJadwal {
     
     public void readJadwal(int minggu){
         jadwal = new Jadwal();
-        jadwal.ReadJadwalFromJson();
+        jadwal.ReadJadwalFromJson(minggu);
     }
 
 }
