@@ -1,0 +1,354 @@
+{
+	"kompetensi": [
+		{
+			"nama": "Dasar Pemrograman",
+			"biaya": 1500000.0,
+			"hasPraktikum": true,
+			"sks": 2,
+			"id": "IF1210",
+			"prasyarat": []
+		},
+		{
+			"nama": "Algoritma & Struktur Data",
+			"biaya": 3000000.0,
+			"hasPraktikum": true,
+			"sks": 4,
+			"id": "IF2110",
+			"prasyarat": []
+		},
+		{
+			"nama": "Matematika Diskrit",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF2120",
+			"prasyarat": []
+		},
+		{
+			"nama": "Logika Informatika",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF2121",
+			"prasyarat": []
+		},
+		{
+			"nama": "Probabilitas & Statistika",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF2122",
+			"prasyarat": []
+		},
+		{
+			"nama": "Aljabar Geometri",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF2123",
+			"prasyarat": []
+		},
+		{
+			"nama": "Organisasi & Arsitektur Komputer",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF2130",
+			"prasyarat": []
+		},
+		{
+			"nama": "Pemrograman Berorientasi Objek",
+			"biaya": 2250000.0,
+			"hasPraktikum": true,
+			"sks": 3,
+			"id": "IF2210",
+			"prasyarat": []
+		},
+		{
+			"nama": "Strategi Algoritma",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF2211",
+			"prasyarat": []
+		},
+		{
+			"nama": "Sistem Operasi",
+			"biaya": 1500000.0,
+			"hasPraktikum": true,
+			"sks": 3,
+			"id": "IF2230",
+			"prasyarat": []
+		},
+		{
+			"nama": "Basis Data",
+			"biaya": 2250000.0,
+			"hasPraktikum": true,
+			"sks": 3,
+			"id": "IF2240",
+			"prasyarat": []
+		},
+		{
+			"nama": "Dasar Rekayasa Perangkat Lunak",
+			"biaya": 1000000.0,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF2250",
+			"prasyarat": [
+				"IF2110"
+			]
+		},
+		{
+			"nama": "Pengembangan Aplikasi Berbasis Web",
+			"biaya": 1000000.0,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF3110",
+			"prasyarat": []
+		},
+		{
+			"nama": "Pengembangan Aplikasi pada Platform Khusus",
+			"biaya": 1000000.0,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF3111",
+			"prasyarat": []
+		},
+		{
+			"nama": "Jaringan Komputer",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF3130",
+			"prasyarat": []
+		},
+		{
+			"nama": "Manajemen Basis Data",
+			"biaya": 1000000.0,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF3140",
+			"prasyarat": []
+		},
+		{
+			"nama": "Manajemen Proyek Perangkat Lunak",
+			"biaya": 1000000.0,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF3150",
+			"prasyarat": []
+		},
+		{
+			"nama": "Interaksi Manusia & Komputer",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF3151",
+			"prasyarat": []
+		},
+		{
+			"nama": "Inteligensi Buatan",
+			"biaya": 2000000.0,
+			"hasPraktikum": false,
+			"sks": 4,
+			"id": "IF3170",
+			"prasyarat": []
+		},
+		{
+			"nama": "Sistem Paralel dan Terdistribusi",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF3230",
+			"prasyarat": []
+		},
+		{
+			"nama": "Sistem Informasi",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF3240",
+			"prasyarat": []
+		},
+		{
+			"nama": "Proyek Perangkat Lunak",
+			"biaya": 2000000.0,
+			"hasPraktikum": false,
+			"sks": 4,
+			"id": "IF3250",
+			"prasyarat": []
+		},
+		{
+			"nama": "Grafika Komputer",
+			"biaya": 1500000.0,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF3260",
+			"prasyarat": []
+		},
+		{
+			"nama": "Rekayasa Perangkat Lunak Spesifik Domain",
+			"biaya": 1000000.0,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF4150",
+			"prasyarat": []
+		},
+		{
+			"nama": "Big Data Foundation",
+			"biaya": 1500000,
+			"hasAllocated": false,
+			"hasPraktikum": true,
+			"sks": 2,
+			"id": "IF9001",
+			"prasyarat": [
+				"IF3140"
+			]
+		},
+		{
+			"nama": "Data Mining",
+			"biaya": 1000000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF9002",
+			"prasyarat": []
+		},
+		{
+			"nama": "Graph",
+			"biaya": 1000000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF9003",
+			"prasyarat": []
+		},
+		{
+			"nama": "NoSQL",
+			"biaya": 1000000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF9004",
+			"prasyarat": []
+		},
+		{
+			"nama": "Back end Web Development",
+			"biaya": 2250000,
+			"hasAllocated": false,
+			"hasPraktikum": true,
+			"sks": 3,
+			"id": "IF9005",
+			"prasyarat": [
+				"IF3110"
+			]
+		},
+		{
+			"nama": "Database & Web Storage",
+			"biaya": 2250000,
+			"hasAllocated": false,
+			"hasPraktikum": true,
+			"sks": 3,
+			"id": "IF9006",
+			"prasyarat": [
+				"IF3110",
+				"IF3140"
+			]
+		},
+		{
+			"nama": "Front end Web Development",
+			"biaya": 1500000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 3,
+			"id": "IF9007",
+			"prasyarat": [
+				"IF3110"
+			]
+		},
+		{
+			"nama": "Wireless and Mobile Networking",
+			"biaya": 1000000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF9008",
+			"prasyarat": [
+				"IF3130"
+			]
+		},
+		{
+			"nama": "Project Management",
+			"biaya": 1000000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF9009",
+			"prasyarat": [
+				"IF3150"
+			]
+		},
+		{
+			"nama": "Data Modelling",
+			"biaya": 1000000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF9010",
+			"prasyarat": []
+		},
+		{
+			"nama": "Requirement Elicitation",
+			"biaya": 1000000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF9011",
+			"prasyarat": []
+		},
+		{
+			"nama": "SDLC",
+			"biaya": 1000000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF9012",
+			"prasyarat": []
+		},
+		{
+			"nama": "Java and Android Foundation",
+			"biaya": 2250000,
+			"hasAllocated": false,
+			"hasPraktikum": true,
+			"sks": 3,
+			"id": "IF9013",
+			"prasyarat": [
+				"IF2250",
+				"IF3151"
+			]
+		},
+		{
+			"nama": "Game Design and Production",
+			"biaya": 1000000,
+			"hasAllocated": false,
+			"hasPraktikum": false,
+			"sks": 2,
+			"id": "IF9014",
+			"prasyarat": [
+				"IF3170"
+			]
+		},
+		{
+			"nama": "Swift and iOS Foundation",
+			"biaya": 2250000,
+			"hasAllocated": false,
+			"hasPraktikum": true,
+			"sks": 3,
+			"id": "IF9015",
+			"prasyarat": [
+				"IF2250",
+				"IF3151"
+			]
+		}
+	]
+}

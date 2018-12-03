@@ -1,0 +1,194 @@
+    [   
+       {
+            "kompetensi": [
+                "IF9005",
+                "IF9008",
+                "IF9009"
+            ],
+            "password": "9904201801",
+            "role": 2,
+            "nama": "Andri James",
+            "NIP": "9904201801",
+            "username": "itb9904201801"
+        },
+        {
+            "kompetensi": [
+                "IF9007",
+                "IF9022",
+                "IF9005"
+            ],
+            "password": "9904202902",
+            "role": 2,
+            "nama": "Steward Rio",
+            "NIP": "9904202902",
+            "username": "itb9904202902"
+        },
+        {
+            "kompetensi": [
+                "IF9004",
+                "IF9020",
+                "IF9021",
+                "IF9022",
+                "IF9033"
+            ],
+            "password": "9803191903",
+            "role": 2,
+            "nama": "Hasan Minhaj",
+            "NIP": "9803191901",
+            "username": "itb9803191901"
+        },
+        {
+            "kompetensi": [
+                "IF9015",
+                "IF9018",
+                "IF9020"
+
+            ],
+            "password": "7802272804",
+            "role": 2,
+            "nama": "Trinarto Rein",
+            "NIP": "7802272801",
+            "username": "itb7802272801"
+        },
+        {
+            "kompetensi": [
+                "IF9014",
+                "IF9015",
+                "IF9025"
+            ],
+            "password": "8603175805",
+            "role": 2,
+            "nama": "Sumarso Tria",
+            "NIP": "8603175803",
+            "username": "itb8603175803"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9012",
+                "IF9013",
+                "IF9020",
+                "IF9025",
+                "IF9026",
+                "IF9032"
+
+            ],
+            "password": "7904111306",                                                                      
+            "role": 2,
+            "nama": "Badrui Salam",
+            "NIP": "7904111306",
+            "username": "itb7904111306"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9008",
+                "IF9019",
+                "IF9026",
+                "IF9027",
+                "IF9028"
+            ],
+            "password": "9302175807",                                                                      
+            "role": 2,
+            "nama": "Prita Hapsah",
+            "NIP": "9302175807",
+            "username": "itb9302175807"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9017",
+                "IF9019",
+                "IF9031",
+                "IF9033"
+            ],
+            "password": "9501245108",                                                                      
+            "role": 2,
+            "nama": "Maysaroh Kenneth",
+            "NIP": "9501245108",
+            "username": "itb9501245108"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9005",
+                "IF9006",
+                "IF9013",
+                "IF9025",
+                "IF9031"
+            ],
+            "password": "8645713309",                                                                      
+            "role": 2,
+            "nama": "Juli Adrian",
+            "NIP": "8645713309",
+            "username": "itb8645713309"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9005",
+                "IF9024",
+                "IF9023",
+                "IF9029",
+                "IF9013"
+            ],
+            "password": "9756135310",                                                                      
+            "role": 2,
+            "nama": "Peter Sumarno",
+            "NIP": "9756135310",
+            "username": "itb9756135310"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9004",
+                "IF9010",
+                "IF9012",
+                "IF9016"
+            ],
+            "password": "7904111411",                                                                      
+            "role": 2,
+            "nama": "Jingga White",
+            "NIP": "7904111411",
+            "username": "itb7904111411"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9001",
+                "IF9002"
+            ],
+            "password": "9302175812",                                                                      
+            "role": 2,
+            "nama": "Kemuning Johnson",
+            "NIP": "9302175812",
+            "username": "itb9302175812"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9003",
+                "IF9011"
+            ],
+            "password": "9501245113",                                                                      
+            "role": 2,
+            "nama": "Kitkat Indriansyah",
+            "NIP": "9501245113",
+            "username": "itb9501245113"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9007",
+                "IF9009",
+                "IF9030"
+            ],
+            "password": "8645713014",                                                                      
+            "role": 2,
+            "nama": "Yunny Lucky",
+            "NIP": "8645713014",
+            "username": "itb8645713014"
+        },
+        {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+            "kompetensi": [
+                "IF9020",
+                "IF9032"
+            ],
+            "password": "9756135015",                                                                      
+            "role": 2,
+            "nama": "Jensen Mandra",
+            "NIP": "9756135015",
+            "username": "itb9756135015"
+        }
+    ]

@@ -10,11 +10,11 @@
             "prasyarat": []
         },
         {
-            "nama": "Algorithm and Data Structure",
-            "biaya": 1500000,
+            "nama": "Algoritma & Struktur Data",
+            "biaya": 3000000,
             "hasAllocated": null,
             "hasPraktikum": true,
-            "sks": 2,
+            "sks": 4,
             "id": "IF2110",
             "prasyarat": []
         },
@@ -37,7 +37,7 @@
             "prasyarat": []
         },
         {
-            "nama": "Statistical Analysis",
+            "nama": "Probabilitas & Statistika",
             "biaya": 1500000,
             "hasAllocated": null,
             "hasPraktikum": false,
@@ -91,83 +91,12 @@
             "prasyarat": []
         },
         {
-            "nama": "DataBase",
-            "biaya": 1000000,
+            "nama": "Basis Data",
+            "biaya": 2250000,
             "hasAllocated": null,
-            "hasPraktikum": false,
-            "sks": 2,
+            "hasPraktikum": true,
+            "sks": 3,
             "id": "IF2240",
-            "prasyarat": []
-        },
-        {
-            "nama": "HTML5",
-            "biaya": 1500000,
-            "hasAllocated": null,
-            "hasPraktikum": true,
-            "sks": 2,
-            "id": "IF9996",
-            "prasyarat": []
-        },
-        {
-            "nama": "CSS3",
-            "biaya": 1500000,
-            "hasAllocated": null,
-            "hasPraktikum": true,
-            "sks": 2,
-            "id": "IF9995",
-            "prasyarat": []
-        },
-        {
-            "nama": "PHP",
-            "biaya": 1500000,
-            "hasAllocated": null,
-            "hasPraktikum": true,
-            "sks": 2,
-            "id": "IF9994",
-            "prasyarat": []
-        },
-        {
-            "nama": "Javascript",
-            "biaya": 1500000,
-            "hasAllocated": null,
-            "hasPraktikum": true,
-            "sks": 2,
-            "id": "IF9989",
-            "prasyarat": []
-        },{
-            "nama": "CCNA",
-            "biaya": 3000000,
-            "hasAllocated": null,
-            "hasPraktikum": true,
-            "sks": 4,
-            "id": "IF9988",
-            "prasyarat": []
-        },
-        {
-            "nama": "Responsive Design",
-            "biaya": 1500000,
-            "hasAllocated": null,
-            "hasPraktikum": true,
-            "sks": 2,
-            "id": "IF9992",
-            "prasyarat": []
-        },
-        {
-            "nama": "Laravel",
-            "biaya": 1500000,
-            "hasAllocated": null,
-            "hasPraktikum": true,
-            "sks": 2,
-            "id": "IF9991",
-            "prasyarat": []
-        },
-        {
-            "nama": "SRS",
-            "biaya": 1000000,
-            "hasAllocated": null,
-            "hasPraktikum": false,
-            "sks": 2,
-            "id": "IF9993",
             "prasyarat": []
         },
         {
@@ -177,17 +106,6 @@
             "hasPraktikum": false,
             "sks": 2,
             "id": "IF2250",
-            "prasyarat": [
-                "IF2110"
-            ]
-        },
-        {
-            "nama": "Knowledge IN SAS",
-            "biaya": 1000000,
-            "hasAllocated": null,
-            "hasPraktikum": false,
-            "sks": 2,
-            "id": "IF9998",
             "prasyarat": [
                 "IF2110"
             ]
@@ -217,24 +135,6 @@
             "hasPraktikum": false,
             "sks": 3,
             "id": "IF3130",
-            "prasyarat": []
-        },
-        {
-            "nama": "Microtic",
-            "biaya": 1500000,
-            "hasAllocated": null,
-            "hasPraktikum": false,
-            "sks": 3,
-            "id": "IF9987",
-            "prasyarat": []
-        },
-        {
-            "nama": "Networking",
-            "biaya": 1500000,
-            "hasAllocated": null,
-            "hasPraktikum": false,
-            "sks": 3,
-            "id": "IF9986",
             "prasyarat": []
         },
         {
@@ -319,13 +219,15 @@
             "prasyarat": []
         },
         {
-            "nama": "Big Data and Unstructured Data",
-            "biaya": 3750000,
+            "nama": "Big Data Foundation",
+            "biaya": 1500000,
             "hasAllocated": true,
             "hasPraktikum": true,
-            "sks": 5,
+            "sks": 2,
             "id": "IF9001",
-            "prasyarat": []
+            "prasyarat": [
+                "IF3140"
+            ]
         },
         {
             "nama": "Data Mining",
@@ -334,15 +236,6 @@
             "hasPraktikum": false,
             "sks": 2,
             "id": "IF9002",
-            "prasyarat": ["IF2240","IF2110"]
-        },
-        {
-            "nama": "Programming Skill (R and Python)",
-            "biaya": 1000000,
-            "hasAllocated": true,
-            "hasPraktikum": false,
-            "sks": 2,
-            "id": "IF9997",
             "prasyarat": []
         },
         {
@@ -429,15 +322,6 @@
             "prasyarat": []
         },
         {
-            "nama": "Data Processing",
-            "biaya": 1000000,
-            "hasAllocated": true,
-            "hasPraktikum": false,
-            "sks": 2,
-            "id": "IF9999",
-            "prasyarat": []
-        },
-        {
             "nama": "Requirement Elicitation",
             "biaya": 1000000,
             "hasAllocated": true,
@@ -456,24 +340,15 @@
             "prasyarat": []
         },
         {
-            "nama": "Java",
-            "biaya": 1500000,
+            "nama": "Java and Android Foundation",
+            "biaya": 2250000,
             "hasAllocated": true,
             "hasPraktikum": true,
-            "sks": 2,
+            "sks": 3,
             "id": "IF9013",
             "prasyarat": [
-                "IF2110"
-            ]
-        },
-        {
-            "nama": "OO Programming",
-            "biaya": 1000000,
-            "hasAllocated": true,
-            "hasPraktikum": false,
-            "sks": 2,
-            "id": "IF9990",
-            "prasyarat": [
+                "IF2250",
+                "IF3151"
             ]
         },
         {
