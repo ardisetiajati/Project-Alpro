@@ -73,6 +73,8 @@ public class ControllerAdmin {
             case "4":
                 break;
             case "5":
+                ctrJadwal.ControlMenuPilihMinggu();
+                ControlMenuAdmin();
                 break;
             case "6":
                 ctrTagihan.ControlMenuKelolaTagihan();

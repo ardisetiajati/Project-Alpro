@@ -191,12 +191,14 @@ public class Tagihan {
                     
                     String idMahasiswa = (String) itemArr.get("idMahasiswa");
                     String namaMahasiswa = (String) itemArr.get("namaMahasiswa");
-                    long jumlahTagihan = (long) itemArr.get("jumlahTagihan");
+                    long a = (long) itemArr.get("jumlahTagihan");
+                    String jumlahTagihan = String.format("%,d", a);
                     boolean sudahDibayar = (boolean) itemArr.get("sudahDibayar");
                     JSONArray daftarPeserta = (JSONArray) itemArr.get("kompetensiDiambil");
                     
                     System.out.format(tbl, i + 1, sudahDibayar, idMahasiswa, namaMahasiswa,jumlahTagihan,daftarPeserta.size());
                 }
+                System.out.format("+----+-------+------------+-----------------------------+---------------+----------------------|%n");
                 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -236,10 +238,12 @@ public class Tagihan {
                 JSONObject foundedItem = (JSONObject) array.get(indexFound);
                 
                 String namaMahasiswa = (String) foundedItem.get("namaMahasiswa");
-                long jumlahTagihan = (long) foundedItem.get("jumlahTagihan");
+                long a = (long) foundedItem.get("jumlahTagihan");
+                String jumlahTagihan = String.format("%,d", a);
                 boolean sudahDibayar = (boolean) foundedItem.get("sudahDibayar");
                 JSONArray kompetensiDiambil = (JSONArray) foundedItem.get("kompetensiDiambil");
                 JSONArray tarifKompetensiDiambil = (JSONArray) foundedItem.get("tarifKompetensiDiambil");
+                //String tarifKompetensiDiambil = String.format("%,d", b);
                 
                 
                 System.out.println("\nData Tagihan Mahasiswa\n---------------");
@@ -249,11 +253,11 @@ public class Tagihan {
                 System.out.println("Sudah Dibayar : "+sudahDibayar);
 
                 
-                String tbl = "| %-1s | %-10s | %-15s |%n";
+                String tbl = "| %-2s | %-10s | %-15s |%n";
                 System.out.format("Detail Tagihan\n");
-                System.out.format("+---+------------+-----------------|%n");
-                System.out.format("| No| Kompetensi |     Tagihan     |%n");
-                System.out.format("+---+------------+-----------------|%n");
+                System.out.format("+----+------------+-----------------|%n");
+                System.out.format("| No | Kompetensi |     Tagihan     |%n");
+                System.out.format("+----+------------+-----------------|%n");
                
                 for (int i = 0; i < kompetensiDiambil.size(); i++) {   
                     System.out.format(tbl, i + 1,kompetensiDiambil.get(i),tarifKompetensiDiambil.get(i));
