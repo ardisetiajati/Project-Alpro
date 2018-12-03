@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import model.Kompetensi;
 import model.Mahasiswa;
 import model.Pekerjaan;
+import model.Tagihan;
 import model.User;
 import view.ViewMahasiswa;
 import org.json.simple.parser.ParseException;
@@ -22,6 +23,7 @@ public class ControllerMahasiswa {
     Mahasiswa mhs;
     Pekerjaan pekerjaan;
     Kompetensi kompetensi;
+    Tagihan tagihan;
     ControllerMain ctrMain;
     
     public ControllerMahasiswa(User user){
@@ -99,7 +101,14 @@ public class ControllerMahasiswa {
     }
 
     public void ControlMenuLihatTagihan() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Tagihan Anda");
+        readTagihan();
+        ViewMahasiswa viewMahasiswaLiatTagihan = new ViewMahasiswa();
+        viewMahasiswaLiatTagihan.menuTagihan();
+        
+        if(viewMahasiswaLiatTagihan.getPilihan().equals("0")){
+            ControlMenuMahasiswa();
+        }
     }
 
     public void ControlMenuUbahPassword() {
@@ -165,6 +174,12 @@ public class ControllerMahasiswa {
         mhs.EditPekerjaanFromJson();
         System.out.println("Berhasil menambahkan pekerjaan..");
         ControlMenuMahasiswa(); 
+        
+    }
+    
+    public void readTagihan(){
+        tagihan = new Tagihan();
+        tagihan.ReadTagihanForThisNIMFromJSON(user.getUsername().substring(3));
         
     }
     
