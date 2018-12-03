@@ -20,31 +20,31 @@ public class ConfigDirektori {
    
    //Izu
 
-   public static final String direktoriAkun = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/user.json";
-   public static final String direktoriKompetensi = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kompetensi.json";
-   public static final String direktoriPekerjaan = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/pekerjaan.json";
-   public static final String direktoriKalender = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kalender.json";
-   // lihat ini, ada perubahan
-   public static final String direktoriSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/jadwal/";
-   public static final String direktoriAlokasiSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/alokasislot.json";
-   public static final String direktoriCutiDosen = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/cutidosen.json";
-   public static final String direktoriKelas = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kelas.json";
-    public static final String direktoriTagihan = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/tagihan.json";
+//   public static final String direktoriAkun = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/user.json";
+//   public static final String direktoriKompetensi = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kompetensi.json";
+//   public static final String direktoriPekerjaan = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/pekerjaan.json";
+//   public static final String direktoriKalender = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kalender.json";
+//   // lihat ini, ada perubahan
+//   public static final String direktoriSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/jadwal/";
+//   public static final String direktoriAlokasiSlot = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/alokasislot.json";
+//   public static final String direktoriCutiDosen = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/cutidosen.json";
+//   public static final String direktoriKelas = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/kelas.json";
+//    public static final String direktoriTagihan = "/home/izu/NetBeansProjects/alpro-baru/Project-Alpro/json/tagihan.json";
 
    
   // Ardhi
 
-   // public static final String direktoriAkun = "C:\\Git\\Project-Alpro-New\\json\\user.json";
-   // public static final String direktoriKompetensi = "C:\\Git\\Project-Alpro-New\\json\\kompetensi.json";
-    //public static final String direktoriPekerjaan = "C:\\Git\\Project-Alpro-New\\json\\pekerjaan.json";
-    //public static final String direktoriKalender = "C:\\Git\\Project-Alpro-New\\json\\kalender.json";
-    //public static final String direktoriSlot = "C:\\Git\\Project-Alpro-New\\json\\jadwal\\";
-    //public static final String direktoriAlokasiSlot = "C:\\Git\\Project-Alpro-New\\json\\alokasislot.json";  
-    //public static final String direktoriCutiDosen = "C:\\Git\\Project-Alpro-New\\json\\cutidosen.json";
+    public static final String direktoriAkun = "C:\\Git\\Project-Alpro-New\\json\\user.json";
+    public static final String direktoriKompetensi = "C:\\Git\\Project-Alpro-New\\json\\kompetensi.json";
+    public static final String direktoriPekerjaan = "C:\\Git\\Project-Alpro-New\\json\\pekerjaan.json";
+    public static final String direktoriKalender = "C:\\Git\\Project-Alpro-New\\json\\kalender.json";
+    public static final String direktoriSlot = "C:\\Git\\Project-Alpro-New\\json\\jadwal\\";
+    public static final String direktoriAlokasiSlot = "C:\\Git\\Project-Alpro-New\\json\\alokasislot.json";  
+    public static final String direktoriCutiDosen = "C:\\Git\\Project-Alpro-New\\json\\cutidosen.json";
     
     //TAMBAHAN
-   // public static final String direktoriKelas = "C:\\Git\\Project-Alpro-New\\json\\kelas.json";
-    //public static final String direktoriTagihan = "C:\\Git\\Project-Alpro-New\\json\\tagihan.json";
+    public static final String direktoriKelas = "C:\\Git\\Project-Alpro-New\\json\\kelas.json";
+    public static final String direktoriTagihan = "C:\\Git\\Project-Alpro-New\\json\\tagihan.json";
     
    //fiqri
    //public static final String direktoriAkun = "D:\\Kuliah Pasca\\github\\Project-Alpro\\json\\user.json";
