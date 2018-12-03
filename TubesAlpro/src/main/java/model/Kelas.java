@@ -108,6 +108,8 @@ public class Kelas {
         if (f.exists() && !f.isDirectory()) {
 
             try {
+                
+                
                 JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKelas));
                 array = (JSONArray) objFromFile.get("kelas");
                 //array = (JSONArray) read;
@@ -207,6 +209,5 @@ public class Kelas {
             }
         }
     }
-
 }
 

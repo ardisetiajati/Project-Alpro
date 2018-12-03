@@ -286,7 +286,46 @@ public class Kompetensi {
             e.printStackTrace();
         }
     }
+    
+    public JSONArray getListPrasyaratFromJson(String kode) {
+        JSONObject root = new JSONObject();
+        JSONArray prasyarat= new JSONArray();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+        JSONArray listPrasyarat = new JSONArray();
 
+        File f = new File(ConfigDirektori.direktoriKompetensi);
+        
+        if (f.exists() && !f.isDirectory()) {
+            try {
+                //JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+                Object obj = parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+
+                JSONObject jsonObject = (JSONObject) obj;
+                //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
+                array = (JSONArray) jsonObject .get("kompetensi");
+
+                for (int i = 0; i < array.size(); i++) {
+                    JSONObject itemArr = (JSONObject)array.get(i);
+                    //String id =  (String) itemArr.get("id");
+            
+                    if(itemArr.get("id").equals(kode)){
+                        listPrasyarat.add(itemArr.get("prasyarat"));
+                    }
+                    
+                }
+                
+            } catch (FileNotFoundException e) {
+             e.printStackTrace();
+            } catch (IOException e) {
+             e.printStackTrace();
+            } catch (ParseException ex) {
+             Logger.getLogger(Mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return listPrasyarat;
+    }
+    
     public boolean CekKompetensiFromJson() {
         JSONParser parser = new JSONParser();
         JSONArray array = null;
