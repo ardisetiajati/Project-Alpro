@@ -123,15 +123,15 @@ public class ControllerDosen {
      public void editKompetensi(ArrayList<Kompetensi> kompetensi) {
         dsn = new Dosen(null,null,kompetensi,user.getUsername(), null , 0, null);
         dsn.EditKompetensiFromJson();
-//         if (dsn.EditKompetensiFromJson()) {
-//              for (int j = 0; j < dsn.getKompetensi().size(); j++) {
-//                    
-//              for (int i = 2; i <= 11; i++) {
-//                        dsn.AlokasiJadwal(i, dsn.getKompetensi().get(j).getId());
-//             }
-//                 
-//             }
-//         }
+         if (dsn.EditKompetensiFromJson()) {
+              for (int j = 0; j < dsn.getKompetensi().size(); j++) {
+                    
+              for (int i = 2; i <= 11; i++) {
+                        dsn.AlokasiJadwal(i, dsn.getKompetensi().get(j).getId());
+             }
+                 
+             }
+         }
          int jmlCutiDosen = dsn.cekCutiDosen();
          System.out.println("cutidosen "+jmlCutiDosen);
          if (jmlCutiDosen > 0) {
