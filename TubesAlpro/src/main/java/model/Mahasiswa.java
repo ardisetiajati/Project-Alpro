@@ -32,8 +32,13 @@ public class Mahasiswa extends User{
     private String nama;
     private ArrayList<Pekerjaan> pekerjaan;
     private ArrayList<Kompetensi> kompetensi;
+    Tagihan tagihan;
 
     public Mahasiswa() {
+    }
+    
+    public Mahasiswa(String nim){
+        this.nim = nim;
     }
 
     public Mahasiswa(String username, String password, int role) {
