@@ -39,6 +39,8 @@ public class ControllerKelas {
     Kelas kelas;
     ViewKelas viewKelas;
     Mahasiswa mahasiswa;
+    Pekerjaan pekerjaan;
+    Kompetensi kompetensi;
 
     public void ControlMenuOptimasi() {
         viewKelas = new ViewKelas();

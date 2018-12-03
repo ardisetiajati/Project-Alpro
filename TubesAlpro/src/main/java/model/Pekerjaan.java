@@ -71,6 +71,45 @@ public class Pekerjaan {
         this.listKompetensi = listKompetensi;
     }
     
+    public JSONArray getListKompetensiFromJson(String kode) {
+        JSONObject root = new JSONObject();
+        JSONArray kompetensi= new JSONArray();
+        JSONParser parser = new JSONParser();
+        JSONArray array = null;
+        JSONArray listKompetensi = new JSONArray();
+
+        File f = new File(ConfigDirektori.direktoriPekerjaan);
+        
+        if (f.exists() && !f.isDirectory()) {
+            try {
+                //JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+                Object obj = parser.parse(new FileReader(ConfigDirektori.direktoriPekerjaan));
+
+                JSONObject jsonObject = (JSONObject) obj;
+                //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
+                array = (JSONArray) jsonObject .get("pekerjaan");
+
+                for (int i = 0; i < array.size(); i++) {
+                    JSONObject itemArr = (JSONObject)array.get(i);
+                    //String id =  (String) itemArr.get("id");
+            
+                    if(itemArr.get("id").equals(kode)){
+                        listKompetensi.add(itemArr.get("kompetensi"));
+                    }
+                    
+                }
+                
+            } catch (FileNotFoundException e) {
+             e.printStackTrace();
+            } catch (IOException e) {
+             e.printStackTrace();
+            } catch (ParseException ex) {
+             Logger.getLogger(Mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return listKompetensi;
+    }
+    
     public void TulisPekerjaanToJson(){
         JSONObject root = new JSONObject();
         JSONArray pekerjaan= new JSONArray();
@@ -352,4 +391,44 @@ public class Pekerjaan {
         }
         return found;
     }
+    
+//     public ArrayList<String> getListPekerjaan(){
+//        JSONObject root = new JSONObject();
+//        JSONArray kompetensi= new JSONArray();
+//        JSONParser parser = new JSONParser();
+//        JSONArray array = null;
+//        JSONArray listPekerjaan = new JSONArray();
+//
+//        File f = new File(ConfigDirektori.direktoriPekerjaan);
+//        
+//        if (f.exists() && !f.isDirectory()) {
+//            try {
+//                //JSONObject objFromFile = (JSONObject) parser.parse(new FileReader(ConfigDirektori.direktoriKompetensi));
+//                Object obj = parser.parse(new FileReader(ConfigDirektori.direktoriPekerjaan));
+//
+//                JSONObject jsonObject = (JSONObject) obj;
+//                //JSONObject jsonObject2 = (JSONObject) jsonObject.get("kompetensi");
+//                array = (JSONArray) jsonObject .get("pekerjaan");
+//
+//                for (int i = 0; i < array.size(); i++) {
+//                    JSONObject itemArr = (JSONObject)array.get(i);
+//                    //String id =  (String) itemArr.get("id");
+//            
+//                    if(itemArr.get("id").equals(id)){
+//                        listPekerjaan.add(itemArr.get("kompetensi"));
+//                    }
+//                    
+//                }
+//                
+//            } catch (FileNotFoundException e) {
+//             e.printStackTrace();
+//            } catch (IOException e) {
+//             e.printStackTrace();
+//            } catch (ParseException ex) {
+//             Logger.getLogger(Mahasiswa.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//        
+//        return listPekerjaan;
+//    }
 }

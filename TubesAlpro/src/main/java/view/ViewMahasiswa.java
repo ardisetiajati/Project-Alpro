@@ -86,6 +86,12 @@ public class ViewMahasiswa {
         }while(i<=3);
     }
     
+    public void menuTagihan(){
+        System.out.println("0. Kembali");
+        System.out.print("Masukkan pilihan : ");
+        pilihan = input.next();
+    }
+    
     public String getNama() {
         return nama;
     }

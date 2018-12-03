@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.simple.JSONArray;
@@ -244,8 +245,8 @@ public class Tagihan {
                 System.out.println("Sudah Dibayar : "+sudahDibayar);
 
                 
-                String tbl = "| %-3s | %-14s | %-48s | %-28s | %-7s |%n";
-                System.out.format("%Detail Tagihan%n");
+                String tbl = "| %-1s | %-10s | %-15s |%n";
+                System.out.format("Detail Tagihan\n");
                 System.out.format("+---+------------+-----------------|%n");
                 System.out.format("| No| Kompetensi |     Tagihan     |%n");
                 System.out.format("+---+------------+-----------------|%n");
@@ -266,4 +267,6 @@ public class Tagihan {
             }
         }
     }
+    
+    
 }
