@@ -25,7 +25,7 @@ public class ViewDosen {
     public void menuDosen(){
         System.out.println("#Menu Utama Dosen#");
         System.out.println("1.  Kelola Data Diri");
-        System.out.println("2.  Kelola Jadwal");
+      //  System.out.println("2.  Kelola Jadwal");
         System.out.println("3.  Tambah Hari Libur");
         System.out.println("4.  Ubah Password");
         System.out.print("Pilih Menu : ");

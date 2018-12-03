@@ -291,7 +291,7 @@ public class Dosen extends User{
                 
                for (int j = 0; j < arrayJadwal.size() && read == false; j++) {
                 cuti = false;
-                   System.out.println("1");
+                  // System.out.println("1");
                 JSONObject itemArrJadwal = (JSONObject)arrayJadwal.get(j);
                 String tanggal = (String) itemArrJadwal.get("tanggal");
                  //  System.out.println(arrayJadwal.size());
@@ -315,7 +315,7 @@ public class Dosen extends User{
                 
                    // System.out.println(cuti);
                    if (!cuti) {
-                       System.out.println("mashook pak eko");
+                      // System.out.println("mashook pak eko");
                                 String inputan = "M_"+getKompetensi+"_"+username;
                                 String inputanPraktikum = "P_"+getKompetensi+"_"+username;
                                 if (sks == 5) {
@@ -1120,8 +1120,8 @@ public class Dosen extends User{
             Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
         }
          int perulangan= 0;
-         System.out.println("minggu ke- "+minggu);
-         System.out.println("pertemuan "+pertemuan);
+         //System.out.println("minggu ke- "+minggu);
+         //System.out.println("pertemuan "+pertemuan);
          while(perulangan < pertemuan){
           // pre requiresite= libur dosen
          boolean found = false;
@@ -1909,7 +1909,7 @@ public class Dosen extends User{
 //                } catch (IOException e) {
 //                    e.printStackTrace();
 //                }
-             System.out.println(perulangan);
+             //System.out.println(perulangan);
         perulangan++;
          }
          
